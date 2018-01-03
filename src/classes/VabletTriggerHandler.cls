@@ -11,12 +11,9 @@ Modification Log :
 * -------------------     ------------         -----------------------
 * Cognizant Developer     06/11/2015           Original Version
 ********************************************************************************/
-public without sharing class VabletTriggerHandler {
+Public without sharing class VabletTriggerHandler {
     static final String SETTINGSNAME = 'VabletTriggerHandler';
-	static final String COMMASEPARATOR = ',';
-	static final String DOTSEPARATOR = '.';
-	static final String SIGNCONSTANT = '">';
-
+      
     public static void handleafterInsert(List<Task> tasks){
 		VabletFieldSettings__c vabletSettings = VabletFieldSettings__c.getInstance(SETTINGSNAME);
 		try{
@@ -25,35 +22,36 @@ public without sharing class VabletTriggerHandler {
 				String taskfileid = t.File_ID__c;
 				String taskDesc = t.Description;
 				List<String> Fileids = new List<String>();
-				if(taskfileid.contains(COMMASEPARATOR)){
-					Fileids = taskfileid.split(COMMASEPARATOR);
+				if(taskfileid.contains(vabletSettings.Separator1__c)){
+					Fileids = taskfileid.split(vabletSettings.Separator1__c);
 				}else{
 					Fileids.add(taskfileid);
 				}
 				List<String> filenmlist= new List<String>();
 				List<String> filextnlst= new List<String>();
-				if(taskDesc.contains(vabletSettings.FileNameAttached__c)){
+				
+				if(taskDesc.contains(vabletSettings.TextFormat1__c)){
 					String Filename=null;
 					String FileExtension=null;
-					List<String> attachmentList = taskDesc.split(vabletSettings.FileNameAttachedSl__c);
+					List<String> attachmentList = taskDesc.split(vabletSettings.TextFormat2__c);
 					System.debug(' attachmentList :'+attachmentList );
 					attachmentList.remove(0);
 					for(String str: attachmentList){
-						String TotalFilename = str.substringBefore(vabletSettings.SubstringValueBefore1__c);
+						String TotalFilename = str.substringBefore(vabletSettings.TextFormat3__c);
 						System.debug('TotalFilename is '+TotalFilename );
-						if(TotalFilename.contains(DOTSEPARATOR)){
-							Filename = TotalFilename.substringBeforeLast(DOTSEPARATOR);
-							FileExtension = TotalFilename.substringAfterLast(DOTSEPARATOR);
+						if(TotalFilename.contains(vabletSettings.Separator2__c)){
+							Filename = TotalFilename.substringBeforeLast(vabletSettings.Separator2__c);
+							FileExtension = TotalFilename.substringAfterLast(vabletSettings.Separator2__c);
 						}
 						if (!String.isBlank(Filename)){
 							filenmlist.add(Filename);
 							filextnlst.add(FileExtension);
                         }
 					}
-				}else if(taskDesc.contains(vabletSettings.FileName__c)){
+				}else if(taskDesc.contains(vabletSettings.TextFormat5__c)){
 					String Filename=null;
 					String FileExtension=null;
-					List<String> attachmentList = taskDesc.split(vabletSettings.FileName__c);
+					List<String> attachmentList = taskDesc.split(vabletSettings.TextFormat5__c);
 					System.debug(' attachmentList :'+attachmentList );
 					attachmentList.remove(0);                
 					Map<String,String> mediaMapExt= new Map<String,String>();
@@ -61,12 +59,12 @@ public without sharing class VabletTriggerHandler {
 						mediaMapExt.put(m.File_Name__c,m.File_Extension__c);
 					}
 					for(String str: attachmentList){                    
-						String TotalFilename = str.substringBefore(vabletSettings.SubstringValueBefore2__c);
-						Filename =TotalFilename.substringAfter(SIGNCONSTANT);                 
+						String TotalFilename = str.substringBefore(vabletSettings.TextFormat4__c);
+						Filename =TotalFilename.substringAfter(vabletSettings.TextConstant2__c);                 
 						if(mediaMapExt.containsKey(Filename)) {                 
 							FileExtension = mediaMapExt.get(Filename);
 						}else{
-							FileExtension = vabletSettings.FileExtension__c;
+							FileExtension = vabletSettings.TextConstant1__c;
 						}
 						if (Filename != null && Filename != ''){
 							filenmlist.add(Filename);
@@ -87,13 +85,12 @@ public without sharing class VabletTriggerHandler {
 						mediaList.add(m);
 					}
 				}
-			}//for loop
-			if(mediaList != null){   
-				insert mediaList;
-				system.debug('mediaList here >>>>:'+mediaList);
-			}
-		} catch(Exception e) {
-			System.debug(vabletSettings.ExceptionText__c + e.getMessage());
-		}          
-	}
+		}//for loop
+		if(mediaList != null){   
+			insert mediaList;
+			system.debug('mediaList here >>>>:'+mediaList);
+		}
+	} catch(Exception e) {
+		System.debug(vabletSettings.ExceptionText__c + e.getMessage());}          
+    }
 }
