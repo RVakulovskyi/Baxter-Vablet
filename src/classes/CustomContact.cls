@@ -13,7 +13,7 @@ Modification Log :
 ********************************************************************************/
 
 public class CustomContact {
-	static final String SETTINGSNAME = 'VabletTriggerHandler';
+	static final String SETTINGSNAME = 'CustomContact';
     public String FirstName;
     public String LastName;
     public String AccountId;
