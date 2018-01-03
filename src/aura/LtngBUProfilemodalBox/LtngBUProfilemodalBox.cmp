@@ -1,0 +1,30 @@
+<aura:component >
+ 
+        <ltng:require styles="{!$Resource.SLDS231 + '/assets/styles/salesforce-lightning-design-system.css'}" />
+        <ltng:require scripts="{!$Resource.jquery}" />
+        <aura:registerEvent name="profilecontinue" type="c:BAXLTNG_QuesResponsesavecheck"/>
+    
+                 <div aura:id="alertmodalbox">
+                  <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                      <header class="slds-modal__header">
+                                <button class="slds-button slds-button--icon-inverse slds-modal__close" onclick="{!c.pressok}">
+                                    <lightning:icon iconName="utility:close" size="medium" variant="bare"/>
+                                    <span class="slds-assistive-text">Close</span>
+                                </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Modal Header</h2>
+                      </header>
+                      <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <p>{!$Label.c.BST_BUProfileModalBox_Text}</p>
+                      </div>
+                      <footer class="slds-modal__footer">
+                        <lightning:button variant="brand" onclick="{!c.pressok}" label="{!$Label.c.BST_BUProfileModalBox_Ok}" />
+   		 				<lightning:button variant="neutral" onclick="{!c.presscancel}" label="{!$Label.c.BST_BUProfileModalBox_Cancel}" />
+                      </footer>
+                    </div>
+                  </section>
+                  <div class="slds-backdrop slds-backdrop_open"></div>
+                </div>
+    
+
+</aura:component>

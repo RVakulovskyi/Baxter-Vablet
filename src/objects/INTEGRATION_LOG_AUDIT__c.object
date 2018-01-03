@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Custom object stores all the field level details for the Integration log changes</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>BST_FIELD_API_NAME__c</fullName>
+        <description>Field stores the API Name of the field</description>
+        <externalId>false</externalId>
+        <label>Field API Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_FIELD_LABEL__c</fullName>
+        <description>Field stores the field label of the record</description>
+        <externalId>false</externalId>
+        <label>Field Label</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_FIELD_NEW_VALUE__c</fullName>
+        <description>Field stores the new value of the field in record</description>
+        <externalId>false</externalId>
+        <label>Field New Value</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_FIELD_OLD_VALUE__c</fullName>
+        <description>Field stores the old value of the field in the record</description>
+        <externalId>false</externalId>
+        <label>Field Old Value</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_IMS_INTEGRATION_LOG__c</fullName>
+        <description>Field stores the parent id of the Integration log</description>
+        <externalId>false</externalId>
+        <label>IMS Integration Log</label>
+        <referenceTo>INTEGRATION_LOG__c</referenceTo>
+        <relationshipLabel>IMS Integration Log Audit</relationshipLabel>
+        <relationshipName>IMS_Integration_Log_Audit</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>BST_Integration_Log_Audit_P1__c</fullName>
+        <defaultValue>1</defaultValue>
+        <description>BST - This field is used for analytics</description>
+        <externalId>false</externalId>
+        <label>Integration Log Audit P1</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>IMS Integration Log Audit</label>
+    <nameField>
+        <displayFormat>ILA-{00000}</displayFormat>
+        <label>BOOST Integration Log Audit ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>IMS Integration Log Audit</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

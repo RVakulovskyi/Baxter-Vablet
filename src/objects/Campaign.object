@@ -1,0 +1,1293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>AdvancedSetup</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Campaign_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <fields>
+        <fullName>ActualCost</fullName>
+    </fields>
+    <fields>
+        <fullName>AmountAllOpportunities</fullName>
+    </fields>
+    <fields>
+        <fullName>AmountWonOpportunities</fullName>
+    </fields>
+    <fields>
+        <fullName>BST_BAX_SALES_TEAM__c</fullName>
+        <description>BST - field used to track the Main Product Category</description>
+        <externalId>false</externalId>
+        <label>Main Product Category</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>BST_Country__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetName>BST_Main_Product_Category</valueSetName>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Bax Company/Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - Anesthesia/Critical Care</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - BioSurgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - Glob.Pharma Injectables</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - Infusion Systems</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - IV Therapies/SVP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - Nutrition</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - Pharmacy Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>RE - Acute</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>RE - Hemo Dialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>RE - Peritoneal Dialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>RE - Water Treatment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Small Volume Parenterals</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>HC - Nutrition Pediatrics</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_BOOST_Campaign_ID__c</fullName>
+        <displayFormat>C-{00000}</displayFormat>
+        <externalId>false</externalId>
+        <label>BOOST Campaign ID</label>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>BST_Campaign_1__c</fullName>
+        <description>BST - Generic Country Section Field</description>
+        <externalId>false</externalId>
+        <label>Campaign $ 1</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>BST_Campaign_2__c</fullName>
+        <description>BST - Generic Country Section Field</description>
+        <externalId>false</externalId>
+        <label>Campaign $ 2</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>BST_Campaign_Date_1__c</fullName>
+        <description>BST - Generic Country Section Field</description>
+        <externalId>false</externalId>
+        <label>Campaign Date 1</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>BST_Campaign_Date_2__c</fullName>
+        <description>BST - Generic Country Section Field</description>
+        <externalId>false</externalId>
+        <label>Campaign Date 2</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>BST_Campaign_P1__c</fullName>
+        <defaultValue>1</defaultValue>
+        <description>BST - This field is used for analytics</description>
+        <externalId>false</externalId>
+        <label>Campaign P1</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Campaign_Text_1__c</fullName>
+        <description>BST - Generic Country Section Field</description>
+        <externalId>false</externalId>
+        <label>Campaign Text 1</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Campaign_Text_2__c</fullName>
+        <description>BST - Generic Country Section Field</description>
+        <externalId>false</externalId>
+        <label>Campaign Text 2</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Campaign_Text_3__c</fullName>
+        <description>BST - Generic Country Section Field</description>
+        <externalId>false</externalId>
+        <label>Campaign Text 3</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Campaign_Text_4__c</fullName>
+        <description>BST - Generic Country Section Field</description>
+        <externalId>false</externalId>
+        <label>Campaign Text 4</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Country__c</fullName>
+        <description>BST - Field to track the country.</description>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>BST_Country</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_DETAILS__c</fullName>
+        <description>BST - this field will allow to store the details about the strategic goal or the Lead Metrics</description>
+        <externalId>false</externalId>
+        <inlineHelpText>BST - this field will allow to store the details about the strategic goal or the Lead Metrics</inlineHelpText>
+        <label>Details</label>
+        <length>32768</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>BST_Ending_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Ending Value</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_ExternalId__c</fullName>
+        <externalId>false</externalId>
+        <label>ExternalId</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Metric_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Metric Notes</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>BST_PARENT__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>BST - this field allows the association of a child to parent. In this case a lead metric to be associated with a Critical Goal</description>
+        <externalId>false</externalId>
+        <inlineHelpText>BST - this field allows the association of a child to parent. In this case a lead metric to be associated with a Critical Goal</inlineHelpText>
+        <label>Parent</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Campaign.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Strategic Goal</value>
+            </filterItems>
+            <filterItems>
+                <field>$Source.BST_Country__c</field>
+                <operation>equals</operation>
+                <valueField>Campaign.BST_Country__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Campaigns</relationshipLabel>
+        <relationshipName>Campaigns</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BST_Q1__c</fullName>
+        <externalId>false</externalId>
+        <label>Q1</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Q2__c</fullName>
+        <externalId>false</externalId>
+        <label>Q2</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Q3__c</fullName>
+        <externalId>false</externalId>
+        <label>Q3</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Q4__c</fullName>
+        <externalId>false</externalId>
+        <label>Q4</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Related_to__c</fullName>
+        <externalId>false</externalId>
+        <label>Related to</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Event</fullName>
+                    <default>false</default>
+                    <label>Event</label>
+                </value>
+                <value>
+                    <fullName>Opportunity</fullName>
+                    <default>false</default>
+                    <label>Opportunity</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_Starting_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Starting Value</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BudgetedCost</fullName>
+    </fields>
+    <fields>
+        <fullName>CampaignMemberRecordTypeId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DB_Campaign_Tactic__c</fullName>
+        <description>This is a field that is installed by and used with the Adoption Dashboard AppExchange package. If your org already has a similar field, you can change the reports that are part of the Adoption Dashboard package to use your custom field and then delete this field.</description>
+        <externalId>false</externalId>
+        <label>DB Campaign Tactic</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Type</controllingField>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Direct Mail</fullName>
+                    <default>false</default>
+                    <label>Direct Mail</label>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+                <value>
+                    <fullName>Employment Seminars</fullName>
+                    <default>false</default>
+                    <label>Employment Seminars</label>
+                </value>
+                <value>
+                    <fullName>Internal Website</fullName>
+                    <default>false</default>
+                    <label>Internal Website</label>
+                </value>
+                <value>
+                    <fullName>Lunches</fullName>
+                    <default>false</default>
+                    <label>Lunches</label>
+                </value>
+                <value>
+                    <fullName>Online Banners/Ads</fullName>
+                    <default>false</default>
+                    <label>Online Banners/Ads</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Partners</fullName>
+                    <default>false</default>
+                    <label>Partners</label>
+                </value>
+                <value>
+                    <fullName>Print Advertisement</fullName>
+                    <default>false</default>
+                    <label>Print Advertisement</label>
+                </value>
+                <value>
+                    <fullName>Public Relations</fullName>
+                    <default>false</default>
+                    <label>Public Relations</label>
+                </value>
+                <value>
+                    <fullName>Referral Program</fullName>
+                    <default>false</default>
+                    <label>Referral Program</label>
+                </value>
+                <value>
+                    <fullName>Sales Call Down</fullName>
+                    <default>false</default>
+                    <label>Sales Call Down</label>
+                </value>
+                <value>
+                    <fullName>Webinars</fullName>
+                    <default>false</default>
+                    <label>Webinars</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+    </fields>
+    <fields>
+        <fullName>EndDate</fullName>
+    </fields>
+    <fields>
+        <fullName>ExpectedResponse</fullName>
+    </fields>
+    <fields>
+        <fullName>ExpectedRevenue</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyActualCost</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyAmountAllOpportunities</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyAmountWonOpportunities</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyBudgetedCost</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyExpectedRevenue</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyNumberOfContacts</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyNumberOfConvertedLeads</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyNumberOfLeads</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyNumberOfOpportunities</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyNumberOfResponses</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyNumberOfWonOpportunities</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyNumberSent</fullName>
+    </fields>
+    <fields>
+        <fullName>IsActive</fullName>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+    </fields>
+    <fields>
+        <fullName>NumberOfContacts</fullName>
+    </fields>
+    <fields>
+        <fullName>NumberOfConvertedLeads</fullName>
+    </fields>
+    <fields>
+        <fullName>NumberOfLeads</fullName>
+    </fields>
+    <fields>
+        <fullName>NumberOfOpportunities</fullName>
+    </fields>
+    <fields>
+        <fullName>NumberOfResponses</fullName>
+    </fields>
+    <fields>
+        <fullName>NumberOfWonOpportunities</fullName>
+    </fields>
+    <fields>
+        <fullName>NumberSent</fullName>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ParentId</fullName>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Campaign.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Strategic Goal</value>
+            </filterItems>
+            <filterItems>
+                <field>Campaign.BST_Country__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.BST_Country__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>StartDate</fullName>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Type</fullName>
+        <type>Picklist</type>
+    </fields>
+    <listViews>
+        <fullName>AllActiveCampaigns</fullName>
+        <columns>CAMPAIGN.RECORDTYPE</columns>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>BST_Country__c</columns>
+        <columns>BST_BAX_SALES_TEAM__c</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>BST_Country__c</field>
+            <operation>equals</operation>
+            <value>Belgium</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.END_DATE</field>
+            <operation>greaterThan</operation>
+            <value>1/1/2018</value>
+        </filters>
+        <label>All Active Campaigns</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Campaigns</fullName>
+        <columns>CAMPAIGN.RECORDTYPE</columns>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>BST_Country__c</columns>
+        <columns>BST_BAX_SALES_TEAM__c</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.END_DATE</field>
+            <operation>equals</operation>
+            <value>12/31/2018</value>
+        </filters>
+        <label>All Campaigns</label>
+    </listViews>
+    <listViews>
+        <fullName>MyActiveCampaigns</fullName>
+        <columns>CAMPAIGN.RECORDTYPE</columns>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>BST_Country__c</columns>
+        <columns>BST_BAX_SALES_TEAM__c</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>CAMPAIGN.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>My Active Campaigns</label>
+    </listViews>
+    <recordTypes>
+        <fullName>BST_Lag_Metrics</fullName>
+        <active>true</active>
+        <description>BST - this record type is used for Lag Metrics (focused on Opportunities) associated with a Strategic Goal</description>
+        <label>Lag Metrics</label>
+        <picklistValues>
+            <picklist>BST_BAX_SALES_TEAM__c</picklist>
+            <values>
+                <fullName>Bax Company%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Anesthesia%2FCritical Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - BioSurgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Glob%2EPharma Injectables</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - IV Therapies%2FSVP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Infusion Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Nutrition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Nutrition Pediatrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Pharmacy Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Acute</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Hemo Dialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Peritoneal Dialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Water Treatment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Volume Parenterals</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_Country__c</picklist>
+            <values>
+                <fullName>Belgium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Canada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Netherlands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_Related_to__c</picklist>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opportunity</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DB_Campaign_Tactic__c</picklist>
+            <values>
+                <fullName>Direct Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment Seminars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Website</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lunches</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online Banners%2FAds</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Print Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Relations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral Program</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Call Down</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webinars</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Aborted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opportunity</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>BST_Lead_Metrics</fullName>
+        <active>true</active>
+        <description>BST - this record type is used for Lead Metrics (focused on Events) associated with a Strategic Goal</description>
+        <label>Lead Metrics</label>
+        <picklistValues>
+            <picklist>BST_BAX_SALES_TEAM__c</picklist>
+            <values>
+                <fullName>Bax Company%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Anesthesia%2FCritical Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - BioSurgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Glob%2EPharma Injectables</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - IV Therapies%2FSVP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Infusion Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Nutrition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Nutrition Pediatrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Pharmacy Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Acute</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Hemo Dialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Peritoneal Dialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Water Treatment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Volume Parenterals</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_Country__c</picklist>
+            <values>
+                <fullName>Belgium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Canada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Netherlands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_Related_to__c</picklist>
+            <values>
+                <fullName>Event</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Opportunity</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DB_Campaign_Tactic__c</picklist>
+            <values>
+                <fullName>Direct Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment Seminars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Website</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lunches</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online Banners%2FAds</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Print Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Relations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral Program</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Call Down</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webinars</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Aborted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Event</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>BST_Strategic_Goal</fullName>
+        <active>true</active>
+        <description>BST - this object will store the strategic goals for a specific country and franchise</description>
+        <label>Strategic Goal</label>
+        <picklistValues>
+            <picklist>BST_BAX_SALES_TEAM__c</picklist>
+            <values>
+                <fullName>Bax Company%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Anesthesia%2FCritical Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - BioSurgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Glob%2EPharma Injectables</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - IV Therapies%2FSVP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Infusion Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Nutrition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Nutrition Pediatrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Pharmacy Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Acute</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Hemo Dialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Peritoneal Dialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Water Treatment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Volume Parenterals</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_Country__c</picklist>
+            <values>
+                <fullName>Belgium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Canada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Netherlands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_Related_to__c</picklist>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opportunity</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DB_Campaign_Tactic__c</picklist>
+            <values>
+                <fullName>Direct Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment Seminars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Website</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lunches</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online Banners%2FAds</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Print Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Relations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral Program</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Call Down</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webinars</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Aborted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opportunity</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>CAMPAIGN.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CAMPAIGN.STATUS</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CAMPAIGN.START_DATE</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>CAMPAIGN.NAME</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CAMPAIGN.NAME</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>CAMPAIGN.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CAMPAIGN.RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>BST_Country__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>BST_BAX_SALES_TEAM__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CAMPAIGN.CAMPAIGN_TYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CAMPAIGN.START_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CAMPAIGN.END_DATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <webLinks>
+        <fullName>ViewAllCampaignMembers</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>500</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>View All Campaign Members</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/camp/rptcmpgncalldown.jsp?scope=1&amp;scopeid={!Campaign_Name}</url>
+        <width>500</width>
+    </webLinks>
+    <webLinks>
+        <fullName>ViewCampaignInfluenceReport</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>500</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>View Campaign Influence Report</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O?rt=117&amp;break0=CAN&amp;scope=1&amp;scopeid_lkid={!Campaign.Id}&amp;scopeid={!Campaign_Name}&amp;c=CAN&amp;c=MR&amp;c=PCS&amp;c=CFN&amp;c=RN&amp;c=ON&amp;c=OA&amp;c=OS&amp;c=OCD&amp;c=AN&amp;s=OA&amp;duel0=CAN%2CMR%2CCFN%2CRN%2CAN%2CON%2CPCS%2COS%2COCD%2COA&amp;details=yes&amp;format=t</url>
+        <width>500</width>
+    </webLinks>
+</CustomObject>

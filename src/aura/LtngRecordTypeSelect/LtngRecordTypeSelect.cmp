@@ -1,0 +1,49 @@
+<aura:component controller="ClsSelectRecordTypeController" implements="lightning:actionOverride,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <ltng:require styles="{!$Resource.SLDS231 + '/assets/styles/salesforce-lightning-design-system.css'}" />
+    <aura:attribute name="objType" type="String" required="true" default="Question__c"/>
+    <aura:attribute name="selectedRecordType" type="String"/>
+    <aura:attribute name="recordTypeList" type="List" access="public"/>
+    <aura:attribute name="hasErrors" type="Boolean" description="Indicate if there were failures when validating the Question." />
+    <aura:attribute name="errorMessage" type="String" />
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+	<div role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <lightning:buttonIcon class="slds-modal__close" iconName="utility:close" size="large" 
+                                          variant="bare-inverse" alternativeText="Close" onclick="{!c.defaultCloseAction}" /> 
+                
+                <h2 id="header43" class="slds-text-heading--medium">Please select record Type</h2>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium">
+                <div class="slds-align--absolute-center">
+                     <div class="slds-p-top--small slds-p-bottom--small" >
+                        <fieldset class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <aura:iteration items="{!v.recordTypeList}" var="recType">
+                                    <label class="slds-radio slds-p-top--small">
+                                        <tr>
+                                            <td>
+                                                <ui:inputRadio name="benefits" change="{!c.onChange}" text="{!recType.recordTypeLabel}" value="false"/>
+                                                <span class="slds-radio--faux"></span>
+                                            </td>
+                                            <td>
+                                                <span class="slds-form-element__label">{!recType.recordTypeLabel}</span>
+                                                <span class="slds-form-element__help">{!recType.recordTypeDesc}</span>
+                                            </td> 
+                                        </tr>
+                                    </label>       
+                               </aura:iteration>
+                             </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-modal__footer">
+                <lightning:button label="Cancel" variant="neutral"  onclick="{!c.defaultCloseAction}"/>
+                <lightning:button label="Continue" variant="brand"  onclick="{!c.onconfirm}"/>
+            </div>
+        </div>
+    </div>
+    <div class="slds-backdrop slds-backdrop--open"></div>
+</aura:component>

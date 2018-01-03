@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddProduct</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ChoosePricebook</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EditAllProduct</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>BST_BOOST_Opportunity_Product_ID__c</fullName>
+        <displayFormat>OP-{00000}</displayFormat>
+        <externalId>false</externalId>
+        <label>BOOST Opportunity Product ID</label>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>BST_Opportunity_Product_P1__c</fullName>
+        <defaultValue>1</defaultValue>
+        <description>BST - This field is used for analytics</description>
+        <externalId>false</externalId>
+        <label>Opportunity Product P1</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BXCA_GL_Effective_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Gain/Loss Effective Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>BXCA_GL_Quantity_eaches__c</fullName>
+        <externalId>false</externalId>
+        <label>Quantity (eaches)</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BXCA_GL_Timeframe__c</fullName>
+        <externalId>false</externalId>
+        <label>Gain/Loss Timeframe</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Monthly</fullName>
+                    <default>false</default>
+                    <label>Monthly</label>
+                </value>
+                <value>
+                    <fullName>One Time</fullName>
+                    <default>false</default>
+                    <label>One Time</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BXCA_GL_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Gain/Loss Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not relevant</fullName>
+                    <default>false</default>
+                    <label>Not relevant</label>
+                </value>
+                <value>
+                    <fullName>Gain</fullName>
+                    <default>false</default>
+                    <label>Gain</label>
+                </value>
+                <value>
+                    <fullName>Loss</fullName>
+                    <default>false</default>
+                    <label>Loss</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BXGO_Competitive_Data_Source__c</fullName>
+        <externalId>false</externalId>
+        <label>Competitive Data Source</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Officially Published</fullName>
+                    <default>false</default>
+                    <label>Officially Published</label>
+                </value>
+                <value>
+                    <fullName>Estimation</fullName>
+                    <default>false</default>
+                    <label>Estimation</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BXGO_Competitor_Product_1_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Competitor Product 1 Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>BXGO_Competitor_Product_1__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Competitor Product 1</label>
+        <referenceTo>BXGO_Competitor_Product__c</referenceTo>
+        <relationshipLabel>Opportunity Product (Competitor Product 1)</relationshipLabel>
+        <relationshipName>Opportunity_Product_Competitor_1</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BXGO_Competitor_Product_2_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Competitor Product 2 Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>BXGO_Competitor_Product_2__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Competitor Product 2</label>
+        <referenceTo>BXGO_Competitor_Product__c</referenceTo>
+        <relationshipLabel>Opportunity Product (Competitor Product 2)</relationshipLabel>
+        <relationshipName>Opportunity_Product_Competitor_2</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BXGO_Competitor_Product_3_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Competitor Product 3 Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>BXGO_Competitor_Product_3__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Competitor Product 3</label>
+        <referenceTo>BXGO_Competitor_Product__c</referenceTo>
+        <relationshipLabel>Opportunity Product (Competitor Product 3)</relationshipLabel>
+        <relationshipName>Opportunity_Product_Competitor_3</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BXGO_Competitor_Product_4_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Competitor Product 4 Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>BXGO_Competitor_Product_4__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Competitor Product 4</label>
+        <referenceTo>BXGO_Competitor_Product__c</referenceTo>
+        <relationshipLabel>Opportunity Product (Competitor Product 4)</relationshipLabel>
+        <relationshipName>Opportunity_Product_Competitor_4</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BXGO_Distributor_Price__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Price offered by the Distributor to the Customer.</inlineHelpText>
+        <label>Distributor Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>BXGO_Final_Price__c</fullName>
+        <externalId>false</externalId>
+        <formula>UnitPrice * (1 - Discount )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Final Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>BXGO_Franchise_MGP_weighted__c</fullName>
+        <externalId>false</externalId>
+        <label>Franchise MGP Gap weighted</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BXGO_MGP__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>MGP</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>BXGO_Price_Level__c</fullName>
+        <externalId>false</externalId>
+        <label>Price Level</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>BXGO_Price_Level_indicator__c</fullName>
+        <externalId>false</externalId>
+        <formula>IMAGE(
+CASE( BXGO_Price_Level__c,
+0, &quot;/img/samples/light_red.gif&quot;,
+0.5, &quot;/img/samples/light_yellow.gif&quot;,
+&quot;/img/samples/light_green.gif&quot;
+),
+&quot;Measures sales price against price guidance&quot; )</formula>
+        <label>Price Level indicator</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BXGO_Total_Quantity__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Total Quantity within the Opportunity.</inlineHelpText>
+        <label>Total Quantity</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BXGO_Volume_below_Floor__c</fullName>
+        <externalId>false</externalId>
+        <label>Volume below Floor</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+    </fields>
+    <fields>
+        <fullName>Discount</fullName>
+    </fields>
+    <fields>
+        <fullName>ListPrice</fullName>
+    </fields>
+    <fields>
+        <fullName>OpportunityId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product2Id</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductCode</fullName>
+    </fields>
+    <fields>
+        <fullName>Quantity</fullName>
+    </fields>
+    <fields>
+        <fullName>ServiceDate</fullName>
+    </fields>
+    <fields>
+        <fullName>Subtotal</fullName>
+    </fields>
+    <fields>
+        <fullName>TotalPrice</fullName>
+    </fields>
+    <fields>
+        <fullName>UnitPrice</fullName>
+    </fields>
+</CustomObject>

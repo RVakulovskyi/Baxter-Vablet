@@ -1,0 +1,10 @@
+<aura:component >
+	
+    <aura:attribute name="accountName" type="String"/>
+    <aura:attribute name="accountNumber" type="String"/>
+    
+    <h2 class="slds-page-header__title slds-align-top">{!v.accountNumber}</h2>
+    <h2 class="slds-page-header__title slds-align-top">{!v.accountName}</h2>
+    
+    
+</aura:component>

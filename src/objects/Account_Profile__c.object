@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>BST_ACCPROFILE_QUESTION_LOCALE__c</fullName>
+        <description>Question Localized statement from Question Object</description>
+        <externalId>false</externalId>
+        <formula>BST_Question__r.BST_QUESTION_LOCALE__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Question Localised</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_ACCPROFILE_QUESTION_STATEMENT__c</fullName>
+        <description>Question Statement from Question object</description>
+        <externalId>false</externalId>
+        <formula>BST_Question__r.BST_QUESTION_STATEMENT__c</formula>
+        <label>Question Statement</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Account_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>BST_Account__r.BST_Account_Number__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Account Profiles</relationshipLabel>
+        <relationshipName>Account_Profiles</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BST_CALCULATED_EXPIRATION__c</fullName>
+        <description>Formula field calculates expiry of the response</description>
+        <externalId>false</externalId>
+        <formula>LastModifiedDate + BST_Question__r.BST_RESPONSE_VALID_TIME__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Calculated Expiration</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>BST_EXPIRED__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This is used to capture the status of the response (expired or not).</description>
+        <externalId>false</externalId>
+        <label>Expired</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BST_Legacy_CRM_Id__c</fullName>
+        <externalId>true</externalId>
+        <label>Legacy CRM Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Question__c</fullName>
+        <description>This is a master detail relation with Question object.</description>
+        <externalId>false</externalId>
+        <label>Question</label>
+        <referenceTo>Question__c</referenceTo>
+        <relationshipLabel>Account Profiles</relationshipLabel>
+        <relationshipName>Account_Profiles</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>BST_Selected_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Selected Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Account Profiles (Selected Account)</relationshipLabel>
+        <relationshipName>Account_Profiles1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BST_Selected_Answer__c</fullName>
+        <externalId>false</externalId>
+        <label>Selected Answer</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Selected_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Selected Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>BST_Selected_Multi_Answers__c</fullName>
+        <externalId>false</externalId>
+        <label>Selected Multi Answers</label>
+        <length>32768</length>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>BST_Selected_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Selected Number</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Selected_Picklist_Answer__c</fullName>
+        <externalId>false</externalId>
+        <label>Selected Picklist Answer</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Selected_TextArea__c</fullName>
+        <externalId>false</externalId>
+        <label>Selected TextArea</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <label>Account Profile</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>BST_ACCPROFILE_QUESTION_LOCALE__c</columns>
+        <columns>BST_ACCPROFILE_QUESTION_STATEMENT__c</columns>
+        <columns>BST_Selected_Date__c</columns>
+        <columns>BST_Selected_Multi_Answers__c</columns>
+        <columns>BST_Selected_Number__c</columns>
+        <columns>BST_Selected_Picklist_Answer__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>AP-{00000000}</displayFormat>
+        <label>Account Profile Name</label>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Account Profiles</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields>BST_ACCPROFILE_QUESTION_LOCALE__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>BST_ACCPROFILE_QUESTION_STATEMENT__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>BST_Selected_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>BST_Selected_Multi_Answers__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>BST_Selected_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>BST_Selected_Picklist_Answer__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,71 @@
+<aura:component controller="LtngCtrlSObjectMyProfile">
+    <aura:attribute name="userLanguage" type="Boolean"/>
+    <!--  <aura:handler name="userlang" value="{!this}" action="{!c.getuserlang}"/>-->
+    <aura:attribute name="qPreview" type="AccountProfileWrapper"/>
+    <aura:attribute name="searchString" type="String" default="" />
+    <aura:attribute name="isEdit" type="Boolean" default="false" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.qPreview.proxyObj.BST_Selected_Number__c}" action="{!c.onResponseChange}"/>
+    <aura:handler name="change" value="{!v.qPreview.proxyObj.BST_Selected_Date__c}" action="{!c.onResponseChange}"/>
+    <aura:handler name="change" value="{!v.qPreview.proxyObj.BST_Selected_TextArea__c}" action="{!c.onResponseChange}"/>
+    <aura:handler name="change" value="{!v.qPreview.SelectedAnswerPicklist}" action="{!c.onResponseChange}"/>
+    <aura:handler name="updateLookupIdEvent" event="c:UpdateLookupId" action="{!c.handleIdUpdate}"/>
+	<aura:handler name="clearLookupIdEvent" event="c:ClearLookupId" action="{!c.handleIdClear}"/>
+    
+    <ul class="slds-has-dividers--around-space">
+        <li class="slds-item">
+            <div class="slds-tile slds-tile--board">
+                <aura:if isTrue="{!v.userLanguage}" >
+                    <h3 class="" title="question"><b style="color:#0070d2">{!v.qPreview.questionNumber}.[{!v.qPreview.category}] [{!v.qPreview.subcategory}] {!v.qPreview.questionStatement} </b></h3>
+                    <aura:set attribute="else">      
+                        <aura:if isTrue="{!v.qPreview.questionlocale == null}">
+                            <h3 class="" title="question"><b style="color:#0070d2">{!v.qPreview.questionNumber}.[{!v.qPreview.category}] [{!v.qPreview.subcategory}][{!v.qPreview.questionStatement}]</b></h3>
+                            <aura:set attribute="else">
+                                <h3 class="" title="question"><b style="color:#0070d2">{!v.qPreview.questionNumber}.[{!v.qPreview.category}] [{!v.qPreview.subcategory}][{!v.qPreview.questionlocale}]</b></h3>
+                            </aura:set>
+                        </aura:if>
+                    </aura:set>
+                </aura:if>                
+                <div class="slds-tile__detail slds-text-body--small">
+                    <div  class="{!if(v.qPreview.isNumber, 'slds-show', 'slds-hide')}">
+                        <ui:inputNumber aura:id="numberfield" value="{!v.qPreview.proxyObj.BST_Selected_Number__c}" class="slds-input"/>
+                    </div>  
+                    <div class="{!if(v.qPreview.isDate, 'slds-show', 'slds-hide')}">
+                        <ui:inputDate aura:id="datefield" value="{!v.qPreview.proxyObj.BST_Selected_Date__c}" class="slds-input" displayDatePicker="true"/>
+                    </div> 
+                      <div class="{!if(v.qPreview.isText, 'slds-show', 'slds-hide')}">
+                        <ui:inputTextArea aura:id="textfield" value="{!v.qPreview.proxyObj.BST_Selected_TextArea__c}" class="slds-input" maxlength="255" />
+                    </div> 
+                    <div class="{!if(v.qPreview.isPicklist, 'slds-show', 'slds-hide')}">
+                        <ui:inputSelect aura:id="answerOptionsString" label="" value="{!v.qPreview.SelectedAnswerPicklist}">
+                            <aura:iteration items="{!v.qPreview.answerOptionsStringList}" var="level">
+                                <ui:inputSelectOption aura:id="picklistfield" text="{!level}" label="{!level}"/>
+                            </aura:iteration>
+                        </ui:inputSelect>                  
+                    </div> 
+                    <div class="{!if(v.qPreview.isAccountLookup, 'slds-show', 'slds-hide')}">
+                        <c:LtngCompLookup searchString="{!v.searchString}" sObjectAPIName="Account" listIconClass="standard:account" currRecord="{!v.qPreview.proxyObj.BST_Selected_Account__c}" idAttToPopulate="AccountId" fieldsToDisplay="Name,BST_COUNTRY__c" isForBUProfiling="true" isEdit="{!v.isEdit}"/>
+                    </div>
+                    <div class="{!if(v.qPreview.isMultiselect, 'slds-show', 'slds-hide')}">
+                        <aura:iteration items="{!v.qPreview.answerOptionCheckboxes}" var="level" indexVar="indx">
+                
+                            <fieldset class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <label class="slds-checkbox" onchange="{!c.onMultiPicklistChange}" id="{!indx + v.qPreview.questionID}" style="padding-bottom:2px;">
+                                        <ui:inputCheckbox value="{!level.selected}" Class="slds-input"/>
+                                        <span class="slds-checkbox--faux"></span>
+                                        <span class="slds-form-element__label">{!level.answerOption}</span>
+                                    </label>
+                                </div>
+                            </fieldset>                                           
+                        </aura:iteration>
+                    </div>
+                </div>
+                <aura:If isTrue="{!v.qPreview.isExpired}" >
+                    <ui:inputCheckbox aura:id="isSameValueApplies" label="Same Value Applies?" disabled="false" change="{!c.onChangeValue}" />
+                </aura:If>
+            </div>
+        </li>      
+    </ul>
+    
+</aura:component>

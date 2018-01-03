@@ -1,0 +1,234 @@
+<aura:component controller="LtngCtrlSObjectMyProfile" extensible="true" access="global" implements="flexipage:availableForRecordHome,force:appHostable,force:hasRecordId,force:lightningQuickActionWithoutHeader" >
+    <ltng:require styles="{!$Resource.SLDS231 + '/assets/styles/salesforce-lightning-design-system.css'}" />
+    <ltng:require scripts="{!$Resource.jquery}" />
+    
+    <!--attributes-->
+    <aura:attribute name="recordId" type="Id" access="public"/>
+    <aura:attribute name="userLanguage" type="Boolean" access="public" /> <!-- Added by Shashank 16-06-2017--> 
+    <aura:attribute name="accountId" type="Id" access="public" />
+    <aura:attribute name="account" type="Account" default="{'sObjectType' : 'Account' }"/>
+    <aura:attribute name="responseWrpList" type="List" access="public" default="[]"/>
+    <aura:attribute name="savereslist" type="List" access="public" default="[]"/>
+    <aura:attribute name="tempresponseWrpList" type="List" access="public" default="[]"/>
+    <aura:attribute name="occurancecount" type="List" access="public" default="[]"/>
+    <aura:attribute name="expoccurancecount" type="List" access="public" default="[]"/>
+    <aura:attribute name="unansoccurancecount" type="List" access="public" default="[]"/>
+    <aura:attribute name="suboccurancecount" type="List" access="public" default="[]"/>
+    <aura:attribute name="subexpoccurancecount" type="List" access="public" default="[]"/>
+    <aura:attribute name="subunansoccurancecount" type="List" access="public" default="[]"/>
+    <aura:attribute name="majorcategoryoptlist" type="List" access="public" default="[]"/>
+    <aura:attribute name="subcategoryoptlist" type="List" access="public" default="[]"/>
+    <aura:attribute name="selectedCategory" type="string" default="All"/>
+    <aura:attribute name="selectedSubCategory" type="string" default="All"/>
+  <!--  <aura:attribute name="selectedactiverecords" type="boolean" default="True"/> -->
+    <aura:attribute name="selectedExpiredResponse" type="boolean" default="False"/> 
+    <aura:attribute name="subcategorysummary" type="boolean" default="False"/>
+    <aura:attribute name="alertmodalbox" type="boolean" default="False"/>
+    <aura:attribute name="showsummary" type="boolean" default="False"/>
+    <aura:attribute name="questioncount" type="Integer" default="0"/>
+    <aura:attribute name="metadataLoading" type="Integer" default="0" description="number of metadata to load"/>
+    <aura:attribute name="currentTheme" type="String" description="stores the current theme displayed"/>
+    <aura:attribute name="collpaseText" type="String" default="[ + ]"/>
+    <aura:attribute name="collpaseReport" type="String" default="[ + ]"/>
+    <aura:attribute name="showReport" type="boolean" default="False"/>
+    
+    <!-- handler events -->
+    <aura:handler name="change" value="{!v.metadataLoading}" action="{!c.metadataLoaded}"/> 
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}" />
+    <aura:handler event="c:BAXLTNG_QuesResponsesavecheck" action="{!c.continueProfileCheck}"/>
+    
+    
+    <!-- register event -->
+    <aura:registerEvent name="profileUpdated" type="c:BAXLTNG_ProfileEventOnSave"/>    
+    
+    <div class="{!if(v.responseWrpList.length > 0, 'slds-hide', 'slds-show')}">
+        <c:spinner /> 
+    </div>
+    <div aura:id="message"></div>
+    <div class="slds">
+        <div class="slds-grid slds-wrap slds-grid--pull-padded">
+            
+            <div class="slds-col--padded slds-size--1-of-1 slds-large-size--4-of-12">
+                <div class="slds-form-element slds-m-bottom--large">
+                    <div class="slds-form-element__control">
+                        <ui:inputSelect label="Select a Major Category" class="slds-select" aura:id="categories" click="{!c.onClickFilter}" change="{!c.onCategoryChange}"/>                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slds-col--padded slds-size--1-of-1 slds-large-size--4-of-12">
+                <div class="slds-form-element slds-m-bottom--large">
+                    <div class="slds-form-element__control">
+                        <ui:inputSelect label="Select a Sub Category" class="slds-select" aura:id="Subcategories" click="{!c.onClickFilter}" change="{!c.onSubCategoryChange}"/>
+              <!--          <ui:inputCheckbox aura:id="selectedactiverecords" label="Active Questions" class="slds-checkbox" labelClass="slds-form-element__label" value="{!v.selectedactiverecords}" change="{!c.onStatusChange}" /> -->
+                    </div>
+                </div>
+            </div>  
+         	<div class="slds-col--padded slds-size--1-of-1 slds-large-size--4-of-12">
+                <div class="slds-form-element slds-m-bottom--large">
+                    <div class="slds-form-element__control">
+                      <ui:inputCheckbox aura:id="selectedExpiredResponse" label="Expired Response" class="slds-checkbox" labelClass="slds-form-element__label" value="{!v.selectedExpiredResponse}" click="{!c.onClickExpiredFilter}" change="{!c.onResponseStatusChange}"/>                   
+                    </div>
+                </div>
+            </div> 
+            <div class="slds-col--padded slds-size--1-of-1 slds-large-size--4-of-12">
+                <div class="slds-m-top--medium" role="group"> 
+                    <!--      <lightning:button variant="brand" label="Save And Return" onclick="{!c.saveAndReturn}" class="{!if(v.currentTheme == 'Theme4t', 'slds-show', 'slds-hide')}"/> -->
+                    <lightning:button variant="brand" label="Save Response" onclick="{!c.saveResponses}" class="slds-button"/>
+                </div>
+            </div>
+            <div class="slds-col--padded slds-size--1-of-1">&nbsp;</div>
+            
+            <!--Report Field Start-->
+            <div class="slds-col--padded slds-size--1-of-1">            
+				<div class="slds-section slds-is-open">
+	  				<h3 class="slds-section__title slds-theme_shade">
+						<button aria-controls="expando-unique-id" aria-expanded="true" class="slds-button slds-section__title-action" onclick="{!c.ToggleReportCollapse}" value ="{!v.collpaseReport}">  
+							<span class="slds-truncate slds-p-horizontal_small" title="Reports">{!v.collpaseReport} Reports</span>
+						</button>
+	  				</h3>
+					<aura:if isTrue="{!v.showReport}">
+						<div class="slds-form-element slds-m-bottom--large">
+							<div class="slds-form-element__control">
+								<ui:inputSelect label="Select a Report" class="slds-select" aura:id="reports" change="{!c.onReportChange}"/> 
+							</div>
+						</div>
+					</aura:if>   
+	  			</div>            
+   			</div>            
+            <!--Report Field End-->
+            
+            <!-- expandable section -->
+            <div class="slds-col--padded slds-size--1-of-1">            
+                <div class="slds-section slds-is-open">
+                  <h3 class="slds-section__title slds-theme_shade">
+                    <button aria-controls="expando-unique-id" aria-expanded="true" class="slds-button slds-section__title-action" onclick="{!c.ToggleCollapse}" value ="{!v.collpaseText}">  
+                    <span class="slds-truncate slds-p-horizontal_small" title="Stats">{!v.collpaseText} Stats</span>
+                    </button>
+                      </h3>
+                  <aura:if isTrue="{!v.showsummary}">
+                    <div aria-hidden="false" class="slds-section__content">
+						<table class="slds-table slds-table_bordered slds-table_cell-buffer">
+  							<thead>
+    							<tr class="slds-text-title_caps">
+      								<th scope="col" width="40%">
+        								<div class="slds-truncate" title="Major category">Major category</div>
+      								</th>
+      								<th scope="col">
+        								<div class="slds-truncate" title="Count">Count</div>
+      								</th>
+      								<th scope="col">
+        								<div class="slds-truncate" title="ExpiredCount">Expired Count</div>
+      								</th>    
+                                   <th scope="col">
+        								<div class="slds-truncate" title="UnansweredCount">Unanswered count</div>
+      								</th> 
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+    							<tr>
+                                    <td data-label="Major category" width="40%">
+                                        <aura:iteration items="{!v.majorcategoryoptlist}" var="qmajor">
+                                        <div class="slds-truncate" title="{!qmajor}">{!qmajor}</div>
+                                        </aura:iteration>
+                                    </td>
+                                    <td data-label="Count">
+                                        <aura:iteration items="{!v.occurancecount}" var="qcount">
+                                        <div class="slds-truncate" title="{!qcount}">{!qcount}</div>
+                                        </aura:iteration>
+                                    </td>
+                                    <td data-label="ExpiredCount">
+                                        <aura:iteration items="{!v.expoccurancecount}" var="qexpcount">
+                                        <div class="slds-truncate" title="{!qexpcount}">{!qexpcount}</div>
+                                        </aura:iteration>
+                                    </td>   
+                                    <td data-label="UnansweredCount">
+                                        <aura:iteration items="{!v.unansoccurancecount}" var="qunanscount">
+                                        <div class="slds-truncate" title="{!qunanscount}">{!qunanscount}</div>
+                                        </aura:iteration>
+                                    </td> 
+                                </tr>
+                            </tbody>
+                      </table>
+						<p>Total Number of questions: {!v.questioncount}</p>       
+                      </div>
+                    
+                  <!-- subcategory summary -->
+                  <aura:if isTrue="{!v.subcategorysummary}">  
+                  <div aria-hidden="false" class="slds-section__content">
+                    
+						<table class="slds-table slds-table_bordered slds-table_cell-buffer">
+  							<thead>
+    							<tr class="slds-text-title_caps">
+      								<th scope="col" width="40%">
+        								<div class="slds-truncate" title="Sub category">Sub category</div>
+      								</th>
+      								<th scope="col">
+        								<div class="slds-truncate" title="Count">Count</div>
+      								</th>
+      								<th scope="col">
+        								<div class="slds-truncate" title="ExpiredCount">Expired Count</div>
+      								</th>    
+                                   <th scope="col">
+        								<div class="slds-truncate" title="UnansweredCount">Unanswered count</div>
+      								</th> 
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+    							<tr>
+                                    <td data-label="Sub category" width="40%">
+                                        <aura:iteration items="{!v.subcategoryoptlist}" var="qsub">
+                                        <div class="slds-truncate" title="{!qsub}">{!qsub}</div>
+                                        </aura:iteration>
+                                    </td>
+                                    <td data-label="Count">
+                                        <aura:iteration items="{!v.suboccurancecount}" var="qsubcount">
+                                        <div class="slds-truncate" title="{!qsubcount}">{!qsubcount}</div>
+                                        </aura:iteration>
+                                    </td>
+                                    <td data-label="ExpiredCount">
+                                        <aura:iteration items="{!v.subexpoccurancecount}" var="qsubexpcount">
+                                        <div class="slds-truncate" title="{!qsubexpcount}">{!qsubexpcount}</div>
+                                        </aura:iteration>
+                                    </td>   
+                                    <td data-label="UnansweredCount">
+                                        <aura:iteration items="{!v.subunansoccurancecount}" var="qsubunanscount">
+                                        <div class="slds-truncate" title="{!qsubunanscount}">{!qsubunanscount}</div>
+                                        </aura:iteration>
+                                    </td> 
+                                </tr>
+                            </tbody>
+                      </table>     
+                  </div>
+                    </aura:if>    
+                    </aura:if>   
+                </div>            
+            </div>
+            <!-- end section -->
+            
+            <aura:if isTrue="{!v.alertmodalbox}">
+                <c:LtngBUProfilemodalBox />
+            </aura:if>
+            
+            <div class="slds-col--padded slds-size--1-of-1">&nbsp;</div>
+            
+            <div class="slds-col--padded slds-size--1-of-1">
+                <div class="slds-form-element slds-m-bottom--large">
+                    
+                    <aura:iteration items="{!v.responseWrpList}" var="qPreview" >
+                        <span> 
+                            <aura:If isTrue="{!v.selectedCategory == 'All' || qPreview.category == v.selectedCategory || qPreview.Subcategory == v.selectedSubCategory}"> 
+                                <c:BAXLTNG_Account_AccountMyProfileInputValues qPreview="{!qPreview}" userLanguage="{!v.userLanguage}"/>
+                                <br/>
+                            </aura:If>  
+                        </span>
+                    </aura:iteration>
+                </div>
+            </div>            
+            
+        </div>
+    </div>
+    
+</aura:component>

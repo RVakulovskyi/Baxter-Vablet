@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId">
+	<!-- Display a header with warning details -->
+    <div role="alert" class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning">
+  		<span class="slds-assistive-text">info</span>
+        <h2>As a result of maintenance this weekend (17th November), the BOOST system shall be unavailable for use. 
+That is, for:
+Canada - unavailable from 20:00 Pacific Time on Friday 17-Nov until and including Sunday 19-Nov.
+France/Belgium/Netherlands - unavailable from 05:00am Saturday 18-Nov until and including Sunday 19-Nov.
+Turkey - unavailable from 07:00am Saturday 18-Nov until and including Sunday 19-Nov.
+</h2>
+    </div>    
+    <!--
+    <div class="slds-page-header" role="banner">
+        <div class="recordSaveError">
+            <ui:message title="Error" severity="error" closable="true">
+                Deployment to PRODUCTION. System closed between Friday 6:00pm and Saturday 11:59pm
+            </ui:message>
+        </div>
+    </div>
+ 	-->
+</aura:component>

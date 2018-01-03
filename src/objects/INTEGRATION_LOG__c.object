@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Custom object used for IMS approval process for objects Account, Contact, AccountContactRelationShip, Account_Account_Relation__c</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>BST_ACCOUNT_CONTACT_RELATION_ID__c</fullName>
+        <description>Text Field created for holding the Account Contact Standard Object Id.</description>
+        <externalId>false</externalId>
+        <label>Account Contact Relation Id</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_ACCOUNT_ID__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Id to track changes made for the Account</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>IMS Integration Logs</relationshipLabel>
+        <relationshipName>IMS_Integration_Logs</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BST_COMMENTS__c</fullName>
+        <description>Stores the value of the IMS fields for which the Integration Log has been created.</description>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>BST_CONTACT_ID__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Id to track changes made for the Contact</description>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>IMS Integration Logs</relationshipLabel>
+        <relationshipName>IMS_Integration_Logs</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BST_COUNTRY__c</fullName>
+        <description>Field to track the country.</description>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Andorra</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Andorra</label>
+                </value>
+                <value>
+                    <fullName>Belgium</fullName>
+                    <default>false</default>
+                    <label>Belgium</label>
+                </value>
+                <value>
+                    <fullName>Canada</fullName>
+                    <default>false</default>
+                    <label>Canada</label>
+                </value>
+                <value>
+                    <fullName>Dom Com</fullName>
+                    <default>false</default>
+                    <label>Dom Com</label>
+                </value>
+                <value>
+                    <fullName>France</fullName>
+                    <default>false</default>
+                    <label>France</label>
+                </value>
+                <value>
+                    <fullName>Global</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Global</label>
+                </value>
+                <value>
+                    <fullName>Luxembourg</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Luxembourg</label>
+                </value>
+                <value>
+                    <fullName>Monaco</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Monaco</label>
+                </value>
+                <value>
+                    <fullName>Netherlands</fullName>
+                    <default>false</default>
+                    <label>Netherlands</label>
+                </value>
+                <value>
+                    <fullName>Turkey</fullName>
+                    <default>false</default>
+                    <label>Turkey</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_HAS_BAXTER_ONLY_RECORD__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>BST - Indicates if AccountContactRelation or AccountAccountRelation have a Baxter only record present in the relationship</description>
+        <externalId>false</externalId>
+        <label>Has Baxter Only Record</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BST_INT_PROCESS_FLG__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Field will note if the record has been processed in ETL tool or not.</description>
+        <externalId>false</externalId>
+        <label>Integration Process Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BST_Integration_Log_P1__c</fullName>
+        <defaultValue>1</defaultValue>
+        <description>BST - This field is used for analytics</description>
+        <externalId>false</externalId>
+        <label>Integration Log P1</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_NEW_VAL__c</fullName>
+        <description>When one or multiple IMS fields on object level are being updated the system should track all these changes. New value will store the updated value of the IMS fields.</description>
+        <externalId>false</externalId>
+        <label>New Value</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>BST_OLD_VAL__c</fullName>
+        <description>When one or multiple IMS fields on object level are being updated the system should track all these changes. Old value will store the previous value present before update of the IMS fields.</description>
+        <externalId>false</externalId>
+        <label>Old Value</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>BST_RELATED_ACCOUNT_ID__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Id to track the changes made for Account_Account_Relation__c object</description>
+        <externalId>false</externalId>
+        <label>Related Account Id</label>
+        <referenceTo>ACCOUNT_ACCOUNT_RELATION__c</referenceTo>
+        <relationshipLabel>IMS Integration Logs</relationshipLabel>
+        <relationshipName>IMS_Integration_Logs</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BST_RELATED_ACCOUNT_c__c</fullName>
+        <description>Field will create a custom hyperlink to Related Account object</description>
+        <externalId>false</externalId>
+        <formula>IF(
+NOT(ISBLANK(BST_RELATED_ACCOUNT_ID__c)),
+HYPERLINK(&quot;/&quot; &amp;BST_RELATED_ACCOUNT_ID__c, BST_RELATION_NAME__c ),
+&apos;&apos;
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Related Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_RELATED_CONTACT__c</fullName>
+        <description>Field will act as a link to navigate to the corresponding Related Contact Record. This is to overcome the limitation of not having the lookup field on the AccountContactRelation object</description>
+        <externalId>false</externalId>
+        <formula>IF(
+	NOT(ISBLANK(BST_ACCOUNT_CONTACT_RELATION_ID__c)),
+	HYPERLINK(&quot;/&quot; &amp;BST_ACCOUNT_CONTACT_RELATION_ID__c, BST_RELATION_NAME__c ),
+	&apos;&apos;
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Related Contact</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_RELATION_NAME__c</fullName>
+        <description>For AccountContactRelation this field will hold value of Account &gt; Contact
+For AccountAccountRelation this field will hold value of Account &gt; Account</description>
+        <externalId>false</externalId>
+        <label>Relation Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_STATUS__c</fullName>
+        <description>For Marking the record with different status.</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Baxter Approved</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Baxter Approved</label>
+                </value>
+                <value>
+                    <fullName>Baxter Pending Review</fullName>
+                    <default>false</default>
+                    <label>Baxter Pending Review</label>
+                </value>
+                <value>
+                    <fullName>Baxter Rejected</fullName>
+                    <default>false</default>
+                    <label>Baxter Rejected</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>IMS Accepted</fullName>
+                    <default>false</default>
+                    <label>IMS Accepted</label>
+                </value>
+                <value>
+                    <fullName>IMS Approved</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>IMS Approved</label>
+                </value>
+                <value>
+                    <fullName>IMS Partially Accepted</fullName>
+                    <default>false</default>
+                    <label>IMS Partially Accepted</label>
+                </value>
+                <value>
+                    <fullName>IMS Pending Review</fullName>
+                    <default>false</default>
+                    <label>IMS Pending Review</label>
+                </value>
+                <value>
+                    <fullName>IMS Rejected</fullName>
+                    <default>false</default>
+                    <label>IMS Rejected</label>
+                </value>
+                <value>
+                    <fullName>IMS Updated</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>IMS Updated</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_TYPE__c</fullName>
+        <description>Stores the information of the object whether it&apos;s updated or created for which the integration log has been created.</description>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>AccountAccountRelation Create</fullName>
+                    <default>false</default>
+                    <label>AccountAccountRelation Create</label>
+                </value>
+                <value>
+                    <fullName>AccountAccountRelation Update</fullName>
+                    <default>false</default>
+                    <label>AccountAccountRelation Update</label>
+                </value>
+                <value>
+                    <fullName>AccountContactRelation Create</fullName>
+                    <default>false</default>
+                    <label>AccountContactRelation Create</label>
+                </value>
+                <value>
+                    <fullName>AccountContactRelation Update</fullName>
+                    <default>false</default>
+                    <label>AccountContactRelation Update</label>
+                </value>
+                <value>
+                    <fullName>Account Create</fullName>
+                    <default>false</default>
+                    <label>Account Create</label>
+                </value>
+                <value>
+                    <fullName>Account Update</fullName>
+                    <default>false</default>
+                    <label>Account Update</label>
+                </value>
+                <value>
+                    <fullName>Contact Create</fullName>
+                    <default>false</default>
+                    <label>Contact Create</label>
+                </value>
+                <value>
+                    <fullName>Contact Update</fullName>
+                    <default>false</default>
+                    <label>Contact Update</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IMS_COMMENTS__c</fullName>
+        <description>Field used for tracking IMS Comments</description>
+        <externalId>false</externalId>
+        <label>IMS Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>IMS_RESPONSE_COMMENTS__c</fullName>
+        <description>Response comments provided by IMS</description>
+        <externalId>false</externalId>
+        <label>IMS Response Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>IMS_STATUS__c</fullName>
+        <description>Field stores the IMS Status value as received from IMS</description>
+        <externalId>false</externalId>
+        <label>IMS Status</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>IMS Integration Log</label>
+    <listViews>
+        <fullName>All_FR_IMS_Interation_logs</fullName>
+        <columns>NAME</columns>
+        <columns>BST_COUNTRY__c</columns>
+        <columns>BST_CONTACT_ID__c</columns>
+        <columns>BST_ACCOUNT_ID__c</columns>
+        <columns>BST_RELATED_ACCOUNT_c__c</columns>
+        <columns>BST_RELATED_CONTACT__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>IMS_STATUS__c</columns>
+        <columns>BST_STATUS__c</columns>
+        <columns>BST_TYPE__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BST_COUNTRY__c</field>
+            <operation>equals</operation>
+            <value>France</value>
+        </filters>
+        <label>All FR IMS Interation logs</label>
+    </listViews>
+    <listViews>
+        <fullName>All_IMS_Interation_logs</fullName>
+        <columns>NAME</columns>
+        <columns>BST_COUNTRY__c</columns>
+        <columns>BST_CONTACT_ID__c</columns>
+        <columns>BST_ACCOUNT_ID__c</columns>
+        <columns>BST_RELATED_ACCOUNT_c__c</columns>
+        <columns>BST_RELATED_CONTACT__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>IMS_STATUS__c</columns>
+        <columns>BST_STATUS__c</columns>
+        <columns>BST_TYPE__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All IMS Interation logs</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>BST_Logs_Having_Baxter_Only_Records</fullName>
+        <columns>NAME</columns>
+        <columns>BST_COUNTRY__c</columns>
+        <columns>BST_CONTACT_ID__c</columns>
+        <columns>BST_ACCOUNT_ID__c</columns>
+        <columns>BST_RELATED_ACCOUNT_c__c</columns>
+        <columns>BST_RELATED_CONTACT__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>BST_STATUS__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BST_HAS_BAXTER_ONLY_RECORD__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Logs Having Baxter Only Records</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>Baxter_BE_Admin</group>
+            <group>Baxter_FR_Admin</group>
+            <group>Baxter_NL_Admin</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>BST_Rejected_Logs_List</fullName>
+        <columns>NAME</columns>
+        <columns>BST_STATUS__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BST_STATUS__c</field>
+            <operation>equals</operation>
+            <value>IMS Rejected,IMS Partially Accepted</value>
+        </filters>
+        <label>Rejected Logs List</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>Baxter_BE_Admin</group>
+            <group>Baxter_FR_Admin</group>
+            <group>Baxter_NL_Admin</group>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>IL-{00000}</displayFormat>
+        <label>BOOST Integration Log ID</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>IMS Integration Logs</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>BST_COUNTRY__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>BST_TYPE__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>BST_STATUS__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OWNER.ALIAS</customTabListAdditionalFields>
+        <customTabListAdditionalFields>BST_COMMENTS__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>BST_COUNTRY__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>BST_TYPE__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>BST_STATUS__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OWNER.ALIAS</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>BST_COMMENTS__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>BST_COUNTRY__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>BST_TYPE__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>BST_STATUS__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OWNER.ALIAS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>BST_COMMENTS__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

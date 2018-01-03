@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddPricebookEntryOnPricebook</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>AddPricebookEntryOnProduct</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>AddStandardPrice</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>BST_BOOST_Price_Book_Entry_ID__c</fullName>
+        <displayFormat>PBE-{00000}</displayFormat>
+        <externalId>false</externalId>
+        <label>BOOST Price Book Entry ID</label>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>BST_Price_Book_Entry_P1__c</fullName>
+        <defaultValue>1</defaultValue>
+        <description>BST - This field is used for analytics</description>
+        <externalId>false</externalId>
+        <label>Price Book Entry P1</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BXGO_Floor_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Floor Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>BXGO_Target_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Target Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>IsActive</fullName>
+    </fields>
+    <fields>
+        <fullName>Pricebook2Id</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product2Id</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductCode</fullName>
+    </fields>
+    <fields>
+        <fullName>StandardPrice</fullName>
+    </fields>
+    <fields>
+        <fullName>UnitPrice</fullName>
+    </fields>
+    <fields>
+        <fullName>UseStandardPrice</fullName>
+    </fields>
+    <searchLayouts>
+        <searchResultsAdditionalFields>PRODUCT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PRODUCT.CUSTOMER_PRODUCT_ID</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PRODUCT.DEFAULT_PRICE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PRODUCT2.DESCRIPTION</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PRODUCT2.FAMILY_ENUM</searchResultsAdditionalFields>
+    </searchLayouts>
+    <validationRules>
+        <fullName>BXGO_Target_greater_equal_limit</fullName>
+        <active>true</active>
+        <errorConditionFormula>!(BXGO_Target_Price__c &gt;=  BXGO_Floor_Price__c)</errorConditionFormula>
+        <errorMessage>Target price has to be greater or equal to the floor price.</errorMessage>
+    </validationRules>
+</CustomObject>

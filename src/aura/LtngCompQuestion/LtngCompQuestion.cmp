@@ -1,0 +1,484 @@
+<aura:component controller="ClsQuestionLightningController" implements="lightning:actionOverride,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<ltng:require styles="{!$Resource.SLDS231 + '/assets/styles/salesforce-lightning-design-system.css'}" />
+    <ltng:require scripts="{!$Resource.jquery}" />
+    <aura:attribute name="questions" type="Question__c" />
+    <aura:attribute name="userCountry" type="String"/><!--Value to be defaulted based on the logged in user-->
+    <aura:attribute name="newQuestion" type="Question__c" default="{ 'sobjectType': 'Question__c' }"/> <!-- default to empty record -->
+    <aura:attribute name="hasErrors" type="Boolean" description="Indicate if there were failures when validating the Question." />
+    <aura:attribute name="quesType" type="String"/><!--Value to decide if it is a parent or child question-->
+    <aura:attribute name="recordId" type="Id" description="The current record Id to display" />
+	<aura:attribute name="quesRecordType" type="String"/>
+    <aura:attribute name="isSecondaryCountryEmpty" type="Boolean" />
+    <aura:attribute name="iserror" type="Boolean" default="false" />
+    <aura:attribute name="isEdit" type="Boolean" default="false" />
+	<aura:attribute name="LocalInitiative" type="String" default="{!$Label.c.BST_Local_Initiative}"/>
+	<aura:attribute name="errorMessage" type="String" />
+    <aura:attribute name="searchString" type="String" default="" />
+	<aura:attribute name="responseDays" type="integer" default="1825"/>
+    <aura:attribute name="majorCatType" type="String"/>
+    <aura:attribute name="helpTextMap"  type="map"/>
+    <aura:attribute type="Integer" name="index" default="0"/>
+    <aura:attribute name="country" type="String"/>
+    <aura:attribute name="recordTypeName" type="String" description="The RecordType name of the Question SObject to search" />
+    <aura:handler name="updateLookupIdEvent" event="c:UpdateLookupId" action="{!c.handleIdUpdate}"/>
+	<aura:handler name="clearLookupIdEvent" event="c:ClearLookupId" action="{!c.handleIdClear}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <!-- Display a header with details about the Question -->
+    <div class="slds-page-header" role="banner">
+        <p class="slds-text-heading--label">{!v.Question__c.Name}</p>
+        <h1 class="slds-page-header__title slds-m-right--small
+                   slds-truncate slds-align_absolute-center">{!$Label.c.BST_Create_Edit_Question}</h1>
+    </div>
+    
+    <!-- Display form validation errors, if any -->
+    <aura:if isTrue="{!v.hasErrors}">
+        <div class="recordSaveError">
+            <ui:message title="Error" severity="error" closable="true">
+                The new Question can't be saved because it's not valid.
+                Please review and correct the errors in the form: {!v.errorMessage}
+            </ui:message>
+        </div>
+    </aura:if>
+    
+    
+    <!-- Display the new Question form -->
+   <div class="slds-form--stacked" style="background-color:#FFFFFF">
+	<div class="slds-grid"> 
+	<div style= "padding-left: 10px;" class="slds-col slds-size--5-of-6"> 
+		
+		<div class="slds-form-element">
+            <label class="slds-form-element__label" 
+                   for="questionRecordType">{!$Label.c.BST_Record_Type}</label>
+            
+            
+             <!--Code Start to add the tooltip-->
+           <div class="slds-form-element__icon slds-align-middle" >
+      		<button id="1" class="slds-button slds-button slds-button--icon" aria-describedby="help" >
+        	 <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+         	<span class="slds-assistive-text">Help</span>
+      	 </button>
+       	 </div> 
+           
+             <!--Code end to add the tooltip-->
+            
+            
+            <div class="slds-form-element__control">
+                <ui:inputSelect class="slds-select" aura:id="questionRecordType" value="{!v.quesRecordType}" 
+                                 change="{!c.onSelectRecordTypeChange}" required="true"/> 
+            </div>
+        </div>
+        
+               
+        <aura:if isTrue="{!v.quesRecordType == 'Global Question'}">
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" 
+                   for="questionType">{!$Label.c.BST_Question_Type}
+            <span class="required">*</span>
+            </label>
+            
+            <!--Code Start to add the tooltip-->
+            
+             
+           <div class="slds-form-element__icon slds-align-middle" >
+      		<button id="2" class="slds-button slds-button slds-button--icon" aria-describedby="help" >
+        	 <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+         	<span class="slds-assistive-text">Help</span>
+      	 </button>
+       	 </div> 
+            <!--Code end to add the tooltip-->
+            
+            
+            <div class="slds-form-element__control">
+                <ui:inputSelect class="slds-select" aura:id="questionType" value="{!v.newQuestion.BST_QUESTION_TYPE__c}" required="true"/>
+            	<ui:inputDefaultError aura:id="questypewarnings" value="" />
+            </div>
+        </div>
+		
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" 
+                   for="profileType">{!$Label.c.BST_Profile_Type}
+            <span class="required">*</span>
+            </label>
+            
+             <!--Code Start to add the tooltip-->
+            
+           <div class="slds-form-element__icon slds-align-middle" >
+      		<button id="3" class="slds-button slds-button slds-button--icon" aria-describedby="help" >
+        	 <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+         	<span class="slds-assistive-text">Help</span>
+      	 </button>
+       	 </div> 
+            
+            <!--Code end to add the tooltip-->
+            
+            <div class="slds-form-element__control">
+                <ui:inputSelect class="slds-select" aura:id="profileType" value="{!v.newQuestion.BST_PROFILE_TYPE__c}" required="true"/>
+            	<ui:inputDefaultError aura:id="profiletypewarnings" value="" />
+            </div>
+        </div>
+        </aura:if>    
+        <aura:set attribute="else">
+            <SPAN></SPAN>
+        </aura:set>	
+        
+		<div class="slds-form-element" >
+            <div class="slds-form-element__icon slds-align-middle" >   
+            <label class="slds-form-element__label" for="questionStatement">{!$Label.c.BST_Question_Statement}
+                        <span class="required">*</span>
+            </label>
+            
+            <!--Code Start to add the tooltip-->
+            
+              <button id="4" class="slds-button slds-button slds-button--icon" aria-describedby="help"  aria-hidden="true" >
+            	  <lightning:Icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+              </button>
+           </div>
+                             
+            <!--Code end to add the tooltip-->
+            
+                <div class="slds-form-element__control">
+                    <ui:inputTextArea aura:id="questionStatement" class="slds-textarea" placeholder="" maxlength="255" rows="2" required="true" value="{!v.newQuestion.BST_QUESTION_STATEMENT__c}"></ui:inputTextArea>
+            		<ui:inputDefaultError aura:id="statwarnings" value="" />    
+            </div>
+            </div>
+		
+	<!--	<aura:if isTrue="{!and(v.quesRecordType != 'Global Question', v.quesRecordType != '')}"> -->
+	 <div aura:id="localques" class="slds-hide">	
+        <c:LtngCompLookup label="{!$Label.c.BST_Parent_Question}" searchString="{!v.searchString}" recordTypeName="{!v.quesRecordType}" currRecord="{!v.newQuestion.BST_PARENT_QUESTION__c}" sObjectAPIName="Question__c" listIconClass="standard:question_feed" idAttToPopulate="Id" fieldsToDisplay="Name,BST_QUESTION_STATEMENT__c" isEdit="{!v.isEdit}"/>    
+		
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" 
+                   for="questionCountry">{!$Label.c.BST_Country}</label>
+            
+            <!--Code Start to add the tooltip-->
+            <div class="slds-form-element__icon slds-align-middle" >
+      		<button id="5" class="slds-button slds-button slds-button--icon" aria-describedby="help" >
+        	 <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+         	<span class="slds-assistive-text">Help</span>
+      	 </button>
+       	 </div> 
+                     
+            <!--Code end to add the tooltip-->
+            
+            <div class="slds-form-element__control">
+                <ui:inputSelect class="slds-select" aura:id="questionCountry" value="{!v.country}"
+                                change="{!c.onCountryChange}" required="true"/>
+            </div>
+        </div>
+        
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" 
+                   for="questionMajorCategory">{!$Label.c.BST_Major_Category}
+            <span class="required">*</span>
+            </label>
+            
+            <!--Code Start to add the tooltip-->
+            
+                    <div class="slds-form-element__icon slds-align-middle" >
+      		<button id="6" class="slds-button slds-button slds-button--icon" aria-describedby="help"  >
+        	 <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+         	<span class="slds-assistive-text">Help</span>
+      	 </button>
+       	 </div>   
+            <!--Code end to add the tooltip-->
+            
+            <div class="slds-form-element__control">
+                <ui:inputSelect class="slds-select" aura:id="questionMajorCategory" value="{!v.majorCatType}" 
+                                change="{!c.onMajorCategoryChange}"/>
+                <ui:inputDefaultError aura:id="majorcatwarnings" value="" />
+            </div>
+        </div>
+        
+		<div class="slds-form-element">
+            <label class="slds-form-element__label" 
+                   for="questionCategory">{!$Label.c.BST_Category}</label>
+            
+            
+            <!--Code Start to add the tooltip-->
+            
+           <div class="slds-form-element__icon slds-align-middle" >
+      		<button id="7" class="slds-button slds-button slds-button--icon" aria-describedby="help" >
+        	 <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+         	<span class="slds-assistive-text">Help</span>
+      	 </button>
+       	 </div> 
+            
+            <!--Code end to add the tooltip-->
+            
+            
+            <div class="slds-form-element__control">
+                <ui:inputSelect class="slds-select" aura:id="questionCategory" value="{!v.newQuestion.BST_CATEGORY__c}" />
+            </div>
+        </div>
+		
+		<div class="slds-form-element">
+            <label class="slds-form-element__label" 
+                   for="salesforceGroup">{!$Label.c.BST_Baxter_User_Group}
+            <span class="required">*</span>
+            </label>
+            
+            
+            <!--Code Start to add the tooltip-->
+            
+            <div class="slds-form-element__icon slds-align-middle" >
+      		<button id="8" class="slds-button slds-button slds-button--icon" aria-describedby="help"  >
+        	 <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+         	<span class="slds-assistive-text">Help</span>
+      	 </button>
+       	 </div> 
+            
+            <!--Code end to add the tooltip-->
+            
+            
+            
+            <div class="slds-form-element__control">
+                <ui:inputSelect multiple="true" class="slds-select slds-picklist--multi" aura:id="salesforceGroup" value="{!v.newQuestion.BST_SALESFORCE_GROUP__c}" required="false"/>
+            	<ui:inputDefaultError aura:id="salesgrpwarnings" value="" />
+            </div>
+        </div>	
+		
+         <div class="slds-form-element">
+             <label class="slds-form-element__label" 
+                    for="questionOrder">{!$Label.c.BST_Order}
+             <span class="required">*</span>
+             </label>
+             
+             <!--Code Start to add the tooltip-->
+             <div class="slds-form-element__icon slds-align-middle" >
+                 <button id="9" class="slds-button slds-button slds-button--icon" aria-describedby="help"  >
+                     <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+                     <span class="slds-assistive-text">Help</span>
+                 </button>
+             </div> 
+             <!--Code end to add the tooltip-->
+             <div class="slds-form-element__control">
+                 <ui:inputNumber aura:id="questionOrder" class="slds-input" placeholder="" maxlength='3' value="{!v.newQuestion.BST_ORDER__c}"></ui:inputNumber>
+              	 <ui:inputDefaultError aura:id="quesorder" value="" />
+             </div>
+         </div>    
+         
+         <!--	</aura:if>
+
+        <aura:set attribute="else">
+            <SPAN></SPAN>
+        </aura:set>	-->
+        </div> 
+		
+		<!-- <div class="slds-form-element">
+            <label class="slds-form-element__label" 
+                   for="salesProcess">Sales Process</label>
+            <div class="slds-form-element__control">
+                <ui:inputSelect class="slds-select" aura:id="salesProcess" value="{!v.newQuestion.BST_SALES_PROCESS__c}" required="false"/>
+            </div>
+        </div> --> <!--Hidden for Opportunity-->		
+        
+        <br/> 	
+	
+		</div>
+        <div class="slds-col slds-size--1-of-6">
+        	<SPAN></SPAN>
+    	</div>
+		<div class="slds-col slds-size--5-of-6"> 
+		
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" 
+                       for="status">{!$Label.c.BST_Status}<span class="required">*</span></label>
+                
+                <!--Code Start to add the tooltip-->
+                <div class="slds-form-element__icon slds-align-middle" >
+                    <button id="10" class="slds-button slds-button slds-button--icon" aria-describedby="help" >
+                        <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+                        <span class="slds-assistive-text">Help</span>
+                    </button>
+                </div> 
+                <!--Code end to add the tooltip-->
+                <div class="slds-form-element__control">
+                   <!--<ui:inputSelect class="slds-select" aura:id="status" value="{!v.newQuestion.BST_STATUS__c}" required="True"/> -->
+                    <ui:outputText class="slds-select" aura:id="status" value="{!v.newQuestion.BST_STATUS__c}" />
+                	<ui:inputDefaultError aura:id="statuswarnings" value="" />
+                </div>
+            </div>
+        
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" for="responseTime">{!$Label.c.BST_Response_Valid_Time}<span class="required">*</span></label>
+                
+                
+                <!--Code Start to add the tooltip-->
+                
+                <div class="slds-form-element__icon slds-align-middle" >
+                    <button id="11" class="slds-button slds-button slds-button--icon" aria-describedby="help" >
+                        <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+                        <span class="slds-assistive-text">Help</span>
+                    </button>
+                </div> 
+                
+                <!--Code end to add the tooltip-->
+                                
+                <div class="slds-form-element__control">
+                    <ui:inputNumber aura:id="responseTime" class="slds-input" placeholder="" maxlength='18' value="{!v.responseDays}" required="True"></ui:inputNumber>
+                    <ui:inputDefaultError aura:id="responsevalidwarnings" value="" />   
+                </div>
+            </div>    
+		
+            <div class="slds-form-element">
+                <div aura:id="queslocal" class="slds-hide">
+                    <label class="slds-form-element__label" for="questionLocalised">{!$Label.c.BST_Question_Localised}</label>
+                    
+                    <!--Code Start to add the tooltip-->
+                    
+                    <div class="slds-form-element__icon slds-align-middle" >
+                        <button id="12" class="slds-button slds-button slds-button--icon" aria-describedby="help" >
+                            <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+                            <span class="slds-assistive-text">Help</span>
+                        </button>
+                    </div> 
+                    
+                    <!--Code end to add the tooltip-->
+                    
+                    
+                    <div class="slds-form-element__control">
+                        <ui:inputTextArea aura:id="questionLocalised" class="slds-textarea" placeholder="" maxlength="255" rows="2" value="{!v.newQuestion.BST_QUESTION_LOCALE__c}"></ui:inputTextArea>
+                    </div>
+                </div>
+            </div>
+  
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" 
+                       for="questionStartDate">{!$Label.c.BST_Start_Date}
+                    
+                    <span class="required">*</span>
+                </label>
+                
+                <!--Code Start to add the tooltip-->
+                
+                <div class="slds-form-element__icon slds-align-middle" >
+                    <button id="13"  class="slds-button slds-button slds-button--icon" aria-describedby="help" >
+                        <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+                        <span class="slds-assistive-text">Help</span>
+                    </button>
+                </div> 
+                
+                <!--Code end to add the tooltip-->
+                
+                
+                <div class="slds-form-element__control">
+                    <ui:inputDate class="field" aura:id="questionStartDate" 
+                                  value="{!v.newQuestion.BST_START_DATE__c}" displayDatePicker="true" required="true"/>
+                    <ui:inputDefaultError aura:id="startwarnings" value="" />
+                </div>
+            </div>    
+            
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" 
+                       for="questionEndDate">{!$Label.c.BST_End_Date}
+                    
+                    <span class="required">*</span>
+                </label>
+                
+                <!--Code Start to add the tooltip-->
+                
+                <div class="slds-form-element__icon slds-align-middle" >
+                    <button id="14" class="slds-button slds-button slds-button--icon" aria-describedby="help">
+                        <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+                        <span class="slds-assistive-text">Help</span>
+                    </button>
+                </div> 
+                
+                <!--Code end to add the tooltip-->
+                
+                <div class="slds-form-element__control">
+                    <ui:inputDate class="field" aura:id="questionEndDate" 
+                                  value="{!v.newQuestion.BST_END_DATE__c}" displayDatePicker="true"/>
+                    <ui:inputDefaultError aura:id="endwarnings" value="" />
+                </div>
+            </div>
+            
+       <!-- <div class="slds-form-element">
+                <label class="slds-form-element__label" for="stageName">Stage Name</label>
+                <div class="slds-form-element__control">
+                    <ui:inputTextArea aura:id="stageName" class="slds-textarea" placeholder="" maxlength="100" rows="1" value="{!v.newQuestion.BST_STAGE_NAME__c}"></ui:inputTextArea>
+                </div>
+            </div> -->   <!--Hidden for Opportunity-->
+		
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" 
+                       for="responseType">{!$Label.c.BST_Response_Type}<span class="required">*</span></label>
+                
+                <!--Code Start to add the tooltip-->
+                
+                <div class="slds-form-element__icon slds-align-middle" >
+                    <button id="15" class="slds-button slds-button slds-button--icon" aria-describedby="help">
+                        <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+                        <span class="slds-assistive-text">Help</span>
+                    </button>
+                </div> 
+                
+                <!--Code end to add the tooltip-->
+                
+                <div class="slds-form-element__control">
+                    <ui:inputSelect class="slds-select" aura:id="responseType" value="{!v.newQuestion.BST_RESPONSE_TYPE__c}" 
+                                    change="{!c.onControllerFieldChange}" required="false"/>
+                    <ui:inputDefaultError aura:id="responsetypewarnings" value="" />    
+                    
+                </div>
+            </div>
+            
+            <div class="slds-form-element">
+                <div aura:id="answerOpt" class="slds-hide">
+                    <label class="slds-form-element__label" for="answerOptions">{!$Label.c.BST_Answer_Options}<span class="required">*</span></label>
+                    
+                    <!--Code Start to add the tooltip-->
+                    
+                    <div class="slds-form-element__icon slds-align-middle" >
+                        <button id="16" class="slds-button slds-button slds-button--icon" aria-describedby="help">
+                            <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+                            <span class="slds-assistive-text">Help</span>
+                        </button>
+                    </div> 
+                    
+                    <!--Code end to add the tooltip-->
+                    
+                    
+                    <div class="slds-form-element__control">
+                        <ui:inputTextArea aura:id="answerOptions" class="slds-textarea" placeholder="" maxlength="32768" rows="5" value="{!v.newQuestion.BST_ANSWER_OPTIONS__c}" required="True"></ui:inputTextArea>
+                        <ui:inputDefaultError aura:id="Answeroptionwarnings" value="" /> 
+                    </div>   
+                </div>
+            </div>
+		
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" 
+                       for="privateQuestion">{!$Label.c.BST_Private}</label>
+                
+                <!--Code Start to add the tooltip-->
+                
+                <div class="slds-form-element__icon slds-align-middle" >
+                    <button id="17" class="slds-button slds-button slds-button--icon" aria-describedby="help" >
+                        <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+                        <span class="slds-assistive-text">Help</span>
+                    </button>
+                </div> 
+                
+                <!--Code end to add the tooltip-->
+                
+                
+                
+                <div class="slds-form-element__control">
+                    <ui:inputCheckbox aura:id="privateQuestion" value="{!v.newQuestion.BST_PRIVATE__c}"/>
+                </div>
+            </div>
+	</div>
+    <div class="slds-col slds-size--1-of-6">
+        <SPAN></SPAN>
+    </div>    
+    </div>
+	</div>
+    <br/>
+    <div class="slds-form-element slds-align_absolute-center">
+        <ui:button label="{!$Label.c.BST_Cancel}" press="{!c.handleCancel}"
+                   class="slds-button slds-button--neutral" />
+        <ui:button label="{!$Label.c.BST_Save_Question}" press="{!c.handleSaveQuestion}" 
+                   class="slds-button slds-button--neutral" />
+    </div>
+</aura:component>

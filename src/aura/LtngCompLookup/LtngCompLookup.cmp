@@ -1,0 +1,106 @@
+<aura:component controller="ClsLookupSObjectController" >
+    
+    <!-- Attributes -->
+    <aura:attribute name="sObjectAPIName" type="String" required="true" description="The API name of the SObject to search" />
+    <aura:attribute name="label" type="String" required="true" description="The label to assign to the lookup, eg: Account" />
+    <aura:attribute name="listIconClass" type="String" default="slds-icon-custom-11" description="The SLDS class to use for the icon." />
+    <aura:attribute name="searchString" type="String" description="The search string to find." />
+    <aura:attribute name="matches" type="List" description="The resulting matches returned by the Apex controller." />
+    <aura:attribute name="idAttToPopulate" type="String" description="Name of the attribute on the parent component that holds the selected values Id" />
+    <aura:attribute name="fieldsToDisplay" type="String" description="Which fields to display on the card"/>
+    <aura:attribute name="currRecord" type="Id" description="Id of record we are building event from (either account or contact)"/>
+    <aura:attribute name="isEdit" type="Boolean" default="false" />
+    <aura:attribute name="isForBUProfiling" type="Boolean" default="false" />
+	<aura:attribute name="recordTypeName" type="String" description="The RecordType name of the Question SObject to search" />
+    
+    <!-- Events -->
+    <aura:registerEvent name="updateLookupIdEvent" type="c:UpdateLookupId"/>    
+    <aura:registerEvent name="clearLookupIdEvent" type="c:ClearLookupId"/>    
+    
+    <div class="slds-form-element slds-lookup" data-select="single">
+        <span class="slds-form-element__label">{!v.label} Name</span>
+        
+         	<!--Code Start to add the tooltip-->
+            
+           
+            <!--Code end to add the tooltip-->
+           
+        <div class="slds-form-element__control">
+            <div class="slds-pill_container" style="border:0px;">
+                <span class="slds-pill slds-size--1-of-1">
+                    <span class="slds-icon_container slds-icon-standard-account slds-pill__icon_container">
+                        <lightning:icon iconName="{!v.listIconClass}" size="small" />
+                    </span>
+                    <aura:if isTrue="{!and(v.isEdit, v.searchString != '')}">
+                        <ui:inputText aura:id="lookupUpdate" value="{!v.searchString}" class="slds-lookup__search-input slds-input--bare slds-hide" updateOn="keyup" keyup="{!c.search}"/>
+                        <span aura:id= "lookup-pillUpdate" class="slds-pill__label slds-pill__padding" >
+                            {!v.searchString}
+                            <button class="slds-button slds-button--icon slds-pill__remove" onclick="{!c.clear}">
+                                <lightning:icon iconName="utility:clear" size="small" />    
+                            </button>
+                        </span>  
+                        <aura:set attribute="else">
+                            <ui:inputText aura:id="lookup" value="{!v.searchString}" class="slds-lookup__search-input slds-input--bare" updateOn="keyup" keyup="{!c.search}"/>
+                    
+                            <span aura:id= "lookup-pill" class="slds-pill__label slds-hide slds-pill__padding"  >
+                                {!v.searchString}
+                                <button class="slds-button slds-button--icon slds-pill__remove" onclick="{!c.clear}">
+                                    <lightning:icon iconName="utility:clear" size="small" />    
+                                </button>
+                            </span>  
+                        </aura:set>
+                    </aura:if>
+                </span>
+            </div>
+        </div>
+        <div class="slds-lookup__menu" id="lookup-412" aura:id="lookupmenu">
+            <ul class="slds-lookup__list slds-hide" role="listbox" aura:id="lookuplist">
+                <aura:iteration items="{!v.matches}" var="match">
+                    <li role="presentation">
+                        <article class="slds-card">
+							<div class="slds-card__header slds-grid">
+						    	<header class="slds-media slds-media--center slds-has-flexi-truncate">
+						      		<div class="slds-media__figure">
+							        	<lightning:icon iconName="{!v.listIconClass}" size="small"/>
+						      		</div>
+				                    <a id="{!globalId + '_id_' + match.SObjectId}" role="option" onclick="{!c.select}">
+									    <div class="slds-media__body slds-truncate">
+									    	<h2>
+									        	<span id="matchLabel" class="slds-text-heading--small">{!match.SObjectLabel}</span>
+									        </h2>
+									    </div>
+				                    </a>
+						    	</header>
+						  	</div>
+						  	<aura:if isTrue="{!match.sObjectExtraField1Label != null}">
+							    <div class="slds-card__body">
+							    	<div class="slds-card__body--inner">
+							    		<span>
+							    			{!match.sObjectExtraField1Label + ': ' + match.sObjectExtraField1}
+							    		</span>
+							    	</div>
+							    </div>
+						    </aura:if>
+						    <aura:set attribute="else">
+					        	<SPAN></SPAN>
+					        </aura:set>
+						    <aura:if isTrue="{!match.sObjectExtraField2Label != null}">
+							    <div class="slds-card__body">
+							    	<div class="slds-card__body--inner">
+							    		<span>
+							    			{!match.sObjectExtraField2Label + ': ' + match.sObjectExtraField2}
+							    		</span>
+							    	</div>
+							    </div>
+						    </aura:if>
+						    <aura:set attribute="else">
+					        	<SPAN></SPAN>
+					        </aura:set>
+					        <br/>
+						</article>
+                    </li>      
+                </aura:iteration>
+            </ul>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,11 @@
+.THIS .slds-hide {
+	display: none !important;
+}
+
+.THIS .slds-pill__padding {
+	padding-right: 100%;
+}
+
+.THIS .slds-lookup__search-input {
+	border: 0px;
+}

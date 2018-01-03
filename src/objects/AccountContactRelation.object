@@ -1,0 +1,3517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>BST_Account_Contact_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>BST_Account_Contact_Compact_Layout</fullName>
+        <fields>ContactId</fields>
+        <fields>AccountId</fields>
+        <fields>DP_ACT_SEQ_NUM__c</fields>
+        <fields>DP_ACT_WRK_STATUS__c</fields>
+        <fields>DP_ACT_ROLE_1__c</fields>
+        <fields>DP_ACT_ROLE_2__c</fields>
+        <fields>BST_ROLE_1__c</fields>
+        <fields>BST_ROLE_2__c</fields>
+        <fields>BST_ROLE_3__c</fields>
+        <fields>BST_BAXTER_ONLY__c</fields>
+        <label>BST Account Contact Compact Layout</label>
+    </compactLayouts>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>AccountId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BST_AccountContact_P1__c</fullName>
+        <defaultValue>1</defaultValue>
+        <description>BST - This field is used for analytics</description>
+        <externalId>false</externalId>
+        <label>AccountContact P1</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Account_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_BAXTER_ONLY__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Flag to check if the record needs to be synced with IMS or not.</description>
+        <externalId>false</externalId>
+        <label>Baxter Only</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BST_BOOST_Account_Contact_ID__c</fullName>
+        <displayFormat>AC-{00000}</displayFormat>
+        <externalId>false</externalId>
+        <label>BOOST Account Contact ID</label>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>BST_COMITTEES__c</fullName>
+        <description>Field to display the different committees available.</description>
+        <externalId>false</externalId>
+        <label>Activity Comittess</label>
+        <required>false</required>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Member of AB Committee</fullName>
+                    <default>false</default>
+                    <label>Member of AB Committee</label>
+                </value>
+                <value>
+                    <fullName>Member of CLAN</fullName>
+                    <default>false</default>
+                    <label>Member of CLAN</label>
+                </value>
+                <value>
+                    <fullName>Member of CLIN</fullName>
+                    <default>false</default>
+                    <label>Member of CLIN</label>
+                </value>
+                <value>
+                    <fullName>Member of Dialysis Committee</fullName>
+                    <default>false</default>
+                    <label>Member of Dialysis Committee</label>
+                </value>
+                <value>
+                    <fullName>Member of MMC</fullName>
+                    <default>false</default>
+                    <label>Member of MMC</label>
+                </value>
+                <value>
+                    <fullName>Member of MPC</fullName>
+                    <default>false</default>
+                    <label>Member of MPC</label>
+                </value>
+                <value>
+                    <fullName>Member of Nutrition Committee</fullName>
+                    <default>false</default>
+                    <label>Member of Nutrition Committee</label>
+                </value>
+                <value>
+                    <fullName>Member of UTN</fullName>
+                    <default>false</default>
+                    <label>Member of UTN</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>BST_COUNTRY__c</fullName>
+        <description>Field to track the country.</description>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Andorra</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Andorra</label>
+                </value>
+                <value>
+                    <fullName>Belgium</fullName>
+                    <default>false</default>
+                    <label>Belgium</label>
+                </value>
+                <value>
+                    <fullName>Canada</fullName>
+                    <default>false</default>
+                    <label>Canada</label>
+                </value>
+                <value>
+                    <fullName>Dom Com</fullName>
+                    <default>false</default>
+                    <label>Dom Com</label>
+                </value>
+                <value>
+                    <fullName>France</fullName>
+                    <default>false</default>
+                    <label>France</label>
+                </value>
+                <value>
+                    <fullName>Global</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Global</label>
+                </value>
+                <value>
+                    <fullName>Luxembourg</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Luxembourg</label>
+                </value>
+                <value>
+                    <fullName>Monaco</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Monaco</label>
+                </value>
+                <value>
+                    <fullName>Netherlands</fullName>
+                    <default>false</default>
+                    <label>Netherlands</label>
+                </value>
+                <value>
+                    <fullName>Turkey</fullName>
+                    <default>false</default>
+                    <label>Turkey</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_Contact_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact.FirstName &amp;&quot; &quot;&amp; Contact.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_EXTERNAL_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>BST - This Id will be used to integrate with IMS data and this will be the concatenation of Account and Contact IMS Ids</description>
+        <externalId>true</externalId>
+        <label>External Id</label>
+        <length>36</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>BST_HAS_BAXTER_ONLY_RECORD__c</fullName>
+        <description>BST - Field to check if any of the related records have Baxter Only Field checked</description>
+        <externalId>false</externalId>
+        <formula>IF(
+OR ((Account.BST_BAXTER_ONLY__c), (Contact.BST_BAXTER_ONLY__c)),
+true,
+false
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Has Baxter Only Record</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BST_IMS_PROCESS_FLAG__c</fullName>
+        <description>Field to check if both Account and Contact in the association has IMS Flag checked, so they can be processed for IMS Processing upon creation/modification
+Old Formula: IF(
+	AND (Account.DP_ID__c != null, Contact.DP_ID__c != null),
+	true,
+	false
+)</description>
+        <externalId>false</externalId>
+        <formula>IF( 
+AND (CONTAINS(Account.RecordType.DeveloperName, &apos;IMS&apos;), CONTAINS(Contact.RecordType.DeveloperName, &apos;IMS&apos;)), 
+true, 
+false 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>IMS Process Flag</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BST_PARENT_ACCOUNT_IMS_ID__c</fullName>
+        <description>Internal field for Audit purpose. Capture IMS ID of Parent Account.</description>
+        <externalId>false</externalId>
+        <formula>IF( Account.DP_ID__c  &lt;&gt; null , Account.DP_ID__c , &apos;&apos;)</formula>
+        <label>Account IMS ID</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_RECENT_INTEGRATION_LOG__c</fullName>
+        <description>Field that will hold the Most recent IMS Integration Log Id as a Hyperlink</description>
+        <externalId>false</externalId>
+        <formula>if(BST_RELATED_INTEGRATION_LOG_ID__c!=null,HYPERLINK(&quot;/&quot; &amp;BST_RELATED_INTEGRATION_LOG_ID__c, &apos;View Integration Log&apos;),&apos;&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Recent Integration Log</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_RELATED_INTEGRATION_LOG_ID__c</fullName>
+        <description>This will hold the Id of most recent Integration Log Id</description>
+        <externalId>false</externalId>
+        <label>Related Integration Log ID</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_RELATED_INTEGRATION_LOG_NAME__c</fullName>
+        <description>Name of the Related Integration Log</description>
+        <externalId>false</externalId>
+        <label>Related Integration Log Name</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_ROLE_1__c</fullName>
+        <description>Baxter Specific Field-Displaying the roles.</description>
+        <externalId>false</externalId>
+        <label>BAX Role 1</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Administration</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Administration</label>
+                </value>
+                <value>
+                    <fullName>Aesthetic/Recontructive Surgery</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Aesthetic/Recontructive Surgery</label>
+                </value>
+                <value>
+                    <fullName>Anaesthesia</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Anaesthesia</label>
+                </value>
+                <value>
+                    <fullName>Assistant</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Assistant</label>
+                </value>
+                <value>
+                    <fullName>Assistant/Student</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Assistant/Student</label>
+                </value>
+                <value>
+                    <fullName>Biotech/Technical Dept</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Biotech/Technical Dept</label>
+                </value>
+                <value>
+                    <fullName>Burns</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Burns</label>
+                </value>
+                <value>
+                    <fullName>Cardiology</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Cardiology</label>
+                </value>
+                <value>
+                    <fullName>Cardiovascular Surgery</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Cardiovascular Surgery</label>
+                </value>
+                <value>
+                    <fullName>Clinical</fullName>
+                    <default>false</default>
+                    <label>Clinical</label>
+                </value>
+                <value>
+                    <fullName>Clinical Pharmacy</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Clinical Pharmacy</label>
+                </value>
+                <value>
+                    <fullName>Diabetes</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Diabetes</label>
+                </value>
+                <value>
+                    <fullName>Dialysis</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Dialysis</label>
+                </value>
+                <value>
+                    <fullName>Dietetics</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Dietetics</label>
+                </value>
+                <value>
+                    <fullName>Distributor</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Distributor</label>
+                </value>
+                <value>
+                    <fullName>Executive level</fullName>
+                    <default>false</default>
+                    <label>Executive level</label>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Finance</label>
+                </value>
+                <value>
+                    <fullName>Home Care</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Home Care</label>
+                </value>
+                <value>
+                    <fullName>IT</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>IT</label>
+                </value>
+                <value>
+                    <fullName>Legal</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Legal</label>
+                </value>
+                <value>
+                    <fullName>Logistic</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Logistic</label>
+                </value>
+                <value>
+                    <fullName>Nursing</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Nursing</label>
+                </value>
+                <value>
+                    <fullName>OB/GYN</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>OB/GYN</label>
+                </value>
+                <value>
+                    <fullName>Procurement</fullName>
+                    <default>false</default>
+                    <label>Procurement</label>
+                </value>
+                <value>
+                    <fullName>Technical</fullName>
+                    <default>false</default>
+                    <label>Technical</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_ROLE_2__c</fullName>
+        <description>Controlling Field of BAX Role 1.</description>
+        <externalId>false</externalId>
+        <label>BAX Role 2</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>BST_ROLE_1__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Administration</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Administration</label>
+                </value>
+                <value>
+                    <fullName>Administrative Collaborator</fullName>
+                    <default>false</default>
+                    <label>Administrative Collaborator</label>
+                </value>
+                <value>
+                    <fullName>Aesthetic/Recontructive Surgery</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Aesthetic/Recontructive Surgery</label>
+                </value>
+                <value>
+                    <fullName>Anaesthesia</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Anaesthesia</label>
+                </value>
+                <value>
+                    <fullName>Assistant</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Assistant</label>
+                </value>
+                <value>
+                    <fullName>Assistant/Student</fullName>
+                    <default>false</default>
+                    <label>Assistant/Student</label>
+                </value>
+                <value>
+                    <fullName>Biotech/Technical Dept</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Biotech/Technical Dept</label>
+                </value>
+                <value>
+                    <fullName>Board Member</fullName>
+                    <default>false</default>
+                    <label>Board Member</label>
+                </value>
+                <value>
+                    <fullName>Burns</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Burns</label>
+                </value>
+                <value>
+                    <fullName>Cardiology</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Cardiology</label>
+                </value>
+                <value>
+                    <fullName>Cardiovascular Surgery</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Cardiovascular Surgery</label>
+                </value>
+                <value>
+                    <fullName>Clinical Pharmacy</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Clinical Pharmacy</label>
+                </value>
+                <value>
+                    <fullName>Diabetes</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Diabetes</label>
+                </value>
+                <value>
+                    <fullName>Dialysis</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Dialysis</label>
+                </value>
+                <value>
+                    <fullName>Dietetics</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Dietetics</label>
+                </value>
+                <value>
+                    <fullName>Director</fullName>
+                    <default>false</default>
+                    <label>Director</label>
+                </value>
+                <value>
+                    <fullName>Distributor</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Distributor</label>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Finance</label>
+                </value>
+                <value>
+                    <fullName>Head Nurse</fullName>
+                    <default>false</default>
+                    <label>Head Nurse</label>
+                </value>
+                <value>
+                    <fullName>Head of Service/Department</fullName>
+                    <default>false</default>
+                    <label>Head of Service/Department</label>
+                </value>
+                <value>
+                    <fullName>Home Care</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Home Care</label>
+                </value>
+                <value>
+                    <fullName>IT</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>IT</label>
+                </value>
+                <value>
+                    <fullName>Legal</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Legal</label>
+                </value>
+                <value>
+                    <fullName>Logistic</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Logistic</label>
+                </value>
+                <value>
+                    <fullName>Nurse</fullName>
+                    <default>false</default>
+                    <label>Nurse</label>
+                </value>
+                <value>
+                    <fullName>Nursing</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Nursing</label>
+                </value>
+                <value>
+                    <fullName>OB/GYN</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>OB/GYN</label>
+                </value>
+                <value>
+                    <fullName>Other Paramedical</fullName>
+                    <default>false</default>
+                    <label>Other Paramedical</label>
+                </value>
+                <value>
+                    <fullName>Pharmacist</fullName>
+                    <default>false</default>
+                    <label>Pharmacist</label>
+                </value>
+                <value>
+                    <fullName>Physician/Doctor</fullName>
+                    <default>false</default>
+                    <label>Physician/Doctor</label>
+                </value>
+                <value>
+                    <fullName>Purchasing/Procurement</fullName>
+                    <default>false</default>
+                    <label>Purchasing/Procurement</label>
+                </value>
+                <value>
+                    <fullName>Substitute/Deputy Head Nurse</fullName>
+                    <default>false</default>
+                    <label>Substitute/Deputy Head Nurse</label>
+                </value>
+                <value>
+                    <fullName>Technician</fullName>
+                    <default>false</default>
+                    <label>Technician</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Executive level</controllingFieldValue>
+                <controllingFieldValue>Technical</controllingFieldValue>
+                <controllingFieldValue>Procurement</controllingFieldValue>
+                <valueName>Administrative Collaborator</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Executive level</controllingFieldValue>
+                <valueName>Board Member</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Executive level</controllingFieldValue>
+                <valueName>Director</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical</controllingFieldValue>
+                <controllingFieldValue>Technical</controllingFieldValue>
+                <valueName>Assistant/Student</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical</controllingFieldValue>
+                <valueName>Head Nurse</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical</controllingFieldValue>
+                <controllingFieldValue>Technical</controllingFieldValue>
+                <valueName>Head of Service/Department</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical</controllingFieldValue>
+                <valueName>Nurse</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical</controllingFieldValue>
+                <valueName>Other Paramedical</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical</controllingFieldValue>
+                <valueName>Pharmacist</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical</controllingFieldValue>
+                <valueName>Physician/Doctor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical</controllingFieldValue>
+                <valueName>Substitute/Deputy Head Nurse</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Technical</controllingFieldValue>
+                <valueName>Technician</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Procurement</controllingFieldValue>
+                <valueName>Purchasing/Procurement</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_ROLE_3__c</fullName>
+        <description>Controlling Field of BAX Role 2.</description>
+        <externalId>false</externalId>
+        <label>BAX Role 3</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>BST_ROLE_2__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Administration</fullName>
+                    <default>false</default>
+                    <label>Administration</label>
+                </value>
+                <value>
+                    <fullName>Aesthetic/Reconstructive Surgery</fullName>
+                    <default>false</default>
+                    <label>Aesthetic/Reconstructive Surgery</label>
+                </value>
+                <value>
+                    <fullName>Aesthetic/Recontructive Surgery</fullName>
+                    <default>false</default>
+                    <label>Aesthetic/Recontructive Surgery</label>
+                </value>
+                <value>
+                    <fullName>Anaesthesia</fullName>
+                    <default>false</default>
+                    <label>Anaesthesia</label>
+                </value>
+                <value>
+                    <fullName>Assistant</fullName>
+                    <default>false</default>
+                    <label>Assistant</label>
+                </value>
+                <value>
+                    <fullName>Assistant/Student</fullName>
+                    <default>false</default>
+                    <label>Assistant/Student</label>
+                </value>
+                <value>
+                    <fullName>Biotech/Technical Dept</fullName>
+                    <default>false</default>
+                    <label>Biotech/Technical Dept</label>
+                </value>
+                <value>
+                    <fullName>Burns</fullName>
+                    <default>false</default>
+                    <label>Burns</label>
+                </value>
+                <value>
+                    <fullName>Cardiac Surgery</fullName>
+                    <default>false</default>
+                    <label>Cardiac Surgery</label>
+                </value>
+                <value>
+                    <fullName>Cardiology</fullName>
+                    <default>false</default>
+                    <label>Cardiology</label>
+                </value>
+                <value>
+                    <fullName>Cardiovascular Surgery</fullName>
+                    <default>false</default>
+                    <label>Cardiovascular Surgery</label>
+                </value>
+                <value>
+                    <fullName>Clinical Biology</fullName>
+                    <default>false</default>
+                    <label>Clinical Biology</label>
+                </value>
+                <value>
+                    <fullName>Clinical Pharmacy</fullName>
+                    <default>false</default>
+                    <label>Clinical Pharmacy</label>
+                </value>
+                <value>
+                    <fullName>Diabetes</fullName>
+                    <default>false</default>
+                    <label>Diabetes</label>
+                </value>
+                <value>
+                    <fullName>Dialysis</fullName>
+                    <default>false</default>
+                    <label>Dialysis</label>
+                </value>
+                <value>
+                    <fullName>Dietetics</fullName>
+                    <default>false</default>
+                    <label>Dietetics</label>
+                </value>
+                <value>
+                    <fullName>Distributor</fullName>
+                    <default>false</default>
+                    <label>Distributor</label>
+                </value>
+                <value>
+                    <fullName>E.N.T</fullName>
+                    <default>false</default>
+                    <label>E.N.T</label>
+                </value>
+                <value>
+                    <fullName>Emergency Medicine</fullName>
+                    <default>false</default>
+                    <label>Emergency Medicine</label>
+                </value>
+                <value>
+                    <fullName>Endocrinology</fullName>
+                    <default>false</default>
+                    <label>Endocrinology</label>
+                </value>
+                <value>
+                    <fullName>Endoscopy</fullName>
+                    <default>false</default>
+                    <label>Endoscopy</label>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>false</default>
+                    <label>Finance</label>
+                </value>
+                <value>
+                    <fullName>Gastroenterology</fullName>
+                    <default>false</default>
+                    <label>Gastroenterology</label>
+                </value>
+                <value>
+                    <fullName>General Surgery</fullName>
+                    <default>false</default>
+                    <label>General Surgery</label>
+                </value>
+                <value>
+                    <fullName>Geriatry</fullName>
+                    <default>false</default>
+                    <label>Geriatry</label>
+                </value>
+                <value>
+                    <fullName>Head &amp; Neck Surgery</fullName>
+                    <default>false</default>
+                    <label>Head &amp; Neck Surgery</label>
+                </value>
+                <value>
+                    <fullName>Hepatology</fullName>
+                    <default>false</default>
+                    <label>Hepatology</label>
+                </value>
+                <value>
+                    <fullName>Home Care</fullName>
+                    <default>false</default>
+                    <label>Home Care</label>
+                </value>
+                <value>
+                    <fullName>Hospitality</fullName>
+                    <default>false</default>
+                    <label>Hospitality</label>
+                </value>
+                <value>
+                    <fullName>Hygiene</fullName>
+                    <default>false</default>
+                    <label>Hygiene</label>
+                </value>
+                <value>
+                    <fullName>Immunology</fullName>
+                    <default>false</default>
+                    <label>Immunology</label>
+                </value>
+                <value>
+                    <fullName>Infectiology/AIDS</fullName>
+                    <default>false</default>
+                    <label>Infectiology/AIDS</label>
+                </value>
+                <value>
+                    <fullName>Intensive Care</fullName>
+                    <default>false</default>
+                    <label>Intensive Care</label>
+                </value>
+                <value>
+                    <fullName>Intensive Care Medical</fullName>
+                    <default>false</default>
+                    <label>Intensive Care Medical</label>
+                </value>
+                <value>
+                    <fullName>Intensive Care Surgery</fullName>
+                    <default>false</default>
+                    <label>Intensive Care Surgery</label>
+                </value>
+                <value>
+                    <fullName>Internal Medicine</fullName>
+                    <default>false</default>
+                    <label>Internal Medicine</label>
+                </value>
+                <value>
+                    <fullName>IT</fullName>
+                    <default>false</default>
+                    <label>IT</label>
+                </value>
+                <value>
+                    <fullName>Legal</fullName>
+                    <default>false</default>
+                    <label>Legal</label>
+                </value>
+                <value>
+                    <fullName>Logistic</fullName>
+                    <default>false</default>
+                    <label>Logistic</label>
+                </value>
+                <value>
+                    <fullName>Management</fullName>
+                    <default>false</default>
+                    <label>Management</label>
+                </value>
+                <value>
+                    <fullName>Mastology</fullName>
+                    <default>false</default>
+                    <label>Mastology</label>
+                </value>
+                <value>
+                    <fullName>Medical</fullName>
+                    <default>false</default>
+                    <label>Medical</label>
+                </value>
+                <value>
+                    <fullName>Neonatology</fullName>
+                    <default>false</default>
+                    <label>Neonatology</label>
+                </value>
+                <value>
+                    <fullName>Nephrology</fullName>
+                    <default>false</default>
+                    <label>Nephrology</label>
+                </value>
+                <value>
+                    <fullName>NeuroSurgery</fullName>
+                    <default>false</default>
+                    <label>NeuroSurgery</label>
+                </value>
+                <value>
+                    <fullName>NICU</fullName>
+                    <default>false</default>
+                    <label>NICU</label>
+                </value>
+                <value>
+                    <fullName>Nursing</fullName>
+                    <default>false</default>
+                    <label>Nursing</label>
+                </value>
+                <value>
+                    <fullName>Nutrition</fullName>
+                    <default>false</default>
+                    <label>Nutrition</label>
+                </value>
+                <value>
+                    <fullName>OB/GYN</fullName>
+                    <default>false</default>
+                    <label>OB/GYN</label>
+                </value>
+                <value>
+                    <fullName>Oncologic Surgery</fullName>
+                    <default>false</default>
+                    <label>Oncologic Surgery</label>
+                </value>
+                <value>
+                    <fullName>Oncology</fullName>
+                    <default>false</default>
+                    <label>Oncology</label>
+                </value>
+                <value>
+                    <fullName>Operating Room</fullName>
+                    <default>false</default>
+                    <label>Operating Room</label>
+                </value>
+                <value>
+                    <fullName>Orthopaedic Surgery</fullName>
+                    <default>false</default>
+                    <label>Orthopaedic Surgery</label>
+                </value>
+                <value>
+                    <fullName>Paediatrics</fullName>
+                    <default>false</default>
+                    <label>Paediatrics</label>
+                </value>
+                <value>
+                    <fullName>Pain Therapy/Algology</fullName>
+                    <default>false</default>
+                    <label>Pain Therapy/Algology</label>
+                </value>
+                <value>
+                    <fullName>Palliative Medicine</fullName>
+                    <default>false</default>
+                    <label>Palliative Medicine</label>
+                </value>
+                <value>
+                    <fullName>Perfusionist</fullName>
+                    <default>false</default>
+                    <label>Perfusionist</label>
+                </value>
+                <value>
+                    <fullName>Pharmacy</fullName>
+                    <default>false</default>
+                    <label>Pharmacy</label>
+                </value>
+                <value>
+                    <fullName>Phlebology</fullName>
+                    <default>false</default>
+                    <label>Phlebology</label>
+                </value>
+                <value>
+                    <fullName>Physiotherapy</fullName>
+                    <default>false</default>
+                    <label>Physiotherapy</label>
+                </value>
+                <value>
+                    <fullName>PICU</fullName>
+                    <default>false</default>
+                    <label>PICU</label>
+                </value>
+                <value>
+                    <fullName>Pneumology</fullName>
+                    <default>false</default>
+                    <label>Pneumology</label>
+                </value>
+                <value>
+                    <fullName>Proctology</fullName>
+                    <default>false</default>
+                    <label>Proctology</label>
+                </value>
+                <value>
+                    <fullName>Purchasing/Procurement</fullName>
+                    <default>false</default>
+                    <label>Purchasing/Procurement</label>
+                </value>
+                <value>
+                    <fullName>Rheumatology</fullName>
+                    <default>false</default>
+                    <label>Rheumatology</label>
+                </value>
+                <value>
+                    <fullName>Stock / Warehouse</fullName>
+                    <default>false</default>
+                    <label>Stock / Warehouse</label>
+                </value>
+                <value>
+                    <fullName>Stomatology</fullName>
+                    <default>false</default>
+                    <label>Stomatology</label>
+                </value>
+                <value>
+                    <fullName>Thoracic Surgery</fullName>
+                    <default>false</default>
+                    <label>Thoracic Surgery</label>
+                </value>
+                <value>
+                    <fullName>Transplant Surgery</fullName>
+                    <default>false</default>
+                    <label>Transplant Surgery</label>
+                </value>
+                <value>
+                    <fullName>Traumatology</fullName>
+                    <default>false</default>
+                    <label>Traumatology</label>
+                </value>
+                <value>
+                    <fullName>Urology</fullName>
+                    <default>false</default>
+                    <label>Urology</label>
+                </value>
+                <value>
+                    <fullName>Vascular Surgery</fullName>
+                    <default>false</default>
+                    <label>Vascular Surgery</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Other Paramedical</controllingFieldValue>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Diabetes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other Paramedical</controllingFieldValue>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Dialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other Paramedical</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <valueName>Dietetics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other Paramedical</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <valueName>Hygiene</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other Paramedical</controllingFieldValue>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Immunology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other Paramedical</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Pharmacist</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <valueName>Nutrition</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other Paramedical</controllingFieldValue>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Operating Room</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other Paramedical</controllingFieldValue>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Palliative Medicine</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other Paramedical</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <valueName>Perfusionist</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other Paramedical</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <valueName>Physiotherapy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Technician</controllingFieldValue>
+                <controllingFieldValue>Assistant/Student</controllingFieldValue>
+                <controllingFieldValue>Director</controllingFieldValue>
+                <controllingFieldValue>Administrative Collaborator</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <valueName>Biotech/Technical Dept</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Technician</controllingFieldValue>
+                <controllingFieldValue>Purchasing/Procurement</controllingFieldValue>
+                <controllingFieldValue>Assistant/Student</controllingFieldValue>
+                <controllingFieldValue>Board Member</controllingFieldValue>
+                <controllingFieldValue>Director</controllingFieldValue>
+                <controllingFieldValue>Administrative Collaborator</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <valueName>Hospitality</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Technician</controllingFieldValue>
+                <controllingFieldValue>Director</controllingFieldValue>
+                <valueName>IT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Technician</controllingFieldValue>
+                <controllingFieldValue>Purchasing/Procurement</controllingFieldValue>
+                <controllingFieldValue>Assistant/Student</controllingFieldValue>
+                <controllingFieldValue>Administrative Collaborator</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Pharmacist</controllingFieldValue>
+                <valueName>Stock / Warehouse</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Purchasing/Procurement</controllingFieldValue>
+                <controllingFieldValue>Board Member</controllingFieldValue>
+                <controllingFieldValue>Director</controllingFieldValue>
+                <controllingFieldValue>Administrative Collaborator</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <valueName>Logistic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Purchasing/Procurement</controllingFieldValue>
+                <controllingFieldValue>Board Member</controllingFieldValue>
+                <controllingFieldValue>Director</controllingFieldValue>
+                <controllingFieldValue>Administrative Collaborator</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Pharmacist</controllingFieldValue>
+                <valueName>Purchasing/Procurement</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Board Member</controllingFieldValue>
+                <controllingFieldValue>Director</controllingFieldValue>
+                <controllingFieldValue>Administrative Collaborator</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <valueName>Administration</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Board Member</controllingFieldValue>
+                <controllingFieldValue>Director</controllingFieldValue>
+                <valueName>Finance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Board Member</controllingFieldValue>
+                <controllingFieldValue>Director</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <valueName>Legal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Board Member</controllingFieldValue>
+                <controllingFieldValue>Director</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <valueName>Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Board Member</controllingFieldValue>
+                <controllingFieldValue>Director</controllingFieldValue>
+                <valueName>Medical</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Board Member</controllingFieldValue>
+                <controllingFieldValue>Director</controllingFieldValue>
+                <valueName>Nursing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Board Member</controllingFieldValue>
+                <controllingFieldValue>Director</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Pharmacist</controllingFieldValue>
+                <valueName>Pharmacy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Administrative Collaborator</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Pharmacist</controllingFieldValue>
+                <valueName>Assistant</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Aesthetic/Recontructive Surgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Anaesthesia</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Burns</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Cardiac Surgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Cardiology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Cardiovascular Surgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>E.N.T</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Emergency Medicine</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Endocrinology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Endoscopy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Gastroenterology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>General Surgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Geriatry</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Head &amp; Neck Surgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Hepatology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Infectiology/AIDS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <valueName>Intensive Care Medical</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <valueName>Intensive Care Surgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Internal Medicine</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Mastology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Neonatology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Nephrology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>NeuroSurgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>NICU</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>OB/GYN</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Oncologic Surgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Pharmacist</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Oncology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Orthopaedic Surgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Paediatrics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Pain Therapy/Algology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Phlebology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>PICU</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Pneumology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Proctology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Rheumatology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Stomatology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Thoracic Surgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Transplant Surgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Traumatology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Urology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head Nurse</controllingFieldValue>
+                <controllingFieldValue>Physician/Doctor</controllingFieldValue>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Vascular Surgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Pharmacist</controllingFieldValue>
+                <valueName>Clinical Pharmacy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Head of Service/Department</controllingFieldValue>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <controllingFieldValue>Substitute/Deputy Head Nurse</controllingFieldValue>
+                <valueName>Intensive Care</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Pharmacist</controllingFieldValue>
+                <valueName>Clinical Biology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Nurse</controllingFieldValue>
+                <valueName>Home Care</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_STATUS__c</fullName>
+        <description>For Marking the record with different status.</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Baxter Pending Review</fullName>
+                    <default>false</default>
+                    <label>Baxter Pending Review</label>
+                </value>
+                <value>
+                    <fullName>Baxter Rejected</fullName>
+                    <default>false</default>
+                    <label>Baxter Rejected</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>IMS Accepted</fullName>
+                    <default>false</default>
+                    <label>IMS Accepted</label>
+                </value>
+                <value>
+                    <fullName>IMS Partially Accepted</fullName>
+                    <default>false</default>
+                    <label>IMS Partially Accepted</label>
+                </value>
+                <value>
+                    <fullName>IMS Pending Review</fullName>
+                    <default>false</default>
+                    <label>IMS Pending Review</label>
+                </value>
+                <value>
+                    <fullName>IMS Rejected</fullName>
+                    <default>false</default>
+                    <label>IMS Rejected</label>
+                </value>
+                <value>
+                    <fullName>IMS Updated</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>IMS Updated</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ContactId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DP_ACT_EMAIL__c</fullName>
+        <description>IMS Activity Email Detail</description>
+        <externalId>false</externalId>
+        <label>IMS Activity Email</label>
+        <required>false</required>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DP_ACT_FAX__c</fullName>
+        <description>IMS Activity Fax Detail</description>
+        <externalId>false</externalId>
+        <label>IMS Activity Fax</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>DP_ACT_PHONE__c</fullName>
+        <description>IMS Activity Phone Detail</description>
+        <externalId>false</externalId>
+        <label>IMS Activity Phone</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>DP_ACT_ROLE_1__c</fullName>
+        <description>Stores IMS Activity Role 1 value.</description>
+        <externalId>false</externalId>
+        <label>IMS Activity Role 1</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>BST_COUNTRY__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Accounting and Finance</fullName>
+                    <default>false</default>
+                    <label>Accounting and Finance</label>
+                </value>
+                <value>
+                    <fullName>Administrative Staff</fullName>
+                    <default>false</default>
+                    <label>Administrative Staff</label>
+                </value>
+                <value>
+                    <fullName>Administrator</fullName>
+                    <default>false</default>
+                    <label>Administrator</label>
+                </value>
+                <value>
+                    <fullName>Advisor</fullName>
+                    <default>false</default>
+                    <label>Advisor</label>
+                </value>
+                <value>
+                    <fullName>Allied Health Professionals</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Allied Health Professionals</label>
+                </value>
+                <value>
+                    <fullName>Assistant practitioner</fullName>
+                    <default>false</default>
+                    <label>Assistant practitioner</label>
+                </value>
+                <value>
+                    <fullName>Chief Doctor</fullName>
+                    <default>false</default>
+                    <label>Chief Doctor</label>
+                </value>
+                <value>
+                    <fullName>Chief nurse</fullName>
+                    <default>false</default>
+                    <label>Chief nurse</label>
+                </value>
+                <value>
+                    <fullName>Clinical Nurse Specialist</fullName>
+                    <default>false</default>
+                    <label>Clinical Nurse Specialist</label>
+                </value>
+                <value>
+                    <fullName>Coordinator</fullName>
+                    <default>false</default>
+                    <label>Coordinator</label>
+                </value>
+                <value>
+                    <fullName>Dean Deputy</fullName>
+                    <default>false</default>
+                    <label>Dean Deputy</label>
+                </value>
+                <value>
+                    <fullName>Deputy Head of Clinic</fullName>
+                    <default>false</default>
+                    <label>Deputy Head of Clinic</label>
+                </value>
+                <value>
+                    <fullName>Deputy Head of Dept</fullName>
+                    <default>false</default>
+                    <label>Deputy Head of Dept</label>
+                </value>
+                <value>
+                    <fullName>Director</fullName>
+                    <default>false</default>
+                    <label>Director</label>
+                </value>
+                <value>
+                    <fullName>Director (Administrative )</fullName>
+                    <default>false</default>
+                    <label>Director (Administrative )</label>
+                </value>
+                <value>
+                    <fullName>Director (Deputy)</fullName>
+                    <default>false</default>
+                    <label>Director (Deputy)</label>
+                </value>
+                <value>
+                    <fullName>Director (Financial)</fullName>
+                    <default>false</default>
+                    <label>Director (Financial)</label>
+                </value>
+                <value>
+                    <fullName>Director (Hospital/Medical Institute Care)</fullName>
+                    <default>false</default>
+                    <label>Director (Hospital/Medical Institute Care)</label>
+                </value>
+                <value>
+                    <fullName>Director (Marketing)</fullName>
+                    <default>false</default>
+                    <label>Director (Marketing)</label>
+                </value>
+                <value>
+                    <fullName>Director (Medical)</fullName>
+                    <default>false</default>
+                    <label>Director (Medical)</label>
+                </value>
+                <value>
+                    <fullName>Director (Miscellaneous)</fullName>
+                    <default>false</default>
+                    <label>Director (Miscellaneous)</label>
+                </value>
+                <value>
+                    <fullName>Doctor</fullName>
+                    <default>false</default>
+                    <label>Doctor</label>
+                </value>
+                <value>
+                    <fullName>Doctor (Company)</fullName>
+                    <default>false</default>
+                    <label>Doctor (Company)</label>
+                </value>
+                <value>
+                    <fullName>Doctor (Family Doctor)</fullName>
+                    <default>false</default>
+                    <label>Doctor (Family Doctor)</label>
+                </value>
+                <value>
+                    <fullName>Doctor (Inspector)</fullName>
+                    <default>false</default>
+                    <label>Doctor (Inspector)</label>
+                </value>
+                <value>
+                    <fullName>Doctor (Military)</fullName>
+                    <default>false</default>
+                    <label>Doctor (Military)</label>
+                </value>
+                <value>
+                    <fullName>Doctor (School)</fullName>
+                    <default>false</default>
+                    <label>Doctor (School)</label>
+                </value>
+                <value>
+                    <fullName>Doctor (Specialist)</fullName>
+                    <default>false</default>
+                    <label>Doctor (Specialist)</label>
+                </value>
+                <value>
+                    <fullName>Doctor Hosp (Consultant)</fullName>
+                    <default>false</default>
+                    <label>Doctor Hosp (Consultant)</label>
+                </value>
+                <value>
+                    <fullName>Doctor Hospital Assistant</fullName>
+                    <default>false</default>
+                    <label>Doctor Hospital Assistant</label>
+                </value>
+                <value>
+                    <fullName>Engineer</fullName>
+                    <default>false</default>
+                    <label>Engineer</label>
+                </value>
+                <value>
+                    <fullName>Head of Clinic</fullName>
+                    <default>false</default>
+                    <label>Head of Clinic</label>
+                </value>
+                <value>
+                    <fullName>Head of Dept</fullName>
+                    <default>false</default>
+                    <label>Head of Dept</label>
+                </value>
+                <value>
+                    <fullName>Healthcare Educator</fullName>
+                    <default>false</default>
+                    <label>Healthcare Educator</label>
+                </value>
+                <value>
+                    <fullName>Hospital Doctor</fullName>
+                    <default>false</default>
+                    <label>Hospital Doctor</label>
+                </value>
+                <value>
+                    <fullName>Leader</fullName>
+                    <default>false</default>
+                    <label>Leader</label>
+                </value>
+                <value>
+                    <fullName>Lecturer</fullName>
+                    <default>false</default>
+                    <label>Lecturer</label>
+                </value>
+                <value>
+                    <fullName>Management staff</fullName>
+                    <default>false</default>
+                    <label>Management staff</label>
+                </value>
+                <value>
+                    <fullName>Manager</fullName>
+                    <default>false</default>
+                    <label>Manager</label>
+                </value>
+                <value>
+                    <fullName>Manager (Purchase)</fullName>
+                    <default>false</default>
+                    <label>Manager (Purchase)</label>
+                </value>
+                <value>
+                    <fullName>Manager (Training)</fullName>
+                    <default>false</default>
+                    <label>Manager (Training)</label>
+                </value>
+                <value>
+                    <fullName>Manager (Warehouse)</fullName>
+                    <default>false</default>
+                    <label>Manager (Warehouse)</label>
+                </value>
+                <value>
+                    <fullName>Media</fullName>
+                    <default>false</default>
+                    <label>Media</label>
+                </value>
+                <value>
+                    <fullName>Medical Officer</fullName>
+                    <default>false</default>
+                    <label>Medical Officer</label>
+                </value>
+                <value>
+                    <fullName>Medicine Resident</fullName>
+                    <default>false</default>
+                    <label>Medicine Resident</label>
+                </value>
+                <value>
+                    <fullName>Member</fullName>
+                    <default>false</default>
+                    <label>Member</label>
+                </value>
+                <value>
+                    <fullName>Member (Committee )</fullName>
+                    <default>false</default>
+                    <label>Member (Committee )</label>
+                </value>
+                <value>
+                    <fullName>Midwife</fullName>
+                    <default>false</default>
+                    <label>Midwife</label>
+                </value>
+                <value>
+                    <fullName>Minister</fullName>
+                    <default>false</default>
+                    <label>Minister</label>
+                </value>
+                <value>
+                    <fullName>Miscellaneous</fullName>
+                    <default>false</default>
+                    <label>Miscellaneous</label>
+                </value>
+                <value>
+                    <fullName>Nurse</fullName>
+                    <default>false</default>
+                    <label>Nurse</label>
+                </value>
+                <value>
+                    <fullName>Operating department practitioner</fullName>
+                    <default>false</default>
+                    <label>Operating department practitioner</label>
+                </value>
+                <value>
+                    <fullName>Pharmacist</fullName>
+                    <default>false</default>
+                    <label>Pharmacist</label>
+                </value>
+                <value>
+                    <fullName>Pharmacy Assistant</fullName>
+                    <default>false</default>
+                    <label>Pharmacy Assistant</label>
+                </value>
+                <value>
+                    <fullName>Pharmacy Owner</fullName>
+                    <default>false</default>
+                    <label>Pharmacy Owner</label>
+                </value>
+                <value>
+                    <fullName>Politician</fullName>
+                    <default>false</default>
+                    <label>Politician</label>
+                </value>
+                <value>
+                    <fullName>President or Chairman</fullName>
+                    <default>false</default>
+                    <label>President or Chairman</label>
+                </value>
+                <value>
+                    <fullName>Professor/Assistant professor</fullName>
+                    <default>false</default>
+                    <label>Professor/Assistant professor</label>
+                </value>
+                <value>
+                    <fullName>Researcher</fullName>
+                    <default>false</default>
+                    <label>Researcher</label>
+                </value>
+                <value>
+                    <fullName>Research Manager</fullName>
+                    <default>false</default>
+                    <label>Research Manager</label>
+                </value>
+                <value>
+                    <fullName>Secretary or assistant</fullName>
+                    <default>false</default>
+                    <label>Secretary or assistant</label>
+                </value>
+                <value>
+                    <fullName>Social Worker</fullName>
+                    <default>false</default>
+                    <label>Social Worker</label>
+                </value>
+                <value>
+                    <fullName>Supervisor</fullName>
+                    <default>false</default>
+                    <label>Supervisor</label>
+                </value>
+                <value>
+                    <fullName>Teacher/Training Doctor</fullName>
+                    <default>false</default>
+                    <label>Teacher/Training Doctor</label>
+                </value>
+                <value>
+                    <fullName>Team Leader</fullName>
+                    <default>false</default>
+                    <label>Team Leader</label>
+                </value>
+                <value>
+                    <fullName>Technician or Operator</fullName>
+                    <default>false</default>
+                    <label>Technician or Operator</label>
+                </value>
+                <value>
+                    <fullName>Veterinarian (Professor)</fullName>
+                    <default>false</default>
+                    <label>Veterinarian (Professor)</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Accounting and Finance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Advisor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Chief Doctor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Chief nurse</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Coordinator</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Deputy Head of Clinic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Deputy Head of Dept</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Director</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Director (Deputy)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>Director (Financial)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Director (Medical)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Doctor (Company)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <valueName>Doctor (Military)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <valueName>Doctor (School)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Doctor Hosp (Consultant)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <valueName>Head of Clinic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Head of Dept</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Manager</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <valueName>Manager (Purchase)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Member (Committee )</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Nurse</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Operating department practitioner</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Pharmacist</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Pharmacy Assistant</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Pharmacy Owner</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>President or Chairman</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Secretary or assistant</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Administrative Staff</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Administrator</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Assistant practitioner</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Director (Administrative )</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Director (Marketing)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Director (Miscellaneous)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Doctor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Doctor (Inspector)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Doctor Hospital Assistant</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Healthcare Educator</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Hospital Doctor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Lecturer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Management staff</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Manager (Warehouse)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Medical Officer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Member</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Minister</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Miscellaneous</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Politician</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Professor/Assistant professor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Research Manager</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>Social Worker</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Supervisor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Teacher/Training Doctor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Technician or Operator</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>Veterinarian (Professor)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Clinical Nurse Specialist</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <valueName>Researcher</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Leader</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Medicine Resident</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Midwife</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Team Leader</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Dean Deputy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Doctor (Family Doctor)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Doctor (Specialist)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Manager (Training)</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DP_ACT_ROLE_2__c</fullName>
+        <description>Stores IMS Activity Role 2 value</description>
+        <externalId>false</externalId>
+        <label>IMS Activity Role 2</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>BST_COUNTRY__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Accounting and Finance</fullName>
+                    <default>false</default>
+                    <label>Accounting and Finance</label>
+                </value>
+                <value>
+                    <fullName>Administrative Staff</fullName>
+                    <default>false</default>
+                    <label>Administrative Staff</label>
+                </value>
+                <value>
+                    <fullName>Administrator</fullName>
+                    <default>false</default>
+                    <label>Administrator</label>
+                </value>
+                <value>
+                    <fullName>Advisor</fullName>
+                    <default>false</default>
+                    <label>Advisor</label>
+                </value>
+                <value>
+                    <fullName>Assistant practitioner</fullName>
+                    <default>false</default>
+                    <label>Assistant practitioner</label>
+                </value>
+                <value>
+                    <fullName>Chief Doctor</fullName>
+                    <default>false</default>
+                    <label>Chief Doctor</label>
+                </value>
+                <value>
+                    <fullName>Chief nurse</fullName>
+                    <default>false</default>
+                    <label>Chief nurse</label>
+                </value>
+                <value>
+                    <fullName>Clinical Nurse Specialist</fullName>
+                    <default>false</default>
+                    <label>Clinical Nurse Specialist</label>
+                </value>
+                <value>
+                    <fullName>Coordinator</fullName>
+                    <default>false</default>
+                    <label>Coordinator</label>
+                </value>
+                <value>
+                    <fullName>Deputy Head of Clinic</fullName>
+                    <default>false</default>
+                    <label>Deputy Head of Clinic</label>
+                </value>
+                <value>
+                    <fullName>Deputy Head of Dept</fullName>
+                    <default>false</default>
+                    <label>Deputy Head of Dept</label>
+                </value>
+                <value>
+                    <fullName>Director</fullName>
+                    <default>false</default>
+                    <label>Director</label>
+                </value>
+                <value>
+                    <fullName>Director (Administrative )</fullName>
+                    <default>false</default>
+                    <label>Director (Administrative )</label>
+                </value>
+                <value>
+                    <fullName>Director (Deputy)</fullName>
+                    <default>false</default>
+                    <label>Director (Deputy)</label>
+                </value>
+                <value>
+                    <fullName>Director (Financial)</fullName>
+                    <default>false</default>
+                    <label>Director (Financial)</label>
+                </value>
+                <value>
+                    <fullName>Director (Hospital/Medical Institute Care)</fullName>
+                    <default>false</default>
+                    <label>Director (Hospital/Medical Institute Care)</label>
+                </value>
+                <value>
+                    <fullName>Director (Marketing)</fullName>
+                    <default>false</default>
+                    <label>Director (Marketing)</label>
+                </value>
+                <value>
+                    <fullName>Director (Medical)</fullName>
+                    <default>false</default>
+                    <label>Director (Medical)</label>
+                </value>
+                <value>
+                    <fullName>Director (Miscellaneous)</fullName>
+                    <default>false</default>
+                    <label>Director (Miscellaneous)</label>
+                </value>
+                <value>
+                    <fullName>Doctor</fullName>
+                    <default>false</default>
+                    <label>Doctor</label>
+                </value>
+                <value>
+                    <fullName>Doctor (Company)</fullName>
+                    <default>false</default>
+                    <label>Doctor (Company)</label>
+                </value>
+                <value>
+                    <fullName>Doctor (Inspector)</fullName>
+                    <default>false</default>
+                    <label>Doctor (Inspector)</label>
+                </value>
+                <value>
+                    <fullName>Doctor (Military)</fullName>
+                    <default>false</default>
+                    <label>Doctor (Military)</label>
+                </value>
+                <value>
+                    <fullName>Doctor (School)</fullName>
+                    <default>false</default>
+                    <label>Doctor (School)</label>
+                </value>
+                <value>
+                    <fullName>Doctor (Specialist)</fullName>
+                    <default>false</default>
+                    <label>Doctor (Specialist)</label>
+                </value>
+                <value>
+                    <fullName>Doctor Hosp (Consultant)</fullName>
+                    <default>false</default>
+                    <label>Doctor Hosp (Consultant)</label>
+                </value>
+                <value>
+                    <fullName>Doctor Hospital Assistant</fullName>
+                    <default>false</default>
+                    <label>Doctor Hospital Assistant</label>
+                </value>
+                <value>
+                    <fullName>Engineer</fullName>
+                    <default>false</default>
+                    <label>Engineer</label>
+                </value>
+                <value>
+                    <fullName>Head of Clinic</fullName>
+                    <default>false</default>
+                    <label>Head of Clinic</label>
+                </value>
+                <value>
+                    <fullName>Head of Dept</fullName>
+                    <default>false</default>
+                    <label>Head of Dept</label>
+                </value>
+                <value>
+                    <fullName>Healthcare Educator</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Healthcare Educator</label>
+                </value>
+                <value>
+                    <fullName>Hospital Doctor</fullName>
+                    <default>false</default>
+                    <label>Hospital Doctor</label>
+                </value>
+                <value>
+                    <fullName>Leader</fullName>
+                    <default>false</default>
+                    <label>Leader</label>
+                </value>
+                <value>
+                    <fullName>Management staff</fullName>
+                    <default>false</default>
+                    <label>Management staff</label>
+                </value>
+                <value>
+                    <fullName>Manager</fullName>
+                    <default>false</default>
+                    <label>Manager</label>
+                </value>
+                <value>
+                    <fullName>Manager (Purchase)</fullName>
+                    <default>false</default>
+                    <label>Manager (Purchase)</label>
+                </value>
+                <value>
+                    <fullName>Media</fullName>
+                    <default>false</default>
+                    <label>Media</label>
+                </value>
+                <value>
+                    <fullName>Medical Officer</fullName>
+                    <default>false</default>
+                    <label>Medical Officer</label>
+                </value>
+                <value>
+                    <fullName>Medicine Resident</fullName>
+                    <default>false</default>
+                    <label>Medicine Resident</label>
+                </value>
+                <value>
+                    <fullName>Member</fullName>
+                    <default>false</default>
+                    <label>Member</label>
+                </value>
+                <value>
+                    <fullName>Member (Committee )</fullName>
+                    <default>false</default>
+                    <label>Member (Committee )</label>
+                </value>
+                <value>
+                    <fullName>Midwife</fullName>
+                    <default>false</default>
+                    <label>Midwife</label>
+                </value>
+                <value>
+                    <fullName>Minister</fullName>
+                    <default>false</default>
+                    <label>Minister</label>
+                </value>
+                <value>
+                    <fullName>Miscellaneous</fullName>
+                    <default>false</default>
+                    <label>Miscellaneous</label>
+                </value>
+                <value>
+                    <fullName>Nurse</fullName>
+                    <default>false</default>
+                    <label>Nurse</label>
+                </value>
+                <value>
+                    <fullName>Operating department practitioner</fullName>
+                    <default>false</default>
+                    <label>Operating department practitioner</label>
+                </value>
+                <value>
+                    <fullName>Pharmacist</fullName>
+                    <default>false</default>
+                    <label>Pharmacist</label>
+                </value>
+                <value>
+                    <fullName>Pharmacy Assistant</fullName>
+                    <default>false</default>
+                    <label>Pharmacy Assistant</label>
+                </value>
+                <value>
+                    <fullName>Pharmacy Owner</fullName>
+                    <default>false</default>
+                    <label>Pharmacy Owner</label>
+                </value>
+                <value>
+                    <fullName>Politician</fullName>
+                    <default>false</default>
+                    <label>Politician</label>
+                </value>
+                <value>
+                    <fullName>President or Chairman</fullName>
+                    <default>false</default>
+                    <label>President or Chairman</label>
+                </value>
+                <value>
+                    <fullName>Professor/Assistant professor</fullName>
+                    <default>false</default>
+                    <label>Professor/Assistant professor</label>
+                </value>
+                <value>
+                    <fullName>Researcher</fullName>
+                    <default>false</default>
+                    <label>Researcher</label>
+                </value>
+                <value>
+                    <fullName>Research Manager</fullName>
+                    <default>false</default>
+                    <label>Research Manager</label>
+                </value>
+                <value>
+                    <fullName>Secretary or assistant</fullName>
+                    <default>false</default>
+                    <label>Secretary or assistant</label>
+                </value>
+                <value>
+                    <fullName>Supervisor</fullName>
+                    <default>false</default>
+                    <label>Supervisor</label>
+                </value>
+                <value>
+                    <fullName>Teacher/Training Doctor</fullName>
+                    <default>false</default>
+                    <label>Teacher/Training Doctor</label>
+                </value>
+                <value>
+                    <fullName>Team Leader</fullName>
+                    <default>false</default>
+                    <label>Team Leader</label>
+                </value>
+                <value>
+                    <fullName>Technician or Operator</fullName>
+                    <default>false</default>
+                    <label>Technician or Operator</label>
+                </value>
+                <value>
+                    <fullName>Veterinarian (Professor)</fullName>
+                    <default>false</default>
+                    <label>Veterinarian (Professor)</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>Accounting and Finance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Chief Doctor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Chief nurse</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Coordinator</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Deputy Head of Clinic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <valueName>Deputy Head of Dept</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Director</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>Director (Financial)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Director (Medical)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Doctor (Company)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <valueName>Doctor (Military)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <valueName>Doctor (School)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Doctor Hosp (Consultant)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <valueName>Head of Clinic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Head of Dept</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Manager</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <valueName>Manager (Purchase)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Member (Committee )</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Nurse</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Pharmacist</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <valueName>Pharmacy Assistant</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Pharmacy Owner</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>President or Chairman</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>Secretary or assistant</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Administrative Staff</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Advisor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>Director (Administrative )</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>Director (Deputy)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>Director (Marketing)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>Director (Miscellaneous)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <valueName>Doctor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Doctor (Inspector)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Doctor Hospital Assistant</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Hospital Doctor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Management staff</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>Member</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>Minister</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Miscellaneous</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Operating department practitioner</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Professor/Assistant professor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>Research Manager</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Supervisor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>Teacher/Training Doctor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Technician or Operator</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>Veterinarian (Professor)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <valueName>Assistant practitioner</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Clinical Nurse Specialist</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <valueName>Researcher</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Administrator</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Leader</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Medical Officer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Medicine Resident</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Midwife</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Team Leader</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Doctor (Specialist)</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DP_ACT_ROLE_3__c</fullName>
+        <description>Stores IMS Activity Role 3 value</description>
+        <externalId>false</externalId>
+        <label>IMS Activity Role 3</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>BST_COUNTRY__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Accounting and Finance</fullName>
+                    <default>false</default>
+                    <label>Accounting and Finance</label>
+                </value>
+                <value>
+                    <fullName>Advisor</fullName>
+                    <default>false</default>
+                    <label>Advisor</label>
+                </value>
+                <value>
+                    <fullName>Chief Doctor</fullName>
+                    <default>false</default>
+                    <label>Chief Doctor</label>
+                </value>
+                <value>
+                    <fullName>Chief nurse</fullName>
+                    <default>false</default>
+                    <label>Chief nurse</label>
+                </value>
+                <value>
+                    <fullName>Clinical Nurse Specialist</fullName>
+                    <default>false</default>
+                    <label>Clinical Nurse Specialist</label>
+                </value>
+                <value>
+                    <fullName>Coordinator</fullName>
+                    <default>false</default>
+                    <label>Coordinator</label>
+                </value>
+                <value>
+                    <fullName>Deputy Head of Clinic</fullName>
+                    <default>false</default>
+                    <label>Deputy Head of Clinic</label>
+                </value>
+                <value>
+                    <fullName>Deputy Head of Dept</fullName>
+                    <default>false</default>
+                    <label>Deputy Head of Dept</label>
+                </value>
+                <value>
+                    <fullName>Director</fullName>
+                    <default>false</default>
+                    <label>Director</label>
+                </value>
+                <value>
+                    <fullName>Director (Administrative )</fullName>
+                    <default>false</default>
+                    <label>Director (Administrative )</label>
+                </value>
+                <value>
+                    <fullName>Director (Financial)</fullName>
+                    <default>false</default>
+                    <label>Director (Financial)</label>
+                </value>
+                <value>
+                    <fullName>Director (Hospital/Medical Institute Care)</fullName>
+                    <default>false</default>
+                    <label>Director (Hospital/Medical Institute Care)</label>
+                </value>
+                <value>
+                    <fullName>Director (Marketing)</fullName>
+                    <default>false</default>
+                    <label>Director (Marketing)</label>
+                </value>
+                <value>
+                    <fullName>Director (Medical)</fullName>
+                    <default>false</default>
+                    <label>Director (Medical)</label>
+                </value>
+                <value>
+                    <fullName>Doctor (Company)</fullName>
+                    <default>false</default>
+                    <label>Doctor (Company)</label>
+                </value>
+                <value>
+                    <fullName>Doctor (Military)</fullName>
+                    <default>false</default>
+                    <label>Doctor (Military)</label>
+                </value>
+                <value>
+                    <fullName>Doctor (School)</fullName>
+                    <default>false</default>
+                    <label>Doctor (School)</label>
+                </value>
+                <value>
+                    <fullName>Doctor Hosp (Consultant)</fullName>
+                    <default>false</default>
+                    <label>Doctor Hosp (Consultant)</label>
+                </value>
+                <value>
+                    <fullName>Engineer</fullName>
+                    <default>false</default>
+                    <label>Engineer</label>
+                </value>
+                <value>
+                    <fullName>Head of Clinic</fullName>
+                    <default>false</default>
+                    <label>Head of Clinic</label>
+                </value>
+                <value>
+                    <fullName>Head of Dept</fullName>
+                    <default>false</default>
+                    <label>Head of Dept</label>
+                </value>
+                <value>
+                    <fullName>Management staff</fullName>
+                    <default>false</default>
+                    <label>Management staff</label>
+                </value>
+                <value>
+                    <fullName>Manager</fullName>
+                    <default>false</default>
+                    <label>Manager</label>
+                </value>
+                <value>
+                    <fullName>Manager (Purchase)</fullName>
+                    <default>false</default>
+                    <label>Manager (Purchase)</label>
+                </value>
+                <value>
+                    <fullName>Media</fullName>
+                    <default>false</default>
+                    <label>Media</label>
+                </value>
+                <value>
+                    <fullName>Medicine Resident</fullName>
+                    <default>false</default>
+                    <label>Medicine Resident</label>
+                </value>
+                <value>
+                    <fullName>Member (Committee )</fullName>
+                    <default>false</default>
+                    <label>Member (Committee )</label>
+                </value>
+                <value>
+                    <fullName>Nurse</fullName>
+                    <default>false</default>
+                    <label>Nurse</label>
+                </value>
+                <value>
+                    <fullName>Operating department practitioner</fullName>
+                    <default>false</default>
+                    <label>Operating department practitioner</label>
+                </value>
+                <value>
+                    <fullName>Pharmacist</fullName>
+                    <default>false</default>
+                    <label>Pharmacist</label>
+                </value>
+                <value>
+                    <fullName>Pharmacy Assistant</fullName>
+                    <default>false</default>
+                    <label>Pharmacy Assistant</label>
+                </value>
+                <value>
+                    <fullName>Pharmacy Owner</fullName>
+                    <default>false</default>
+                    <label>Pharmacy Owner</label>
+                </value>
+                <value>
+                    <fullName>Politician</fullName>
+                    <default>false</default>
+                    <label>Politician</label>
+                </value>
+                <value>
+                    <fullName>President or Chairman</fullName>
+                    <default>false</default>
+                    <label>President or Chairman</label>
+                </value>
+                <value>
+                    <fullName>Researcher</fullName>
+                    <default>false</default>
+                    <label>Researcher</label>
+                </value>
+                <value>
+                    <fullName>Secretary or assistant</fullName>
+                    <default>false</default>
+                    <label>Secretary or assistant</label>
+                </value>
+                <value>
+                    <fullName>Technician or Operator</fullName>
+                    <default>false</default>
+                    <label>Technician or Operator</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <valueName>Accounting and Finance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <valueName>Chief Doctor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <valueName>Chief nurse</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <valueName>Coordinator</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <valueName>Deputy Head of Clinic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <valueName>Member (Committee )</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <valueName>Pharmacy Assistant</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <valueName>President or Chairman</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <valueName>Secretary or assistant</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <valueName>Advisor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <valueName>Clinical Nurse Specialist</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <valueName>Management staff</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <valueName>Nurse</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <valueName>Researcher</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DP_ACT_SEQ_NUM__c</fullName>
+        <description>Stores Activity Seq Number.</description>
+        <externalId>false</externalId>
+        <label>IMS Activity Seq Num</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DP_ACT_STATE__c</fullName>
+        <description>IMS COMMON - Situation of the activity state: Active, Closed, Decreased...</description>
+        <externalId>false</externalId>
+        <label>IMS Activity State</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                    <label>Closed</label>
+                </value>
+                <value>
+                    <fullName>Deceased</fullName>
+                    <default>false</default>
+                    <label>Deceased</label>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                    <label>Inactive</label>
+                </value>
+                <value>
+                    <fullName>Is.opening</fullName>
+                    <default>false</default>
+                    <label>Is.opening</label>
+                </value>
+                <value>
+                    <fullName>Maternity Leave</fullName>
+                    <default>false</default>
+                    <label>Maternity Leave</label>
+                </value>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>false</default>
+                    <label>Open</label>
+                </value>
+                <value>
+                    <fullName>Reduced Activity</fullName>
+                    <default>false</default>
+                    <label>Reduced Activity</label>
+                </value>
+                <value>
+                    <fullName>Retired</fullName>
+                    <default>false</default>
+                    <label>Retired</label>
+                </value>
+                <value>
+                    <fullName>Temp. Closed</fullName>
+                    <default>false</default>
+                    <label>Temp. Closed</label>
+                </value>
+                <value>
+                    <fullName>Temp. Inactive</fullName>
+                    <default>false</default>
+                    <label>Temp. Inactive</label>
+                </value>
+                <value>
+                    <fullName>Temporarily Inactive</fullName>
+                    <default>false</default>
+                    <label>Temporarily Inactive</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DP_ACT_STATUS__c</fullName>
+        <description>Stores Activity Status</description>
+        <externalId>false</externalId>
+        <label>IMS Activity Status</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Invalid</fullName>
+                    <default>false</default>
+                    <label>Invalid</label>
+                </value>
+                <value>
+                    <fullName>Provisional</fullName>
+                    <default>false</default>
+                    <label>Provisional</label>
+                </value>
+                <value>
+                    <fullName>Valid</fullName>
+                    <default>false</default>
+                    <label>Valid</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DP_ACT_WRK_STATUS__c</fullName>
+        <description>Stores activity working status.</description>
+        <externalId>false</externalId>
+        <label>IMS Activity Working Status</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Associate</fullName>
+                    <default>false</default>
+                    <label>Associate</label>
+                </value>
+                <value>
+                    <fullName>Career Soldier</fullName>
+                    <default>false</default>
+                    <label>Career Soldier</label>
+                </value>
+                <value>
+                    <fullName>Employee</fullName>
+                    <default>false</default>
+                    <label>Employee</label>
+                </value>
+                <value>
+                    <fullName>FT</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>FT</label>
+                </value>
+                <value>
+                    <fullName>Full Time</fullName>
+                    <default>false</default>
+                    <label>Full Time</label>
+                </value>
+                <value>
+                    <fullName>Home</fullName>
+                    <default>false</default>
+                    <label>Home</label>
+                </value>
+                <value>
+                    <fullName>Intern</fullName>
+                    <default>false</default>
+                    <label>Intern</label>
+                </value>
+                <value>
+                    <fullName>Market Access</fullName>
+                    <default>false</default>
+                    <label>Market Access</label>
+                </value>
+                <value>
+                    <fullName>Military Hospital Intern</fullName>
+                    <default>false</default>
+                    <label>Military Hospital Intern</label>
+                </value>
+                <value>
+                    <fullName>Miscellaneous</fullName>
+                    <default>false</default>
+                    <label>Miscellaneous</label>
+                </value>
+                <value>
+                    <fullName>Out Consultation</fullName>
+                    <default>false</default>
+                    <label>Out Consultation</label>
+                </value>
+                <value>
+                    <fullName>Part Time</fullName>
+                    <default>false</default>
+                    <label>Part Time</label>
+                </value>
+                <value>
+                    <fullName>Provisional substitute</fullName>
+                    <default>false</default>
+                    <label>Provisional substitute</label>
+                </value>
+                <value>
+                    <fullName>PT</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>PT</label>
+                </value>
+                <value>
+                    <fullName>Regular Substitute</fullName>
+                    <default>false</default>
+                    <label>Regular Substitute</label>
+                </value>
+                <value>
+                    <fullName>Regul Substitute</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Regul Substitute</label>
+                </value>
+                <value>
+                    <fullName>Unknown Activity</fullName>
+                    <default>false</default>
+                    <label>Unknown Activity</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DP_ID__c</fullName>
+        <description>IMS COMMON - This is the unique identifier provided by IMS for this Workplace.</description>
+        <externalId>true</externalId>
+        <label>IMS Id</label>
+        <length>32</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EndDate</fullName>
+    </fields>
+    <fields>
+        <fullName>IsActive</fullName>
+    </fields>
+    <fields>
+        <fullName>IsDirect</fullName>
+    </fields>
+    <fields>
+        <fullName>Roles</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>StartDate</fullName>
+    </fields>
+    <validationRules>
+        <fullName>BST_Check_value_of_Activity_status</fullName>
+        <active>true</active>
+        <description>Condition to check if any user other than Business admin has selected value as invalid</description>
+        <errorConditionFormula>AND (NOT(CONTAINS($Profile.Name, &quot;Administrator&quot;)) , ISPICKVAL(  DP_ACT_STATUS__c  , &apos;Invalid&apos;))</errorConditionFormula>
+        <errorDisplayField>DP_ACT_STATUS__c</errorDisplayField>
+        <errorMessage>Select Value Other Than Invalid</errorMessage>
+    </validationRules>
+</CustomObject>

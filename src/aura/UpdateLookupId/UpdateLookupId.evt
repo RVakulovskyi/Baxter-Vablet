@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Update Lookup Id" >
+    <aura:attribute name="sObjectId" type="Id" required="true" description="The Id of the selected SObject." />
+    <aura:attribute name="attributeName" type="String" required="true" description="The name of the attribute on the parent that houses the sObjectId" />
+</aura:event>

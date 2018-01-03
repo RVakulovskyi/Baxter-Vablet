@@ -1,0 +1,16 @@
+.THIS .hideSpinner {
+    display: none;
+}
+
+.THIS .showSpinner {
+    display: block;
+}
+
+.THIS .slds-spinner .slds-spinner__dot-a:after, 
+.THIS .slds-spinner .slds-spinner__dot-a:before, 
+.THIS .slds-spinner .slds-spinner__dot-b:after, 
+.THIS .slds-spinner .slds-spinner__dot-b:before, 
+.THIS .slds-spinner.slds-spinner:after, 
+.THIS .slds-spinner.slds-spinner:before {
+	background-color: #0070D2;
+}

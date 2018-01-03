@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Customer Contacts associated with a Parent Opportunity</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>BXFR_Attitude_towards_Baxter__c</fullName>
+        <externalId>false</externalId>
+        <label>Attitude towards Baxter</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Very positive</fullName>
+                    <default>false</default>
+                    <label>Very positive</label>
+                </value>
+                <value>
+                    <fullName>Positive</fullName>
+                    <default>false</default>
+                    <label>Positive</label>
+                </value>
+                <value>
+                    <fullName>Neutral</fullName>
+                    <default>false</default>
+                    <label>Neutral</label>
+                </value>
+                <value>
+                    <fullName>Negative</fullName>
+                    <default>false</default>
+                    <label>Negative</label>
+                </value>
+                <value>
+                    <fullName>Very negative</fullName>
+                    <default>false</default>
+                    <label>Very negative</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BXFR_Contact_Role__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact Role</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Business User</fullName>
+                    <default>false</default>
+                    <label>Business User</label>
+                </value>
+                <value>
+                    <fullName>Decision Maker</fullName>
+                    <default>false</default>
+                    <label>Decision Maker</label>
+                </value>
+                <value>
+                    <fullName>Economic Buyer</fullName>
+                    <default>false</default>
+                    <label>Economic Buyer</label>
+                </value>
+                <value>
+                    <fullName>Economic Decision Maker</fullName>
+                    <default>false</default>
+                    <label>Economic Decision Maker</label>
+                </value>
+                <value>
+                    <fullName>Evaluator</fullName>
+                    <default>false</default>
+                    <label>Evaluator</label>
+                </value>
+                <value>
+                    <fullName>Executive Sponsor</fullName>
+                    <default>false</default>
+                    <label>Executive Sponsor</label>
+                </value>
+                <value>
+                    <fullName>Influencer</fullName>
+                    <default>false</default>
+                    <label>Influencer</label>
+                </value>
+                <value>
+                    <fullName>Technical Buyer</fullName>
+                    <default>false</default>
+                    <label>Technical Buyer</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BXFR_Objectives_Parent_Opportunity__c</fullName>
+        <externalId>false</externalId>
+        <label>Objectives (Parent Opportunity)</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>BXFR_Relevance__c</fullName>
+        <externalId>false</externalId>
+        <label>Influence</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BXGO_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Parent Opportunity Contacts</relationshipLabel>
+        <relationshipName>Parent_Opportunity_Contacts</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BXGO_Parent_Opportunity__c</fullName>
+        <externalId>false</externalId>
+        <label>Parent Opportunity</label>
+        <referenceTo>BXGO_Parent_Opportunity__c</referenceTo>
+        <relationshipLabel>Parent Opportunity Contacts</relationshipLabel>
+        <relationshipName>Parent_Opportunity_Contacts</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Parent Opportunity Contact</label>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Parent Opportunity Contacts ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Parent Opportunity Contacts</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

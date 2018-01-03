@@ -1,0 +1,2783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>LtngCompQuestion</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>LightningComponent</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>LtngRecordTypeSelect</content>
+        <skipRecordTypeSelect>true</skipRecordTypeSelect>
+        <type>LightningComponent</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>BST_Question_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>BST_Question_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>BST_QUESTION_STATEMENT__c</fields>
+        <fields>BST_START_DATE__c</fields>
+        <fields>BST_END_DATE__c</fields>
+        <fields>BST_STATUS__c</fields>
+        <fields>BST_RESPONSE_TYPE__c</fields>
+        <fields>BST_RESPONSE_VALID_TIME__c</fields>
+        <fields>BST_PRIVATE__c</fields>
+        <fields>BST_ORDER__c</fields>
+        <label>BST Question Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object used to store the Question for 
+
+1. Account Profile 
+2. Contact Profile
+3. Global or Regional Parent Questions for Account Profile and Contact Profile</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>BST_Question_HelpText</fullName>
+        <description>This is created to fetch the value of the fields of question object and display in the lightning tooltip</description>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>BST_QUESTION_TYPE__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>BST_PROFILE_TYPE__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>BST_QUESTION_STATEMENT__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>BST_COUNTRY__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>BST_MAJOR_CATEGORY__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>BST_CATEGORY__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>BST_SALESFORCE_GROUP__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>BST_ORDER__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>BST_STATUS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>BST_RESPONSE_VALID_TIME__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>BST_QUESTION_LOCALE__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>BST_START_DATE__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>BST_END_DATE__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>BST_RESPONSE_TYPE__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>BST_ANSWER_OPTIONS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>BST_PRIVATE__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Question Help Text</label>
+    </fieldSets>
+    <fields>
+        <fullName>BST_ANSWER_OPTIONS__c</fullName>
+        <description>BST - field dynamically shown on the lightning component if Answer type = Pick-list or Multi-picklist. This fiels is used to provide the possible answers that can be selected in the question in My Profile screens under Account or Contact. the separator that needs to be used between values = &quot;~##~&quot;</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field used to provide the possible values that can be chosen if the Question Response type = Picklist or Multipicklist. The separator that needs to be used between the options is ~##~</inlineHelpText>
+        <label>Answer Options</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>BST_CATEGORY__c</fullName>
+        <description>The pick list is dependent on Major Category pick-list. This field can be used to group questions into logical streams and is used for grouping into My Profile/all Profile screens under Account and Contact</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field dependent on selection made in Major Category. The value allows logical grouping of the questions</inlineHelpText>
+        <label>Secondary Category</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>BST_MAJOR_CATEGORY__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Access</fullName>
+                    <default>false</default>
+                    <label>Access</label>
+                </value>
+                <value>
+                    <fullName>Competitive information</fullName>
+                    <default>false</default>
+                    <label>Competitive information</label>
+                </value>
+                <value>
+                    <fullName>CRRT Baxter Insight</fullName>
+                    <default>false</default>
+                    <label>CRRT Baxter Insight</label>
+                </value>
+                <value>
+                    <fullName>CRRT Competitive Insight</fullName>
+                    <default>false</default>
+                    <label>CRRT Competitive Insight</label>
+                </value>
+                <value>
+                    <fullName>General Account information</fullName>
+                    <default>false</default>
+                    <label>General Account information</label>
+                </value>
+                <value>
+                    <fullName>HD Competitive Insight</fullName>
+                    <default>false</default>
+                    <label>HD Competitive Insight</label>
+                </value>
+                <value>
+                    <fullName>PD Baxter Insight</fullName>
+                    <default>false</default>
+                    <label>PD Baxter Insight</label>
+                </value>
+                <value>
+                    <fullName>PD Competitive Insight</fullName>
+                    <default>false</default>
+                    <label>PD Competitive Insight</label>
+                </value>
+                <value>
+                    <fullName>Vial-Mate, Frozen, Vanco Dex</fullName>
+                    <default>false</default>
+                    <label>Vial-Mate, Frozen, Vanco Dex</label>
+                </value>
+                <value>
+                    <fullName>Gas</fullName>
+                    <default>false</default>
+                    <label>Gas</label>
+                </value>
+                <value>
+                    <fullName>Baxter Data</fullName>
+                    <default>false</default>
+                    <label>Baxter Data</label>
+                </value>
+                <value>
+                    <fullName>Hospital Potential</fullName>
+                    <default>false</default>
+                    <label>Hospital Potential</label>
+                </value>
+                <value>
+                    <fullName>Profiling</fullName>
+                    <default>false</default>
+                    <label>Profiling</label>
+                </value>
+                <value>
+                    <fullName>Clinical Studies</fullName>
+                    <default>false</default>
+                    <label>Clinical Studies</label>
+                </value>
+                <value>
+                    <fullName>Home Based Hemodialysis Therapies</fullName>
+                    <default>false</default>
+                    <label>Home Based Hemodialysis Therapies</label>
+                </value>
+                <value>
+                    <fullName>Key Metrics</fullName>
+                    <default>false</default>
+                    <label>Key Metrics</label>
+                </value>
+                <value>
+                    <fullName>Unit Assessment</fullName>
+                    <default>false</default>
+                    <label>Unit Assessment</label>
+                </value>
+                <value>
+                    <fullName>Treatment Criteria</fullName>
+                    <default>false</default>
+                    <label>Treatment Criteria</label>
+                </value>
+                <value>
+                    <fullName>Delivered CRRT Dose</fullName>
+                    <default>false</default>
+                    <label>Delivered CRRT Dose</label>
+                </value>
+                <value>
+                    <fullName>Fluid Overload</fullName>
+                    <default>false</default>
+                    <label>Fluid Overload</label>
+                </value>
+                <value>
+                    <fullName>Recirculation</fullName>
+                    <default>false</default>
+                    <label>Recirculation</label>
+                </value>
+                <value>
+                    <fullName>SLED Threat</fullName>
+                    <default>false</default>
+                    <label>SLED Threat</label>
+                </value>
+                <value>
+                    <fullName>Common Settings</fullName>
+                    <default>false</default>
+                    <label>Common Settings</label>
+                </value>
+                <value>
+                    <fullName>Anticoagulation</fullName>
+                    <default>false</default>
+                    <label>Anticoagulation</label>
+                </value>
+                <value>
+                    <fullName>Additional Information</fullName>
+                    <default>false</default>
+                    <label>Additional Information</label>
+                </value>
+                <value>
+                    <fullName>Unit Specific Information</fullName>
+                    <default>false</default>
+                    <label>Unit Specific Information</label>
+                </value>
+                <value>
+                    <fullName>Short Term Catheter</fullName>
+                    <default>false</default>
+                    <label>Short Term Catheter</label>
+                </value>
+                <value>
+                    <fullName>Prismaflex Custom Mode</fullName>
+                    <default>false</default>
+                    <label>Prismaflex Custom Mode</label>
+                </value>
+                <value>
+                    <fullName>Information</fullName>
+                    <default>false</default>
+                    <label>Information</label>
+                </value>
+                <value>
+                    <fullName>Information Technology</fullName>
+                    <default>false</default>
+                    <label>Information Technology</label>
+                </value>
+                <value>
+                    <fullName>Pump Information</fullName>
+                    <default>false</default>
+                    <label>Pump Information</label>
+                </value>
+                <value>
+                    <fullName>Dialysis Landscape</fullName>
+                    <default>false</default>
+                    <label>Dialysis Landscape</label>
+                </value>
+                <value>
+                    <fullName>Peritoneal Dialysis Therapies</fullName>
+                    <default>false</default>
+                    <label>Peritoneal Dialysis Therapies</label>
+                </value>
+                <value>
+                    <fullName>Facility Based Hemodialysis Therapies</fullName>
+                    <default>false</default>
+                    <label>Facility Based Hemodialysis Therapies</label>
+                </value>
+                <value>
+                    <fullName>HD Consumables - Dialyzers (by Vendor %)</fullName>
+                    <default>false</default>
+                    <label>HD Consumables - Dialyzers (by Vendor %)</label>
+                </value>
+                <value>
+                    <fullName>HD Consumables - Acid Concentrates (by Vendor %)</fullName>
+                    <default>false</default>
+                    <label>HD Consumables - Acid Concentrates (by Vendor %)</label>
+                </value>
+                <value>
+                    <fullName>HD Consumables - Bicarb Concentrates (by Vendor %)</fullName>
+                    <default>false</default>
+                    <label>HD Consumables - Bicarb Concentrates (by Vendor %)</label>
+                </value>
+                <value>
+                    <fullName>Machine and Vaporizer Information</fullName>
+                    <default>false</default>
+                    <label>Machine and Vaporizer Information</label>
+                </value>
+                <value>
+                    <fullName>Baxter Contract Information</fullName>
+                    <default>false</default>
+                    <label>Baxter Contract Information</label>
+                </value>
+                <value>
+                    <fullName>Consumables Facility Based Hemodialysis</fullName>
+                    <default>false</default>
+                    <label>Consumables Facility Based Hemodialysis</label>
+                </value>
+                <value>
+                    <fullName>Consumables Home Based Hemodialysis</fullName>
+                    <default>false</default>
+                    <label>Consumables Home Based Hemodialysis</label>
+                </value>
+                <value>
+                    <fullName>Equipment Facility Based Hemodialysis</fullName>
+                    <default>false</default>
+                    <label>Equipment Facility Based Hemodialysis</label>
+                </value>
+                <value>
+                    <fullName>Equipment Home Based Hemodialysis</fullName>
+                    <default>false</default>
+                    <label>Equipment Home Based Hemodialysis</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>CRRT</controllingFieldValue>
+                <valueName>CRRT Baxter Insight</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CRRT</controllingFieldValue>
+                <valueName>CRRT Competitive Insight</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Renal</controllingFieldValue>
+                <controllingFieldValue>Advanced Surgery</controllingFieldValue>
+                <valueName>Competitive information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Renal</controllingFieldValue>
+                <controllingFieldValue>Advanced Surgery</controllingFieldValue>
+                <valueName>Baxter Data</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Renal</controllingFieldValue>
+                <controllingFieldValue>Advanced Surgery</controllingFieldValue>
+                <valueName>Hospital Potential</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Renal</controllingFieldValue>
+                <controllingFieldValue>Advanced Surgery</controllingFieldValue>
+                <valueName>Profiling</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Medical Affairs (MSL)</controllingFieldValue>
+                <valueName>Clinical Studies</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Nurse Worksheet</controllingFieldValue>
+                <valueName>Key Metrics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Nurse Worksheet</controllingFieldValue>
+                <valueName>Unit Assessment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Nurse Worksheet</controllingFieldValue>
+                <valueName>Treatment Criteria</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Nurse Worksheet</controllingFieldValue>
+                <valueName>Delivered CRRT Dose</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Nurse Worksheet</controllingFieldValue>
+                <valueName>Fluid Overload</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Nurse Worksheet</controllingFieldValue>
+                <valueName>Recirculation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Nurse Worksheet</controllingFieldValue>
+                <valueName>SLED Threat</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Nurse Worksheet</controllingFieldValue>
+                <valueName>Common Settings</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Nurse Worksheet</controllingFieldValue>
+                <valueName>Anticoagulation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Nurse Worksheet</controllingFieldValue>
+                <valueName>Additional Information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Nurse Worksheet</controllingFieldValue>
+                <valueName>Unit Specific Information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Nurse Worksheet</controllingFieldValue>
+                <valueName>Short Term Catheter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Nurse Worksheet</controllingFieldValue>
+                <valueName>Prismaflex Custom Mode</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HP - Fluid Systems</controllingFieldValue>
+                <valueName>Information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HP - Fluid Systems</controllingFieldValue>
+                <valueName>Information Technology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HP - Fluid Systems</controllingFieldValue>
+                <valueName>Pump Information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Renal Chronic Census</controllingFieldValue>
+                <valueName>Home Based Hemodialysis Therapies</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Renal Chronic Census</controllingFieldValue>
+                <valueName>Dialysis Landscape</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Renal Chronic Census</controllingFieldValue>
+                <valueName>Peritoneal Dialysis Therapies</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Renal Chronic Census</controllingFieldValue>
+                <valueName>Facility Based Hemodialysis Therapies</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Renal Chronic Census</controllingFieldValue>
+                <valueName>HD Consumables - Dialyzers (by Vendor %)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Renal Chronic Census</controllingFieldValue>
+                <valueName>HD Consumables - Acid Concentrates (by Vendor %)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Renal Chronic Census</controllingFieldValue>
+                <valueName>HD Consumables - Bicarb Concentrates (by Vendor %)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Renal Chronic Census</controllingFieldValue>
+                <valueName>Consumables Facility Based Hemodialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Renal Chronic Census</controllingFieldValue>
+                <valueName>Consumables Home Based Hemodialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Renal Chronic Census</controllingFieldValue>
+                <valueName>Equipment Facility Based Hemodialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Renal Chronic Census</controllingFieldValue>
+                <valueName>Equipment Home Based Hemodialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anesthesia</controllingFieldValue>
+                <valueName>Gas</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anesthesia</controllingFieldValue>
+                <valueName>Machine and Vaporizer Information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Anesthesia</controllingFieldValue>
+                <valueName>Baxter Contract Information</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_CHILD_STATUS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text  (BST_PARENT_QUESTION__r.BST_STATUS__c )</formula>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_COUNTRY__c</fullName>
+        <description>The value is fetched from Global Value Set BST_COUNTRY_GLOBAL. This field is used in visibility fielters for My Profile/All profile views and also this is used in sharing rules so that the users can see the correct set of questions based on the country/countries they cover</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The country where the question needs to be visible</inlineHelpText>
+        <label>Country</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>BST_Country</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_END_DATE__c</fullName>
+        <description>This is to capture the expiration date of the question. Based on this date we have automatic process to set the question inactive (if the date is in the past) so that the system automatically maintains the status of questions</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date when the need to fill in the question is due. Once this date is passed the Question automatically becomes Inactive</inlineHelpText>
+        <label>End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>BST_EXPIRED_RESPONSES__c</fullName>
+        <description>Calculated field (roll up summary) based on the related answers to the question that are expired (today - last update date of the answer &gt; Response Valid time in Days)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The field show all the question related answers where the answer valid time is expired. This is auto calculated by the system looking at the Response valid time in Days defined on the question level</inlineHelpText>
+        <label>Expired Response</label>
+        <summaryFilterItems>
+            <field>Account_Profile__c.BST_EXPIRED__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Account_Profile__c.BST_Question__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>BST_INITIATIVE__c</fullName>
+        <description>This field is used to capture the initiative of the question (global, regional, EMEA etc)
+Will be mainly used for reporting and segregation of Parent Questions</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field used to mark if a parent question is Globally applicable, For a certain region or for a smaller group of countries. Will be useful to local admins and for reporting purposes</inlineHelpText>
+        <label>Initiative</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Global Initiative</fullName>
+                    <default>false</default>
+                    <label>Global Initiative</label>
+                </value>
+                <value>
+                    <fullName>Local Initiative</fullName>
+                    <default>false</default>
+                    <label>Local Initiative</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_MAJOR_CATEGORY__c</fullName>
+        <description>BST - pick list dependent on Country. Used to allow grouping of questions into logical buckets</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Pick list used to group questions in logical segments. The grouping will be done into My Profile/All Profile</inlineHelpText>
+        <label>Major Category</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>BST_COUNTRY__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CRRT</fullName>
+                    <default>false</default>
+                    <label>CRRT</label>
+                </value>
+                <value>
+                    <fullName>Surgery</fullName>
+                    <default>false</default>
+                    <label>Surgery</label>
+                </value>
+                <value>
+                    <fullName>Anesthesia</fullName>
+                    <default>false</default>
+                    <label>Anesthesia</label>
+                </value>
+                <value>
+                    <fullName>Renal</fullName>
+                    <default>false</default>
+                    <label>Renal</label>
+                </value>
+                <value>
+                    <fullName>Advanced Surgery</fullName>
+                    <default>false</default>
+                    <label>Advanced Surgery</label>
+                </value>
+                <value>
+                    <fullName>Medical Affairs (MSL)</fullName>
+                    <default>false</default>
+                    <label>Medical Affairs (MSL)</label>
+                </value>
+                <value>
+                    <fullName>Renal Chronic Census</fullName>
+                    <default>false</default>
+                    <label>Renal Chronic Census</label>
+                </value>
+                <value>
+                    <fullName>HP - Fluid Systems</fullName>
+                    <default>false</default>
+                    <label>HP - Fluid Systems</label>
+                </value>
+                <value>
+                    <fullName>Nurse Worksheet</fullName>
+                    <default>false</default>
+                    <label>Nurse Worksheet</label>
+                </value>
+                <value>
+                    <fullName>Anestetics</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Anestetics</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <valueName>Renal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <valueName>Advanced Surgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <valueName>Medical Affairs (MSL)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>Anesthesia</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Renal Chronic Census</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>HP - Fluid Systems</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Nurse Worksheet</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>CRRT</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_ORDER__c</fullName>
+        <description>The value set in the Order field will drive the order in with the questions will be shown in My Profile/All Profile sections. This is the 3rd condition. Question are ordered by Major Category, Secondary Category and then by the Order field</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is used to capture the Order of the question.</inlineHelpText>
+        <label>Order</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_PARENT_QUESTION__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>BST - This field is used to lookup to the parent question. the lookup has a filter to retrieve only Active Parent questions where the record type = Global Question (logic done in the lightning component)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field used to link a local question to a global/regional or cluster initiative. For example if on global level we need to store the number of beds, this question will be created as Account Question by each country and then linked to the global question</inlineHelpText>
+        <label>Parent Question</label>
+        <referenceTo>Question__c</referenceTo>
+        <relationshipLabel>Questions</relationshipLabel>
+        <relationshipName>Questions</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BST_PRIVATE__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>BST - checkbox used to drive visibility into the All Profile sections</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field used to drive visibility into the All Profile Sections. Records where checkbox = TRUE are seen only by users that are member of at least one of the Groups defined on the Question level. Users outside the groups on the Question level will not see it</inlineHelpText>
+        <label>Private</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BST_PROFILE_TYPE__c</fullName>
+        <description>BST - picklist set on gloabl question and used on the lookup filter from child, so that Account Question record type can be linked only to Account Parent types and Contact question record type can be linked only to Contact Parent questions</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value set on Global Questions (Parent Questions) in order to allow only childs of the correct type to be linked to parents (Account Question record type linked to Account Parent; Contact Question Record Type linked to Contact Parent)</inlineHelpText>
+        <label>Profile Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Account</fullName>
+                    <default>false</default>
+                    <label>Account</label>
+                </value>
+                <value>
+                    <fullName>Contact</fullName>
+                    <default>false</default>
+                    <label>Contact</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_QUESTION_LOCALE__c</fullName>
+        <description>This is used to capture the translation of the question. used for translation of the Question into local Language. This will be shown to users using language different than ENG</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field used by countries using the app in a language different than English. The value in this field should be the translation into local language of the Question text.</inlineHelpText>
+        <label>Question Localised</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>BST_QUESTION_STATEMENT__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <inlineHelpText>This field requires unique value for each record.</inlineHelpText>
+        <label>Question Statement</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>BST_QUESTION_TEXT_ONLY__c</fullName>
+        <description>Stored only Questions without the sequence number</description>
+        <externalId>false</externalId>
+        <formula>IF(ISNUMBER(LEFT(BST_QUESTION_STATEMENT__c,1)), (IF(ISNUMBER(TEXT(FIND(&quot;.&quot;, BST_QUESTION_STATEMENT__c,0))), RIGHT(BST_QUESTION_STATEMENT__c,(LEN(BST_QUESTION_STATEMENT__c)- FIND(&quot;.&quot;, BST_QUESTION_STATEMENT__c,0))),&quot;&quot;)),BST_QUESTION_STATEMENT__c
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Question Text Only</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_QUESTION_TYPE__c</fullName>
+        <description>BST - picklist set on Global Question (parent Question) to allow categorization of the initiative in like Global, REgional, cluster level etc. Mainly important for reporting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Picklist to allow categorization of Global Questions (Parent Question) into groups like Global, Regional, Cluster initiatives etc</inlineHelpText>
+        <label>Question Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Benelux Initiative</fullName>
+                    <default>false</default>
+                    <label>Benelux Initiative</label>
+                </value>
+                <value>
+                    <fullName>EMEA Initiative</fullName>
+                    <default>false</default>
+                    <label>EMEA Initiative</label>
+                </value>
+                <value>
+                    <fullName>Global Initiative</fullName>
+                    <default>false</default>
+                    <label>Global Initiative</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_RESPONSE_TYPE__c</fullName>
+        <description>BST - This is a picklist used to capture the response type of any question. It allows Date, Number, Picklist, Multipicklist</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field used to define what type of answer can be provided for the question. Can be only one of the following: Date, Number, Picklist or Multipicklist</inlineHelpText>
+        <label>Response Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Date</fullName>
+                    <default>false</default>
+                    <label>Date</label>
+                </value>
+                <value>
+                    <fullName>Number</fullName>
+                    <default>false</default>
+                    <label>Number</label>
+                </value>
+                <value>
+                    <fullName>Picklist</fullName>
+                    <default>false</default>
+                    <label>Picklist</label>
+                </value>
+                <value>
+                    <fullName>Multi Picklist</fullName>
+                    <default>false</default>
+                    <label>Multi Picklist</label>
+                </value>
+                <value>
+                    <fullName>Text</fullName>
+                    <default>false</default>
+                    <label>Text</label>
+                </value>
+                <value>
+                    <fullName>Account</fullName>
+                    <default>false</default>
+                    <label>Account</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_RESPONSE_VALID_TIME__c</fullName>
+        <description>BST - this number (in days) is the time an answer will be valid from the moment it is filled in before it is maked as expired in My Profile/All Profile</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of days that a response will be considered as valid before it is marked as expired on the Question in My Profile section. Auto calculated based on last updated date compared to the current date and vs the value in this field</inlineHelpText>
+        <label>Response Valid Time(in days)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_SALESFORCE_GROUP__c</fullName>
+        <description>BST - this multipicklist is used for visibility filter in My profile sections on Accounts and Contacts. Based on the selections made here and the groups membership set on user level, the question is available or not to the user in My Profile section</description>
+        <externalId>false</externalId>
+        <inlineHelpText>2 or 3 letters acronyms that define the Franchises or user groups in countries. The values selected will make the question editable only by users that are part of at least one of the selected groups</inlineHelpText>
+        <label>Baxter User Group</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <controllingField>BST_COUNTRY__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>HD</fullName>
+                    <default>false</default>
+                    <label>HD</label>
+                </value>
+                <value>
+                    <fullName>PD</fullName>
+                    <default>false</default>
+                    <label>PD</label>
+                </value>
+                <value>
+                    <fullName>AS</fullName>
+                    <default>false</default>
+                    <label>AS</label>
+                </value>
+                <value>
+                    <fullName>MSL</fullName>
+                    <default>false</default>
+                    <label>MSL</label>
+                </value>
+                <value>
+                    <fullName>Hospital Products</fullName>
+                    <default>false</default>
+                    <label>Hospital Products</label>
+                </value>
+                <value>
+                    <fullName>Renal Chronic</fullName>
+                    <default>false</default>
+                    <label>Renal Chronic</label>
+                </value>
+                <value>
+                    <fullName>Renal Acute</fullName>
+                    <default>false</default>
+                    <label>Renal Acute</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>PD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>AS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>MSL</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Hospital Products</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Renal Chronic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Renal Acute</valueName>
+            </valueSettings>
+        </valueSet>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>BST_SALES_PROCESS__c</fullName>
+        <description>Holds the Stage Process Name when Questions are for Opportunity milestone. Not used at this moment in BOOST. May be used in the future for Opportunities</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Not applicable in BOOST at the moment</inlineHelpText>
+        <label>Sales Process</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ACT</fullName>
+                    <default>false</default>
+                    <label>ACT</label>
+                </value>
+                <value>
+                    <fullName>Bed Conversion</fullName>
+                    <default>false</default>
+                    <label>Bed Conversion</label>
+                </value>
+                <value>
+                    <fullName>BioSurgery</fullName>
+                    <default>false</default>
+                    <label>BioSurgery</label>
+                </value>
+                <value>
+                    <fullName>CCOE</fullName>
+                    <default>false</default>
+                    <label>CCOE</label>
+                </value>
+                <value>
+                    <fullName>Competitive Gain</fullName>
+                    <default>false</default>
+                    <label>Competitive Gain</label>
+                </value>
+                <value>
+                    <fullName>Dose-edge</fullName>
+                    <default>false</default>
+                    <label>Dose-edge</label>
+                </value>
+                <value>
+                    <fullName>ICNet</fullName>
+                    <default>false</default>
+                    <label>ICNet</label>
+                </value>
+                <value>
+                    <fullName>Infusion</fullName>
+                    <default>false</default>
+                    <label>Infusion</label>
+                </value>
+                <value>
+                    <fullName>Nutrition Clinimix</fullName>
+                    <default>false</default>
+                    <label>Nutrition Clinimix</label>
+                </value>
+                <value>
+                    <fullName>Nutrition Compounder</fullName>
+                    <default>false</default>
+                    <label>Nutrition Compounder</label>
+                </value>
+                <value>
+                    <fullName>Nutrition Compounder Resign</fullName>
+                    <default>false</default>
+                    <label>Nutrition Compounder Resign</label>
+                </value>
+                <value>
+                    <fullName>Pharmacy</fullName>
+                    <default>false</default>
+                    <label>Pharmacy</label>
+                </value>
+                <value>
+                    <fullName>Revenue at Risk</fullName>
+                    <default>false</default>
+                    <label>Revenue at Risk</label>
+                </value>
+                <value>
+                    <fullName>Same Store Sales</fullName>
+                    <default>false</default>
+                    <label>Same Store Sales</label>
+                </value>
+                <value>
+                    <fullName>Strategic Account Executive</fullName>
+                    <default>false</default>
+                    <label>Strategic Account Executive</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_STAGE_NAME__c</fullName>
+        <description>Holds the Stage Name when Questions are for Opportunity milestone. It should match with the values of Opportunity Stage Name.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Not Applicable for BOOST at the moment</inlineHelpText>
+        <label>Stage Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_START_DATE__c</fullName>
+        <description>This is to capture the start date of the question. Based in this we have automated process to set the status as active</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The start date from when the Question can be considered as active and applicable to be filled in by users under My Profile section</inlineHelpText>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>BST_STATUS__c</fullName>
+        <description>BST - Status of the question. Drive visibility in My Profile/All profile since only active questions are shown on there. Inactive questions can be reported on. Automatic logic based on Start Date/End date to automatically change the status of a question to Active/Inactive based on the current date compared to Start and End Dates</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Status of the question drives visibility in My Profile/All Profile. Only active questions are shown to users for data insert. Inactive questions can be reported on but will not be shown for data gathering</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                    <label>Inactive</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_TOTAL_RESPONSE__c</fullName>
+        <description>BST - roll up summary that tracks how many records have been profiled (accounts or contacts). It tracks basically on how many records (account or contacts) users have provided answers to the question</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Automatic calculated field that display for how many customers we have filled in the question</inlineHelpText>
+        <label>Total Response</label>
+        <summaryFilterItems>
+            <field>Account_Profile__c.BST_Selected_Answer__c</field>
+            <operation>notEqual</operation>
+            <value>Null</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Account_Profile__c.BST_Question__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>BST_TYPE__c</fullName>
+        <description>This is a formula field used to capture the value from BST_STAGE_NAME__c</description>
+        <externalId>false</externalId>
+        <formula>BST_STAGE_NAME__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Competitor_Question__c</fullName>
+        <externalId>false</externalId>
+        <label>Competitor Question</label>
+        <length>1000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Linked_Question__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Linked Question</label>
+        <referenceTo>Question__c</referenceTo>
+        <relationshipLabel>Questions (Linked Question)</relationshipLabel>
+        <relationshipName>Questions1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Question</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>BST_QUESTION_STATEMENT__c</columns>
+        <columns>BST_SALESFORCE_GROUP__c</columns>
+        <columns>BST_ANSWER_OPTIONS__c</columns>
+        <columns>BST_START_DATE__c</columns>
+        <columns>BST_END_DATE__c</columns>
+        <columns>BST_STATUS__c</columns>
+        <columns>BST_TYPE__c</columns>
+        <columns>BST_COUNTRY__c</columns>
+        <columns>BST_CATEGORY__c</columns>
+        <columns>BST_INITIATIVE__c</columns>
+        <columns>BST_MAJOR_CATEGORY__c</columns>
+        <columns>BST_ORDER__c</columns>
+        <columns>BST_PARENT_QUESTION__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>Ques-{0000}</displayFormat>
+        <label>Question Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Questions</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>BST_ACCOUNT_PROFILE_QUESTION</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>BST_Question_Compact_Layout</compactLayoutAssignment>
+        <description>Used for  Account Profile Functionality</description>
+        <label>Account Profile Question</label>
+        <picklistValues>
+            <picklist>BST_CATEGORY__c</picklist>
+            <values>
+                <fullName>Access</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Additional Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Anticoagulation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Baxter Contract Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Baxter Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRRT Baxter Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRRT Competitive Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clinical Studies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Common Settings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitive information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumables Facility Based Hemodialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumables Home Based Hemodialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delivered CRRT Dose</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dialysis Landscape</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equipment Facility Based Hemodialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equipment Home Based Hemodialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Facility Based Hemodialysis Therapies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fluid Overload</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Account information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HD Competitive Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HD Consumables - Acid Concentrates %28by Vendor %25%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HD Consumables - Bicarb Concentrates %28by Vendor %25%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HD Consumables - Dialyzers %28by Vendor %25%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home Based Hemodialysis Therapies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospital Potential</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Key Metrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machine and Vaporizer Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PD Baxter Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PD Competitive Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peritoneal Dialysis Therapies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prismaflex Custom Mode</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Profiling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pump Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recirculation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLED Threat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Short Term Catheter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Treatment Criteria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unit Assessment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unit Specific Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vial-Mate%2C Frozen%2C Vanco Dex</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_COUNTRY__c</picklist>
+            <values>
+                <fullName>Belgium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Canada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dom Com</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Netherlands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_INITIATIVE__c</picklist>
+            <values>
+                <fullName>Global Initiative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Initiative</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_MAJOR_CATEGORY__c</picklist>
+            <values>
+                <fullName>Advanced Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Anesthesia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRRT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HP - Fluid Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Affairs %28MSL%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nurse Worksheet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renal Chronic Census</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surgery</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_PROFILE_TYPE__c</picklist>
+            <values>
+                <fullName>Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_QUESTION_TYPE__c</picklist>
+            <values>
+                <fullName>Benelux Initiative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EMEA Initiative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global Initiative</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_RESPONSE_TYPE__c</picklist>
+            <values>
+                <fullName>Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Date</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Multi Picklist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Number</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Picklist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Text</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_SALESFORCE_GROUP__c</picklist>
+            <values>
+                <fullName>AS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospital Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MSL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renal Acute</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renal Chronic</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_SALES_PROCESS__c</picklist>
+            <values>
+                <fullName>ACT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bed Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BioSurgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CCOE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitive Gain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dose-edge</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ICNet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Infusion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nutrition Clinimix</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nutrition Compounder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nutrition Compounder Resign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Revenue at Risk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same Store Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strategic Account Executive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_STATUS__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>BST_CONTACT_PROFILE_QUESTION</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>BST_Question_Compact_Layout</compactLayoutAssignment>
+        <description>Used for Contact Profile Questions</description>
+        <label>Contact Profile Question</label>
+        <picklistValues>
+            <picklist>BST_CATEGORY__c</picklist>
+            <values>
+                <fullName>Access</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRRT Baxter Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRRT Competitive Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitive information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Account information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HD Competitive Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PD Baxter Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PD Competitive Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vial-Mate%2C Frozen%2C Vanco Dex</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_COUNTRY__c</picklist>
+            <values>
+                <fullName>Belgium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dom Com</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Netherlands</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_INITIATIVE__c</picklist>
+            <values>
+                <fullName>Global Initiative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Initiative</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_MAJOR_CATEGORY__c</picklist>
+            <values>
+                <fullName>CRRT</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_PROFILE_TYPE__c</picklist>
+            <values>
+                <fullName>Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_QUESTION_TYPE__c</picklist>
+            <values>
+                <fullName>Benelux Initiative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EMEA Initiative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global Initiative</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_RESPONSE_TYPE__c</picklist>
+            <values>
+                <fullName>Date</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Multi Picklist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Number</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Picklist</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_SALESFORCE_GROUP__c</picklist>
+            <values>
+                <fullName>AS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MSL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_SALES_PROCESS__c</picklist>
+            <values>
+                <fullName>ACT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bed Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BioSurgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CCOE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitive Gain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dose-edge</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ICNet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Infusion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nutrition Clinimix</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nutrition Compounder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nutrition Compounder Resign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Revenue at Risk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same Store Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strategic Account Executive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_STATUS__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>BST_Global_Question</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>BST_Question_Compact_Layout</compactLayoutAssignment>
+        <description>Used as a parent question</description>
+        <label>Global Question</label>
+        <picklistValues>
+            <picklist>BST_CATEGORY__c</picklist>
+            <values>
+                <fullName>Access</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Additional Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Anticoagulation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Baxter Contract Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Baxter Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRRT Baxter Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRRT Competitive Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clinical Studies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Common Settings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitive information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumables Facility Based Hemodialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumables Home Based Hemodialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delivered CRRT Dose</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dialysis Landscape</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equipment Facility Based Hemodialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equipment Home Based Hemodialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Facility Based Hemodialysis Therapies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fluid Overload</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Account information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HD Competitive Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HD Consumables - Acid Concentrates %28by Vendor %25%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HD Consumables - Bicarb Concentrates %28by Vendor %25%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HD Consumables - Dialyzers %28by Vendor %25%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home Based Hemodialysis Therapies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospital Potential</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Key Metrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machine and Vaporizer Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PD Baxter Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PD Competitive Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peritoneal Dialysis Therapies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prismaflex Custom Mode</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Profiling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pump Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recirculation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLED Threat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Short Term Catheter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Treatment Criteria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unit Assessment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unit Specific Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vial-Mate%2C Frozen%2C Vanco Dex</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_COUNTRY__c</picklist>
+            <values>
+                <fullName>Belgium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dom Com</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Netherlands</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_INITIATIVE__c</picklist>
+            <values>
+                <fullName>Global Initiative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Initiative</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_MAJOR_CATEGORY__c</picklist>
+            <values>
+                <fullName>Advanced Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Anesthesia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRRT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HP - Fluid Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Affairs %28MSL%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nurse Worksheet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renal Chronic Census</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surgery</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_PROFILE_TYPE__c</picklist>
+            <values>
+                <fullName>Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_QUESTION_TYPE__c</picklist>
+            <values>
+                <fullName>Benelux Initiative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EMEA Initiative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global Initiative</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_RESPONSE_TYPE__c</picklist>
+            <values>
+                <fullName>Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Date</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Multi Picklist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Number</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Picklist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Text</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_SALESFORCE_GROUP__c</picklist>
+            <values>
+                <fullName>AS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospital Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MSL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renal Chronic</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_SALES_PROCESS__c</picklist>
+            <values>
+                <fullName>ACT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bed Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BioSurgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CCOE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitive Gain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dose-edge</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ICNet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Infusion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nutrition Clinimix</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nutrition Compounder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nutrition Compounder Resign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Revenue at Risk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same Store Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strategic Account Executive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_STATUS__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Competitor_Information</fullName>
+        <active>true</active>
+        <description>Information on Baxter competitors</description>
+        <label>Competitor Information</label>
+        <picklistValues>
+            <picklist>BST_CATEGORY__c</picklist>
+            <values>
+                <fullName>Access</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Additional Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Anticoagulation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Baxter Contract Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Baxter Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRRT Baxter Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRRT Competitive Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clinical Studies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Common Settings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitive information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumables Facility Based Hemodialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumables Home Based Hemodialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delivered CRRT Dose</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dialysis Landscape</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equipment Facility Based Hemodialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equipment Home Based Hemodialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Facility Based Hemodialysis Therapies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fluid Overload</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Account information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HD Competitive Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HD Consumables - Acid Concentrates %28by Vendor %25%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HD Consumables - Bicarb Concentrates %28by Vendor %25%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HD Consumables - Dialyzers %28by Vendor %25%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home Based Hemodialysis Therapies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospital Potential</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Key Metrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machine and Vaporizer Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PD Baxter Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PD Competitive Insight</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peritoneal Dialysis Therapies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prismaflex Custom Mode</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Profiling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pump Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recirculation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLED Threat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Short Term Catheter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Treatment Criteria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unit Assessment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unit Specific Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vial-Mate%2C Frozen%2C Vanco Dex</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_COUNTRY__c</picklist>
+            <values>
+                <fullName>Belgium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Canada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dom Com</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Netherlands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_INITIATIVE__c</picklist>
+            <values>
+                <fullName>Global Initiative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Initiative</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_MAJOR_CATEGORY__c</picklist>
+            <values>
+                <fullName>Advanced Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Anesthesia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRRT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HP - Fluid Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Affairs %28MSL%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nurse Worksheet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renal Chronic Census</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surgery</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_PROFILE_TYPE__c</picklist>
+            <values>
+                <fullName>Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_QUESTION_TYPE__c</picklist>
+            <values>
+                <fullName>Benelux Initiative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EMEA Initiative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global Initiative</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_RESPONSE_TYPE__c</picklist>
+            <values>
+                <fullName>Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Date</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Multi Picklist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Number</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Picklist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Text</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_SALESFORCE_GROUP__c</picklist>
+            <values>
+                <fullName>AS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospital Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MSL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renal Acute</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renal Chronic</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_SALES_PROCESS__c</picklist>
+            <values>
+                <fullName>ACT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bed Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BioSurgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CCOE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitive Gain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dose-edge</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ICNet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Infusion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nutrition Clinimix</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nutrition Compounder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nutrition Compounder Resign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Revenue at Risk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same Store Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strategic Account Executive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_STATUS__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>BST_QUESTION_STATEMENT__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>BST_START_DATE__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>BST_END_DATE__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>BST_STATUS__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>BST_PRIVATE__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>BST_QUESTION_STATEMENT__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>BST_START_DATE__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>BST_END_DATE__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>BST_STATUS__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>BST_PRIVATE__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>BST_Global_Record_Type</fullName>
+        <active>true</active>
+        <description>This validation makes sure that  Question type and profile type fields are populated if the record type is Global Question</description>
+        <errorConditionFormula>AND (RecordType.DeveloperName  = &quot;BST_Global_Question&quot;, OR( ISBLANK(TEXT(BST_QUESTION_TYPE__c)) || ISBLANK(TEXT(BST_PROFILE_TYPE__c))))</errorConditionFormula>
+        <errorMessage>Question Type and Profile Type are mandatory for Record Type : Global Question</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BST_Response_Valid_Days</fullName>
+        <active>false</active>
+        <description>This validation makes sure that the response Valid date should never be blank while saving a record.</description>
+        <errorConditionFormula>ISBLANK(BST_RESPONSE_VALID_TIME__c)</errorConditionFormula>
+        <errorMessage>The Response Valid Time(In days) field can not be blank.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BST_Start_And_End_Date_Criteria</fullName>
+        <active>true</active>
+        <description>This is added to make sure that the Start Date is not past the End Date</description>
+        <errorConditionFormula>BST_START_DATE__c  &gt;  BST_END_DATE__c</errorConditionFormula>
+        <errorDisplayField>BST_START_DATE__c</errorDisplayField>
+        <errorMessage>Please correct the errors.The Start Date can not be greater than End Date .</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

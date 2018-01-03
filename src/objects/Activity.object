@@ -1,0 +1,3516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ComposeGmail</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>LogCall</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>MailMerge</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>RequestUpdate</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SendEmail</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewAll</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>BSTP_COACH_VISIT__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>BE/NL/FR - this field will be available for all countries Is being used to track if the manager accompanies the sales rep in the visit in the field.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>BE/NL/FR - this field will be available for all countries Is being used to track if the manager accompanies the sales rep in the visit in the field.</inlineHelpText>
+        <label>Coaching Visit</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BST_AGENDA_FOR_DISCUSSION__c</fullName>
+        <description>Agenda Item to be discussed in the call.</description>
+        <externalId>false</externalId>
+        <label>Agenda Item for Discussion</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>BST_ASSOCIATED_CRITICAL_METRICS1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>BST - field used in order to associate the visit toward an active &quot;Goal Metric&quot;. Goals are filtered by country and by franchise and by record type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>BST - field used in order to associate the visit toward an active strategic goal. Goals are filtered by country and by franchise</inlineHelpText>
+        <label>Associated Critical Metrics</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Critical_Goals__c.BST_ACTIVE__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <filterItems>
+                <field>$Source.BST_COUNTRY__c</field>
+                <operation>equals</operation>
+                <valueField>Critical_Goals__c.BST_COUNTRY__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>Critical_Goals__c.BST_RELATED_TO__c</field>
+                <operation>equals</operation>
+                <value>Events</value>
+            </filterItems>
+            <filterItems>
+                <field>Critical_Goals__c.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Goal Metrics</value>
+            </filterItems>
+            <infoMessage>Goals Are Filtered based on Country, Main Product Category, Related Object (Events or Opportunities) and also they need to be active</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Critical_Goals__c</referenceTo>
+        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipName>Activities</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BST_Associated_Critical_Metrics__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>BST - field used in order to associate Events with an active &quot;Lead Metrics or Lag Metrics.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>BST - field used in order to associate the Event to an active Lead Metric or Lag Metric goal Campaign.</inlineHelpText>
+        <label>Associated Critical Metrics</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 AND (2 OR 5) AND 3 AND (4 OR 6)</booleanFilter>
+            <errorMessage>Lookup Value does not exist or does not match filter criteria (Campaign fields: Active, Country, RecordType, or Type values)</errorMessage>
+            <filterItems>
+                <field>Campaign.IsActive</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <filterItems>
+                <field>Campaign.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Lead Metrics</value>
+            </filterItems>
+            <filterItems>
+                <field>$Source.BST_COUNTRY__c</field>
+                <operation>equals</operation>
+                <valueField>Campaign.BST_Country__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>Campaign.Type</field>
+                <operation>equals</operation>
+                <value>Event</value>
+            </filterItems>
+            <filterItems>
+                <field>Campaign.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Lag Metrics</value>
+            </filterItems>
+            <filterItems>
+                <field>Campaign.Type</field>
+                <operation>equals</operation>
+                <value>Opportunity</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Critical Metric Events</relationshipLabel>
+        <relationshipName>Activities</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BST_BAX_FACILITATOR__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Stores the name of the user who will facilitate the training.</description>
+        <externalId>false</externalId>
+        <label>Baxter Facilitator</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Activities</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BST_BAX_SALES_TEAM__c</fullName>
+        <description>BST - field used to track the Main Product Category discussed in a call</description>
+        <externalId>false</externalId>
+        <label>Main Product Category</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>BST_COUNTRY__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Bax Company/Services</fullName>
+                    <default>false</default>
+                    <label>Bax Company/Services</label>
+                </value>
+                <value>
+                    <fullName>HC - Anesthesia/Critical Care</fullName>
+                    <default>false</default>
+                    <label>HC - Anesthesia/Critical Care</label>
+                </value>
+                <value>
+                    <fullName>HC - BioSurgery</fullName>
+                    <default>false</default>
+                    <label>HC - BioSurgery</label>
+                </value>
+                <value>
+                    <fullName>HC - Glob.Pharma Injectables</fullName>
+                    <default>false</default>
+                    <label>HC - Glob.Pharma Injectables</label>
+                </value>
+                <value>
+                    <fullName>HC - Infusion Systems</fullName>
+                    <default>false</default>
+                    <label>HC - Infusion Systems</label>
+                </value>
+                <value>
+                    <fullName>HC - IV Therapies/SVP</fullName>
+                    <default>false</default>
+                    <label>HC - IV Therapies/SVP</label>
+                </value>
+                <value>
+                    <fullName>HC - Nutrition</fullName>
+                    <default>false</default>
+                    <label>HC - Nutrition</label>
+                </value>
+                <value>
+                    <fullName>HC - Nutrition Pediatrics</fullName>
+                    <default>false</default>
+                    <label>HC - Nutrition Pediatrics</label>
+                </value>
+                <value>
+                    <fullName>HC - Pharmacy Services</fullName>
+                    <default>false</default>
+                    <label>HC - Pharmacy Services</label>
+                </value>
+                <value>
+                    <fullName>HC - Productivity Sys</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>HC - Productivity Sys</label>
+                </value>
+                <value>
+                    <fullName>MSL/Medical</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>MSL/Medical</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>RE - Acute</fullName>
+                    <default>false</default>
+                    <label>RE - Acute</label>
+                </value>
+                <value>
+                    <fullName>RE - Hemo Dialysis</fullName>
+                    <default>false</default>
+                    <label>RE - Hemo Dialysis</label>
+                </value>
+                <value>
+                    <fullName>RE - Peritoneal Dialysis</fullName>
+                    <default>false</default>
+                    <label>RE - Peritoneal Dialysis</label>
+                </value>
+                <value>
+                    <fullName>RE - Water Treatment</fullName>
+                    <default>false</default>
+                    <label>RE - Water Treatment</label>
+                </value>
+                <value>
+                    <fullName>Small Volume Parenterals</fullName>
+                    <default>false</default>
+                    <label>Small Volume Parenterals</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Bax Company/Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - Anesthesia/Critical Care</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - BioSurgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - Glob.Pharma Injectables</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - Infusion Systems</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - IV Therapies/SVP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - Nutrition</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - Pharmacy Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>RE - Acute</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>RE - Hemo Dialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>RE - Peritoneal Dialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>RE - Water Treatment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>HC - Nutrition Pediatrics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Small Volume Parenterals</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_BEST_OUTCOME__c</fullName>
+        <description>The best outcome/conclusion came out from the call.</description>
+        <externalId>false</externalId>
+        <label>Best Call Outcome</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>BST_BOOST_Activity_ID__c</fullName>
+        <displayFormat>A-{00000}</displayFormat>
+        <externalId>false</externalId>
+        <label>BOOST Activity ID</label>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>BST_CALL_NOTES__c</fullName>
+        <description>Notes taken from the call.</description>
+        <externalId>false</externalId>
+        <label>Call Notes</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>BST_CALL_OBJ__c</fullName>
+        <description>Stores detail information about the objective of the call.</description>
+        <externalId>false</externalId>
+        <label>Call Objectives</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>BST_CALL_TYPE__c</fullName>
+        <description>Stores information about the type of event to be chosen.</description>
+        <externalId>false</externalId>
+        <label>Event Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>AdBoard Meeting</fullName>
+                    <default>false</default>
+                    <label>AdBoard Meeting</label>
+                </value>
+                <value>
+                    <fullName>AdProm Review</fullName>
+                    <default>false</default>
+                    <label>AdProm Review</label>
+                </value>
+                <value>
+                    <fullName>Baxter Customer Event (Medical)</fullName>
+                    <default>false</default>
+                    <label>Baxter Customer Event (Medical)</label>
+                </value>
+                <value>
+                    <fullName>Baxter field event</fullName>
+                    <default>false</default>
+                    <label>Baxter field event</label>
+                </value>
+                <value>
+                    <fullName>Baxter Internal Meeting</fullName>
+                    <default>false</default>
+                    <label>Baxter Internal Meeting</label>
+                </value>
+                <value>
+                    <fullName>Calls Planning/Follow-up</fullName>
+                    <default>false</default>
+                    <label>Calls Planning/Follow-up</label>
+                </value>
+                <value>
+                    <fullName>Govt&apos; Official Contact</fullName>
+                    <default>false</default>
+                    <label>Govt&apos; Official Contact</label>
+                </value>
+                <value>
+                    <fullName>HCP Contact</fullName>
+                    <default>false</default>
+                    <label>HCP Contact</label>
+                </value>
+                <value>
+                    <fullName>Holiday/Leave</fullName>
+                    <default>false</default>
+                    <label>Holiday/Leave</label>
+                </value>
+                <value>
+                    <fullName>In Service</fullName>
+                    <default>false</default>
+                    <label>In Service</label>
+                </value>
+                <value>
+                    <fullName>KOL Management</fullName>
+                    <default>false</default>
+                    <label>KOL Management</label>
+                </value>
+                <value>
+                    <fullName>Medical Question Follow-up</fullName>
+                    <default>false</default>
+                    <label>Medical Question Follow-up</label>
+                </value>
+                <value>
+                    <fullName>Other Contact</fullName>
+                    <default>false</default>
+                    <label>Other Contact</label>
+                </value>
+                <value>
+                    <fullName>Pre planned call</fullName>
+                    <default>false</default>
+                    <label>Pre planned call</label>
+                </value>
+                <value>
+                    <fullName>Presentations / Journal Clubs</fullName>
+                    <default>false</default>
+                    <label>Presentations / Journal Clubs</label>
+                </value>
+                <value>
+                    <fullName>Sector Alignment Meeting</fullName>
+                    <default>false</default>
+                    <label>Sector Alignment Meeting</label>
+                </value>
+                <value>
+                    <fullName>Sickness Absence</fullName>
+                    <default>false</default>
+                    <label>Sickness Absence</label>
+                </value>
+                <value>
+                    <fullName>Staff Meeting</fullName>
+                    <default>false</default>
+                    <label>Staff Meeting</label>
+                </value>
+                <value>
+                    <fullName>Tenders/Contracts Preparation</fullName>
+                    <default>false</default>
+                    <label>Tenders/Contracts Preparation</label>
+                </value>
+                <value>
+                    <fullName>Therapy/Products Education</fullName>
+                    <default>false</default>
+                    <label>Therapy/Products Education</label>
+                </value>
+                <value>
+                    <fullName>Therapy Assistance</fullName>
+                    <default>false</default>
+                    <label>Therapy Assistance</label>
+                </value>
+                <value>
+                    <fullName>Third Party Congress</fullName>
+                    <default>false</default>
+                    <label>Third Party Congress</label>
+                </value>
+                <value>
+                    <fullName>Third Party Congress (Medical)</fullName>
+                    <default>false</default>
+                    <label>Third Party Congress (Medical)</label>
+                </value>
+                <value>
+                    <fullName>Training Provided</fullName>
+                    <default>false</default>
+                    <label>Training Provided</label>
+                </value>
+                <value>
+                    <fullName>Training Taken/Received</fullName>
+                    <default>false</default>
+                    <label>Training Taken/Received</label>
+                </value>
+                <value>
+                    <fullName>Trials</fullName>
+                    <default>false</default>
+                    <label>Trials</label>
+                </value>
+                <value>
+                    <fullName>Trials Follow-up</fullName>
+                    <default>false</default>
+                    <label>Trials Follow-up</label>
+                </value>
+                <value>
+                    <fullName>Unplanned call</fullName>
+                    <default>false</default>
+                    <label>Unplanned call</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_COMP_INTLG_GATHERED__c</fullName>
+        <description>BST - comments putted into this field will be automtically shared on chatter on the related Account and Parent Account (if applicable)</description>
+        <externalId>false</externalId>
+        <label>Competitive Intelligence (CHATTER)</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>BST_COUNTRY__c</fullName>
+        <description>Field to track the country.</description>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Andorra</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Andorra</label>
+                </value>
+                <value>
+                    <fullName>Belgium</fullName>
+                    <default>false</default>
+                    <label>Belgium</label>
+                </value>
+                <value>
+                    <fullName>Canada</fullName>
+                    <default>false</default>
+                    <label>Canada</label>
+                </value>
+                <value>
+                    <fullName>Dom Com</fullName>
+                    <default>false</default>
+                    <label>Dom Com</label>
+                </value>
+                <value>
+                    <fullName>France</fullName>
+                    <default>false</default>
+                    <label>France</label>
+                </value>
+                <value>
+                    <fullName>Global</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Global</label>
+                </value>
+                <value>
+                    <fullName>Luxembourg</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Luxembourg</label>
+                </value>
+                <value>
+                    <fullName>Monaco</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Monaco</label>
+                </value>
+                <value>
+                    <fullName>Netherlands</fullName>
+                    <default>false</default>
+                    <label>Netherlands</label>
+                </value>
+                <value>
+                    <fullName>Turkey</fullName>
+                    <default>false</default>
+                    <label>Turkey</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_EVENT_SUBMISSION_DAYS__c</fullName>
+        <description>BST- Field Created for reporting purpose to maintain the difference in number of days between today and Start date</description>
+        <externalId>false</externalId>
+        <formula>IF(AND(TEXT(BST_STATUS__c) = &apos;Scheduled&apos;, OR(RecordType.DeveloperName = &apos;BST_Pre_Planned_Visit&apos;, RecordType.DeveloperName = &apos;BST_Field_Training_Activity&apos;)),IF(IsAllDayEvent, (TODAY() - ActivityDate) , (TODAY() - DATEVALUE(ActivityDateTime))),NULL)</formula>
+        <label>Event Submission Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_EVNT_SUBMISSION_DATE__c</fullName>
+        <description>BST - Field Used to track the date when the event was submitted</description>
+        <externalId>false</externalId>
+        <formula>IF(AND(TEXT(BST_STATUS__c) = &apos;Scheduled&apos;, OR(RecordType.DeveloperName = &apos;BST_Pre_Planned_Visit&apos;, RecordType.DeveloperName = &apos;BST_Field_Training_Activity&apos;)) ,  
+IF(IsAllDayEvent, (ActivityDate + VALUE($Label.BST_EVENT_SUBMISSION_DAYS)) , (DATEVALUE(ActivityDateTime) + VALUE($Label.BST_EVENT_SUBMISSION_DAYS))) , NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>BST - Field Used to track the date when the event was submitted</inlineHelpText>
+        <label>Event Submission Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>BST_EVNT_SUBMISSION_IND__c</fullName>
+        <description>BST - Formula field used to display the submission status</description>
+        <externalId>false</externalId>
+        <formula>IF(AND(TEXT(BST_STATUS__c) = &apos;Scheduled&apos;, OR(RecordType.DeveloperName = &apos;BST_Pre_Planned_Visit&apos;, RecordType.DeveloperName = &apos;BST_Field_Training_Activity&apos;)) , IF(IsAllDayEvent, IF((TODAY() - ActivityDate &gt; VALUE($Label.BST_EVENT_SUBMISSION_DAYS) - 2) , 
+IMAGE(&quot;/img/samples/light_red.gif&quot;, &quot;red&quot;) , IMAGE(&quot;/img/samples/light_green.gif&quot;, &quot;green&quot;)) , 
+IF((TODAY() - DATEVALUE(ActivityDateTime) &gt;  VALUE($Label.BST_EVENT_SUBMISSION_DAYS)  - 2) , 
+IMAGE(&quot;/img/samples/light_red.gif&quot;, &quot;red&quot;) , IMAGE(&quot;/img/samples/light_green.gif&quot;, &quot;green&quot;))),IMAGE(&quot;/img/samples/light_green.gif&quot;, &quot;green&quot;))</formula>
+        <inlineHelpText>BST - Formula field used to display the submission status. This value is calculated on the number of days passed since the End Date of the visit. This is calculated for Field Sales Calls of type &quot;Pre Planned Call&quot; or &quot;In Service&quot;</inlineHelpText>
+        <label>Event Submission Indicator</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Event_1__c</fullName>
+        <description>BST - Generic Country Section Field</description>
+        <externalId>false</externalId>
+        <label>Event $ 1</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>BST_Event_2__c</fullName>
+        <description>BST - Generic Country Section Field</description>
+        <externalId>false</externalId>
+        <label>Event $ 2</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>BST_Event_Date_1__c</fullName>
+        <description>BST - Generic Country Section Field</description>
+        <externalId>false</externalId>
+        <label>Event Date 1</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>BST_Event_Date_2__c</fullName>
+        <description>BST - Generic Country Section Field</description>
+        <externalId>false</externalId>
+        <label>Event Date 2</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>BST_Event_P1__c</fullName>
+        <defaultValue>1</defaultValue>
+        <description>BST - This field is used for analytics</description>
+        <externalId>false</externalId>
+        <label>Event P1</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Event_Text_1__c</fullName>
+        <description>BST - Generic Country Section Field</description>
+        <externalId>false</externalId>
+        <label>Event Text 1</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Event_Text_2__c</fullName>
+        <description>BST - Generic Country Section Field</description>
+        <externalId>false</externalId>
+        <label>Event Text 2</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Event_Text_3__c</fullName>
+        <description>BST - Generic Country Section Field</description>
+        <externalId>false</externalId>
+        <label>Event Text 3</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Event_Text_4__c</fullName>
+        <description>BST - Generic Country Section Field</description>
+        <externalId>false</externalId>
+        <label>Event Text 4</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_FR_AVIS_CT_REFUS__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>BST FR - for users under charte medical</description>
+        <externalId>false</externalId>
+        <inlineHelpText>BST FR - for users under charte medical</inlineHelpText>
+        <label>Mentions Oblig / Avis CT Refus</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BST_FR_AVIS_CT__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>BST FR - for users under charte medical</description>
+        <externalId>false</externalId>
+        <inlineHelpText>BST FR - for users under charte medical</inlineHelpText>
+        <label>Mentions Oblig. / Avis CT</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BST_FWP_NXT_CALL__c</fullName>
+        <description>&quot;Notes from Previous Call&quot; field will take value from this field during the next event creation of type “Field Sales Call” with the same contact, by the same BOOST user.</description>
+        <externalId>false</externalId>
+        <label>Followup for Next Call</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>BST_LABEL_1__c</fullName>
+        <externalId>false</externalId>
+        <formula>&apos;Product Selection&apos;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Label1</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_LOCKED__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>whenever the status is completed, this field will be marked checked and give no edit permission to the user.</description>
+        <externalId>false</externalId>
+        <label>Locked</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BST_MAIN_TOPIC__c</fullName>
+        <description>The main product line/topic to be discussed in the meeting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The main product line/topic to be discussed in the meeting</inlineHelpText>
+        <label>Main Topic</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>BST_BAX_SALES_TEAM__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Actifuse</fullName>
+                    <default>false</default>
+                    <label>Actifuse</label>
+                </value>
+                <value>
+                    <fullName>Acute Catheters</fullName>
+                    <default>false</default>
+                    <label>Acute Catheters</label>
+                </value>
+                <value>
+                    <fullName>Acute - Total Therapy</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Acute - Total Therapy</label>
+                </value>
+                <value>
+                    <fullName>Acute - Total Therapy (CRRT Therapy)</fullName>
+                    <default>false</default>
+                    <label>Acute - Total Therapy (CRRT Therapy)</label>
+                </value>
+                <value>
+                    <fullName>Adept</fullName>
+                    <default>false</default>
+                    <label>Adept</label>
+                </value>
+                <value>
+                    <fullName>Advanced Logistics Services</fullName>
+                    <default>false</default>
+                    <label>Advanced Logistics Services</label>
+                </value>
+                <value>
+                    <fullName>Amino Acids</fullName>
+                    <default>false</default>
+                    <label>Amino Acids</label>
+                </value>
+                <value>
+                    <fullName>AN69</fullName>
+                    <default>false</default>
+                    <label>AN69</label>
+                </value>
+                <value>
+                    <fullName>Artiss</fullName>
+                    <default>false</default>
+                    <label>Artiss</label>
+                </value>
+                <value>
+                    <fullName>B2C SVPS</fullName>
+                    <default>false</default>
+                    <label>B2C SVPS</label>
+                </value>
+                <value>
+                    <fullName>Back-Orders Management</fullName>
+                    <default>false</default>
+                    <label>Back-Orders Management</label>
+                </value>
+                <value>
+                    <fullName>Brevibloc</fullName>
+                    <default>false</default>
+                    <label>Brevibloc</label>
+                </value>
+                <value>
+                    <fullName>Cernevit</fullName>
+                    <default>false</default>
+                    <label>Cernevit</label>
+                </value>
+                <value>
+                    <fullName>Citrat</fullName>
+                    <default>false</default>
+                    <label>Citrate</label>
+                </value>
+                <value>
+                    <fullName>Clinimix</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Clinimix</label>
+                </value>
+                <value>
+                    <fullName>Clinimix (Dual Chamber Bags)</fullName>
+                    <default>false</default>
+                    <label>Clinimix (Dual Chamber Bags)</label>
+                </value>
+                <value>
+                    <fullName>Clinoleic</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Clinoleic</label>
+                </value>
+                <value>
+                    <fullName>Clinoleic (Lipids)</fullName>
+                    <default>false</default>
+                    <label>Clinoleic (Lipids)</label>
+                </value>
+                <value>
+                    <fullName>Colleague Pumps</fullName>
+                    <default>false</default>
+                    <label>Colleague Pumps</label>
+                </value>
+                <value>
+                    <fullName>Compounding Analgesics</fullName>
+                    <default>false</default>
+                    <label>Compounding Analgesics</label>
+                </value>
+                <value>
+                    <fullName>Compounding - Antibiotics</fullName>
+                    <default>false</default>
+                    <label>Compounding - Antibiotics</label>
+                </value>
+                <value>
+                    <fullName>Compounding - Onco</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Compounding - Onco</label>
+                </value>
+                <value>
+                    <fullName>Compounding - Oncology</fullName>
+                    <default>false</default>
+                    <label>Compounding - Oncology</label>
+                </value>
+                <value>
+                    <fullName>Compounding - Overall Services</fullName>
+                    <default>false</default>
+                    <label>Compounding - Overall Services</label>
+                </value>
+                <value>
+                    <fullName>Coseal</fullName>
+                    <default>false</default>
+                    <label>Coseal</label>
+                </value>
+                <value>
+                    <fullName>CWP Units &amp; Consumables</fullName>
+                    <default>false</default>
+                    <label>CWP Units &amp; Consumables</label>
+                </value>
+                <value>
+                    <fullName>Cycler - Claria+Sharesource</fullName>
+                    <default>false</default>
+                    <label>Cycler - Claria+Sharesource</label>
+                </value>
+                <value>
+                    <fullName>Cycler - HomeChoice</fullName>
+                    <default>false</default>
+                    <label>Cycler - HomeChoice</label>
+                </value>
+                <value>
+                    <fullName>Delivery Terms/Policy/Issues</fullName>
+                    <default>false</default>
+                    <label>Delivery Terms/Policy/Issues</label>
+                </value>
+                <value>
+                    <fullName>Desflurane</fullName>
+                    <default>false</default>
+                    <label>Desflurane</label>
+                </value>
+                <value>
+                    <fullName>Dexdor</fullName>
+                    <default>false</default>
+                    <label>Dexdor</label>
+                </value>
+                <value>
+                    <fullName>Docked-Vialmate (Coupling)</fullName>
+                    <default>false</default>
+                    <label>Docked-Vialmate (Coupling)</label>
+                </value>
+                <value>
+                    <fullName>Elastomerics</fullName>
+                    <default>false</default>
+                    <label>Elastomerics</label>
+                </value>
+                <value>
+                    <fullName>Endoxan</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Endoxan</label>
+                </value>
+                <value>
+                    <fullName>Endoxan (Procytox)</fullName>
+                    <default>false</default>
+                    <label>Endoxan (Procytox)</label>
+                </value>
+                <value>
+                    <fullName>Exactamix</fullName>
+                    <default>false</default>
+                    <label>Exactamix</label>
+                </value>
+                <value>
+                    <fullName>Executive Business Review (EBR)</fullName>
+                    <default>false</default>
+                    <label>Executive Business Review (EBR)</label>
+                </value>
+                <value>
+                    <fullName>Extraneal</fullName>
+                    <default>false</default>
+                    <label>Extraneal</label>
+                </value>
+                <value>
+                    <fullName>Financial Terms/Invoices/Payments</fullName>
+                    <default>false</default>
+                    <label>Financial Terms/Invoices/Payments</label>
+                </value>
+                <value>
+                    <fullName>Floseal</fullName>
+                    <default>false</default>
+                    <label>Floseal</label>
+                </value>
+                <value>
+                    <fullName>HD - Bloodlines &amp; Accessories</fullName>
+                    <default>false</default>
+                    <label>HD - Bloodlines &amp; Accessories</label>
+                </value>
+                <value>
+                    <fullName>HD - Concentrates &amp; Solutions</fullName>
+                    <default>false</default>
+                    <label>HD - Concentrates &amp; Solutions</label>
+                </value>
+                <value>
+                    <fullName>HD Therapies</fullName>
+                    <default>false</default>
+                    <label>HD Therapies</label>
+                </value>
+                <value>
+                    <fullName>HD - Total Therapy</fullName>
+                    <default>false</default>
+                    <label>HD - Total Therapy</label>
+                </value>
+                <value>
+                    <fullName>Hemopatch</fullName>
+                    <default>false</default>
+                    <label>Hemopatch</label>
+                </value>
+                <value>
+                    <fullName>High Concentrates</fullName>
+                    <default>false</default>
+                    <label>High Concentrates</label>
+                </value>
+                <value>
+                    <fullName>Holoxan</fullName>
+                    <default>false</default>
+                    <label>Holoxan</label>
+                </value>
+                <value>
+                    <fullName>Home HD</fullName>
+                    <default>false</default>
+                    <label>Home HD</label>
+                </value>
+                <value>
+                    <fullName>In Center HD</fullName>
+                    <default>false</default>
+                    <label>In Center HD</label>
+                </value>
+                <value>
+                    <fullName>Infusion Sets (=Access)</fullName>
+                    <default>false</default>
+                    <label>Infusion Sets (=Access)</label>
+                </value>
+                <value>
+                    <fullName>Irrigation Bags</fullName>
+                    <default>false</default>
+                    <label>Irrigation Bags</label>
+                </value>
+                <value>
+                    <fullName>Irrigation Sets</fullName>
+                    <default>false</default>
+                    <label>Irrigation Sets</label>
+                </value>
+                <value>
+                    <fullName>Isofluruane</fullName>
+                    <default>false</default>
+                    <label>Isoflurane</label>
+                </value>
+                <value>
+                    <fullName>Mars</fullName>
+                    <default>false</default>
+                    <label>Mars</label>
+                </value>
+                <value>
+                    <fullName>Monitors - AK98</fullName>
+                    <default>false</default>
+                    <label>Monitors - AK98</label>
+                </value>
+                <value>
+                    <fullName>Monitors - Artis</fullName>
+                    <default>false</default>
+                    <label>Monitors - Artis</label>
+                </value>
+                <value>
+                    <fullName>Monitors - Other</fullName>
+                    <default>false</default>
+                    <label>Monitors - Other</label>
+                </value>
+                <value>
+                    <fullName>Nephral/Evodial</fullName>
+                    <default>false</default>
+                    <label>Nephral/Evodial</label>
+                </value>
+                <value>
+                    <fullName>Nipro Cellulosic</fullName>
+                    <default>false</default>
+                    <label>Nipro Cellulosic</label>
+                </value>
+                <value>
+                    <fullName>Numeta</fullName>
+                    <default>false</default>
+                    <label>Numeta</label>
+                </value>
+                <value>
+                    <fullName>Nutrineal</fullName>
+                    <default>false</default>
+                    <label>Nutrineal</label>
+                </value>
+                <value>
+                    <fullName>Nutryelt</fullName>
+                    <default>false</default>
+                    <label>Nutryelt</label>
+                </value>
+                <value>
+                    <fullName>Olimel/Oliclinomel</fullName>
+                    <default>false</default>
+                    <label>Olimel/Oliclinomel</label>
+                </value>
+                <value>
+                    <fullName>Oral/Enteral Syringes</fullName>
+                    <default>false</default>
+                    <label>Oral/Enteral Syringes</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Other (All Baxter)</fullName>
+                    <default>false</default>
+                    <label>Other (All Baxter)</label>
+                </value>
+                <value>
+                    <fullName>Other (Pharm.Services)</fullName>
+                    <default>false</default>
+                    <label>Other (Pharm.Services)</label>
+                </value>
+                <value>
+                    <fullName>Other - Dialyzers</fullName>
+                    <default>false</default>
+                    <label>Other - Dialyzers</label>
+                </value>
+                <value>
+                    <fullName>Other Micro Nutrients</fullName>
+                    <default>false</default>
+                    <label>Other Micro Nutrients</label>
+                </value>
+                <value>
+                    <fullName>Other - solutions</fullName>
+                    <default>false</default>
+                    <label>Other - solutions</label>
+                </value>
+                <value>
+                    <fullName>Overall Baxter</fullName>
+                    <default>false</default>
+                    <label>Overall Baxter</label>
+                </value>
+                <value>
+                    <fullName>Overall LVP/SVP solutions</fullName>
+                    <default>false</default>
+                    <label>Overall LVP/SVP solutions</label>
+                </value>
+                <value>
+                    <fullName>PD - Solutions</fullName>
+                    <default>false</default>
+                    <label>PD - Solutions</label>
+                </value>
+                <value>
+                    <fullName>PD - Total Therapy</fullName>
+                    <default>false</default>
+                    <label>PD - Total Therapy</label>
+                </value>
+                <value>
+                    <fullName>Pharmacy Tools</fullName>
+                    <default>false</default>
+                    <label>Pharmacy Tools</label>
+                </value>
+                <value>
+                    <fullName>Phoxilium</fullName>
+                    <default>false</default>
+                    <label>Phoxilium</label>
+                </value>
+                <value>
+                    <fullName>Physioneal</fullName>
+                    <default>false</default>
+                    <label>Physioneal</label>
+                </value>
+                <value>
+                    <fullName>PN Services - Compounding</fullName>
+                    <default>false</default>
+                    <label>PN Services - Compounding</label>
+                </value>
+                <value>
+                    <fullName>PN Services - Home</fullName>
+                    <default>false</default>
+                    <label>PN Services - Home</label>
+                </value>
+                <value>
+                    <fullName>PN Services - Kitting</fullName>
+                    <default>false</default>
+                    <label>PN Services - Kitting</label>
+                </value>
+                <value>
+                    <fullName>Polyflux</fullName>
+                    <default>false</default>
+                    <label>Polyflux</label>
+                </value>
+                <value>
+                    <fullName>Poor Bottles</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Poor Bottles</label>
+                </value>
+                <value>
+                    <fullName>Pour Bottles</fullName>
+                    <default>false</default>
+                    <label>Pour Bottles</label>
+                </value>
+                <value>
+                    <fullName>PPT</fullName>
+                    <default>false</default>
+                    <label>PPT</label>
+                </value>
+                <value>
+                    <fullName>Pre-Dialysis</fullName>
+                    <default>false</default>
+                    <label>Pre-Dialysis</label>
+                </value>
+                <value>
+                    <fullName>Premixes</fullName>
+                    <default>false</default>
+                    <label>Premixes</label>
+                </value>
+                <value>
+                    <fullName>Prismaflex</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Prismaflex</label>
+                </value>
+                <value>
+                    <fullName>Prismaflex (Service Renal Main)</fullName>
+                    <default>false</default>
+                    <label>Prismaflex (Service Renal Main)</label>
+                </value>
+                <value>
+                    <fullName>Prismalung</fullName>
+                    <default>false</default>
+                    <label>Prismalung</label>
+                </value>
+                <value>
+                    <fullName>Proud/FDS Machines &amp; Consumables</fullName>
+                    <default>false</default>
+                    <label>Proud/FDS Machines &amp; Consumables</label>
+                </value>
+                <value>
+                    <fullName>Recon Devices</fullName>
+                    <default>false</default>
+                    <label>Recon Devices</label>
+                </value>
+                <value>
+                    <fullName>Regiocit/Biphozyl</fullName>
+                    <default>false</default>
+                    <label>Regiocit/Biphozyl</label>
+                </value>
+                <value>
+                    <fullName>REMOVE_Organize</fullName>
+                    <default>false</default>
+                    <label>REMOVE_Organize</label>
+                </value>
+                <value>
+                    <fullName>REMOVE_VAPORIZERS</fullName>
+                    <default>false</default>
+                    <label>REMOVE_VAPORIZERS</label>
+                </value>
+                <value>
+                    <fullName>Repeater Pump</fullName>
+                    <default>false</default>
+                    <label>Repeater Pump</label>
+                </value>
+                <value>
+                    <fullName>Revaclear</fullName>
+                    <default>false</default>
+                    <label>Revaclear</label>
+                </value>
+                <value>
+                    <fullName>RIC Fluids</fullName>
+                    <default>false</default>
+                    <label>RIC Fluids</label>
+                </value>
+                <value>
+                    <fullName>Sets - Other CRRT</fullName>
+                    <default>false</default>
+                    <label>Sets - Other CRRT</label>
+                </value>
+                <value>
+                    <fullName>Sets - Oxiris</fullName>
+                    <default>false</default>
+                    <label>Sets - Oxiris</label>
+                </value>
+                <value>
+                    <fullName>Sets - TPE</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Sets - TPE</label>
+                </value>
+                <value>
+                    <fullName>Sets - TPE (Plasma Filter)</fullName>
+                    <default>false</default>
+                    <label>Sets - TPE (Plasma Filter)</label>
+                </value>
+                <value>
+                    <fullName>Sevoflurane</fullName>
+                    <default>false</default>
+                    <label>Sevoflurane</label>
+                </value>
+                <value>
+                    <fullName>ShareSource (IT/DataPrivacy)</fullName>
+                    <default>false</default>
+                    <label>ShareSource (IT/DataPrivacy)</label>
+                </value>
+                <value>
+                    <fullName>Sigma Spectrum</fullName>
+                    <default>false</default>
+                    <label>Sigma Spectrum</label>
+                </value>
+                <value>
+                    <fullName>Software -HD</fullName>
+                    <default>false</default>
+                    <label>Software -HD</label>
+                </value>
+                <value>
+                    <fullName>Software - Renalsoft</fullName>
+                    <default>false</default>
+                    <label>Software - Renalsoft</label>
+                </value>
+                <value>
+                    <fullName>Software - ShareSource</fullName>
+                    <default>false</default>
+                    <label>Software - ShareSource</label>
+                </value>
+                <value>
+                    <fullName>Specialty LVP - Glucion</fullName>
+                    <default>false</default>
+                    <label>Specialty LVP - Glucion</label>
+                </value>
+                <value>
+                    <fullName>Specialty LVP - Other solutions</fullName>
+                    <default>false</default>
+                    <label>Specialty LVP - Other solutions</label>
+                </value>
+                <value>
+                    <fullName>Specialty LVP - Plasmalyte</fullName>
+                    <default>false</default>
+                    <label>Specialty LVP - Plasmalyte</label>
+                </value>
+                <value>
+                    <fullName>Suprane</fullName>
+                    <default>false</default>
+                    <label>Suprane</label>
+                </value>
+                <value>
+                    <fullName>Theranova</fullName>
+                    <default>false</default>
+                    <label>Theranova</label>
+                </value>
+                <value>
+                    <fullName>Tisseel</fullName>
+                    <default>false</default>
+                    <label>Tisseel</label>
+                </value>
+                <value>
+                    <fullName>Tisseel/Tissucol</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Tisseel/Tissucol</label>
+                </value>
+                <value>
+                    <fullName>Tissue Guard</fullName>
+                    <default>false</default>
+                    <label>Tissue Guard</label>
+                </value>
+                <value>
+                    <fullName>Trace Elements</fullName>
+                    <default>false</default>
+                    <label>Trace Elements</label>
+                </value>
+                <value>
+                    <fullName>Traumastem</fullName>
+                    <default>false</default>
+                    <label>Traumastem</label>
+                </value>
+                <value>
+                    <fullName>Traumastem/Celstat</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Traumastem/Celstat</label>
+                </value>
+                <value>
+                    <fullName>Uromitexan</fullName>
+                    <default>false</default>
+                    <label>Uromitexan</label>
+                </value>
+                <value>
+                    <fullName>Vaporizers Management</fullName>
+                    <default>false</default>
+                    <label>Vaporizers Management</label>
+                </value>
+                <value>
+                    <fullName>Vials &amp; Amps</fullName>
+                    <default>false</default>
+                    <label>Vials &amp; Amps</label>
+                </value>
+                <value>
+                    <fullName>Vitamins</fullName>
+                    <default>false</default>
+                    <label>Vitamins</label>
+                </value>
+                <value>
+                    <fullName>Wt Equipment</fullName>
+                    <default>false</default>
+                    <label>Wt Equipment</label>
+                </value>
+                <value>
+                    <fullName>Zn/Se</fullName>
+                    <default>false</default>
+                    <label>Zn/Se</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>AN69</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>HD - Bloodlines &amp; Accessories</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>HD - Concentrates &amp; Solutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>HD Therapies</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>HD - Total Therapy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Home HD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>In Center HD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Monitors - AK98</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Monitors - Artis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Monitors - Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Nephral/Evodial</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Nipro Cellulosic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Other - Dialyzers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Other - solutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Polyflux</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>PPT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Revaclear</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Software -HD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Theranova</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Wt Equipment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>Cycler - Claria+Sharesource</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>Cycler - HomeChoice</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>Extraneal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>Nutrineal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <controllingFieldValue>RE - Water Treatment</controllingFieldValue>
+                <controllingFieldValue>HC - Anesthesia/Critical Care</controllingFieldValue>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <controllingFieldValue>HC - Infusion Systems</controllingFieldValue>
+                <controllingFieldValue>HC - IV Therapies/SVP</controllingFieldValue>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <controllingFieldValue>HC - Pharmacy Services</controllingFieldValue>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>PD - Solutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>PD - Total Therapy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>Physioneal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>Pre-Dialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>ShareSource (IT/DataPrivacy)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>Software - Renalsoft</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>Software - ShareSource</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Water Treatment</controllingFieldValue>
+                <valueName>CWP Units &amp; Consumables</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition Pediatrics</controllingFieldValue>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Clinoleic (Lipids)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition Pediatrics</controllingFieldValue>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Numeta</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Volume Parenterals</controllingFieldValue>
+                <valueName>B2C SVPS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bax Company/Services</controllingFieldValue>
+                <valueName>Advanced Logistics Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bax Company/Services</controllingFieldValue>
+                <valueName>Back-Orders Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bax Company/Services</controllingFieldValue>
+                <valueName>Delivery Terms/Policy/Issues</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bax Company/Services</controllingFieldValue>
+                <valueName>Executive Business Review (EBR)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bax Company/Services</controllingFieldValue>
+                <valueName>Financial Terms/Invoices/Payments</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bax Company/Services</controllingFieldValue>
+                <valueName>Other (All Baxter)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bax Company/Services</controllingFieldValue>
+                <valueName>Overall Baxter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Anesthesia/Critical Care</controllingFieldValue>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <valueName>Brevibloc</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Anesthesia/Critical Care</controllingFieldValue>
+                <valueName>Desflurane</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Anesthesia/Critical Care</controllingFieldValue>
+                <valueName>Dexdor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Anesthesia/Critical Care</controllingFieldValue>
+                <valueName>Isofluruane</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Anesthesia/Critical Care</controllingFieldValue>
+                <valueName>Sevoflurane</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Anesthesia/Critical Care</controllingFieldValue>
+                <valueName>Suprane</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Anesthesia/Critical Care</controllingFieldValue>
+                <valueName>Vaporizers Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <valueName>Actifuse</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <valueName>Adept</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <valueName>Artiss</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <valueName>Coseal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <valueName>Floseal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <valueName>Hemopatch</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <valueName>Tisseel</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <valueName>Tissue Guard</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <valueName>Traumastem</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <valueName>Docked-Vialmate (Coupling)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <valueName>Endoxan (Procytox)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <valueName>Holoxan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <controllingFieldValue>HC - Infusion Systems</controllingFieldValue>
+                <valueName>Oral/Enteral Syringes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <controllingFieldValue>HC - Infusion Systems</controllingFieldValue>
+                <valueName>Pharmacy Tools</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <valueName>Premixes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <valueName>Recon Devices</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <valueName>Repeater Pump</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <valueName>Uromitexan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <valueName>Vials &amp; Amps</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Infusion Systems</controllingFieldValue>
+                <valueName>Colleague Pumps</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Infusion Systems</controllingFieldValue>
+                <valueName>Elastomerics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Infusion Systems</controllingFieldValue>
+                <valueName>Infusion Sets (=Access)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Infusion Systems</controllingFieldValue>
+                <valueName>Sigma Spectrum</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - IV Therapies/SVP</controllingFieldValue>
+                <valueName>Irrigation Bags</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - IV Therapies/SVP</controllingFieldValue>
+                <valueName>Irrigation Sets</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - IV Therapies/SVP</controllingFieldValue>
+                <valueName>Overall LVP/SVP solutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - IV Therapies/SVP</controllingFieldValue>
+                <valueName>Pour Bottles</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - IV Therapies/SVP</controllingFieldValue>
+                <valueName>Specialty LVP - Glucion</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - IV Therapies/SVP</controllingFieldValue>
+                <valueName>Specialty LVP - Other solutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - IV Therapies/SVP</controllingFieldValue>
+                <valueName>Specialty LVP - Plasmalyte</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Amino Acids</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Cernevit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Clinimix (Dual Chamber Bags)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Exactamix</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>High Concentrates</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Nutryelt</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Olimel/Oliclinomel</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Other Micro Nutrients</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>PN Services - Compounding</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>PN Services - Home</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>PN Services - Kitting</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Trace Elements</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Vitamins</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Zn/Se</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Pharmacy Services</controllingFieldValue>
+                <valueName>Compounding Analgesics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Pharmacy Services</controllingFieldValue>
+                <valueName>Compounding - Antibiotics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Pharmacy Services</controllingFieldValue>
+                <valueName>Compounding - Oncology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Pharmacy Services</controllingFieldValue>
+                <valueName>Compounding - Overall Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Pharmacy Services</controllingFieldValue>
+                <valueName>Other (Pharm.Services)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Pharmacy Services</controllingFieldValue>
+                <valueName>Proud/FDS Machines &amp; Consumables</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Acute Catheters</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Acute - Total Therapy (CRRT Therapy)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Citrat</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Mars</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Phoxilium</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Prismaflex (Service Renal Main)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Prismalung</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Regiocit/Biphozyl</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>RIC Fluids</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Sets - Other CRRT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Sets - Oxiris</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Sets - TPE (Plasma Filter)</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_MIN_OUTCOME__c</fullName>
+        <description>BST Minimum result to be achieved during the call</description>
+        <externalId>false</externalId>
+        <label>Minimum Call Outcome</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>BST_MSL_CONF_NOTES__c</fullName>
+        <description>Field visible only to MSL . This will be used to store sensitive MSL info that is not to be shared with other teams</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field visible only to MSL . This will be used to store sensitive MSL info that is not to be shared with other teams</inlineHelpText>
+        <label>MSL Confidential Notes</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>BST_Medical_Best_Call_Outcome__c</fullName>
+        <externalId>false</externalId>
+        <label>Medical Best Call Outcome</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Medical_Call_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Medical Call Notes</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Medical_Call_Objectives__c</fullName>
+        <externalId>false</externalId>
+        <label>Medical Call Objectives</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_Medical_Minimum_Call_Outcome__c</fullName>
+        <externalId>false</externalId>
+        <label>Medical Minimum Call Outcome</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_NOTS_PREV_CALL__c</fullName>
+        <description>Auto populated from last meeting of type “Field Sales Call” with the same contact, by the same BOOST user, pick up notes existing in “Follow-up for next call”</description>
+        <externalId>false</externalId>
+        <label>Notes from Previous Call</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>BST_NR_CLINICIANS_TRAINED__c</fullName>
+        <description>BST - field used to track the number of clinicians trained during Training Event types</description>
+        <externalId>false</externalId>
+        <label>Nr. Of Clinicians Trained</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_NR_NURSES_TRAINED__c</fullName>
+        <description>BST - field used to track the number of nurses trained during Training Event types</description>
+        <externalId>false</externalId>
+        <inlineHelpText>BST - field used to track the number of nurses trained during Training Event types</inlineHelpText>
+        <label>Nr. Of Nurses Trained</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_OUTCOME_STATUS__c</fullName>
+        <description>Stores outcome status.</description>
+        <externalId>false</externalId>
+        <label>Outcome Status</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Advance</fullName>
+                    <default>false</default>
+                    <label>Advance</label>
+                </value>
+                <value>
+                    <fullName>Continuation</fullName>
+                    <default>false</default>
+                    <label>Continuation</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_Primary_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Used to maintain primary contact for each event.</description>
+        <externalId>false</externalId>
+        <label>Primary Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipName>Activities</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BST_Private__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Private</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BST_Resource_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Resource 1</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_SEC_PROD_CATH__c</fullName>
+        <description>BST - field used to track the Secondary Product Category discussed in a call (if it is the case)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>BST - field used to track the Secondary Product Category discussed in a call (if it is the case)</inlineHelpText>
+        <label>Secondary Product Category</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>BST_COUNTRY__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Bax Company/Services</fullName>
+                    <default>false</default>
+                    <label>Bax Company/Services</label>
+                </value>
+                <value>
+                    <fullName>HC - Anesthesia/Critical Care</fullName>
+                    <default>false</default>
+                    <label>HC - Anesthesia/Critical Care</label>
+                </value>
+                <value>
+                    <fullName>HC - BioSurgery</fullName>
+                    <default>false</default>
+                    <label>HC - BioSurgery</label>
+                </value>
+                <value>
+                    <fullName>HC - Glob.Pharma Injectables</fullName>
+                    <default>false</default>
+                    <label>HC - Glob.Pharma Injectables</label>
+                </value>
+                <value>
+                    <fullName>HC - Infusion Systems</fullName>
+                    <default>false</default>
+                    <label>HC - Infusion Systems</label>
+                </value>
+                <value>
+                    <fullName>HC - IV Therapies/SVP</fullName>
+                    <default>false</default>
+                    <label>HC - IV Therapies/SVP</label>
+                </value>
+                <value>
+                    <fullName>HC - Nutrition</fullName>
+                    <default>false</default>
+                    <label>HC - Nutrition</label>
+                </value>
+                <value>
+                    <fullName>HC - Nutrition Pediatrics</fullName>
+                    <default>false</default>
+                    <label>HC - Nutrition Pediatrics</label>
+                </value>
+                <value>
+                    <fullName>HC - Pharmacy Services</fullName>
+                    <default>false</default>
+                    <label>HC - Pharmacy Services</label>
+                </value>
+                <value>
+                    <fullName>HC - Productivity Sys</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>HC - Productivity Sys</label>
+                </value>
+                <value>
+                    <fullName>Market Access</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Market Access</label>
+                </value>
+                <value>
+                    <fullName>MSL/Medical</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>MSL/Medical</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>RE - Acute</fullName>
+                    <default>false</default>
+                    <label>RE - Acute</label>
+                </value>
+                <value>
+                    <fullName>RE - Hemo Dialysis</fullName>
+                    <default>false</default>
+                    <label>RE - Hemo Dialysis</label>
+                </value>
+                <value>
+                    <fullName>RE - Peritoneal Dialysis</fullName>
+                    <default>false</default>
+                    <label>RE - Peritoneal Dialysis</label>
+                </value>
+                <value>
+                    <fullName>RE - Water Treatment</fullName>
+                    <default>false</default>
+                    <label>RE - Water Treatment</label>
+                </value>
+                <value>
+                    <fullName>Small Volume Parenterals</fullName>
+                    <default>false</default>
+                    <label>Small Volume Parenterals</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>Bax Company/Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - Anesthesia/Critical Care</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - BioSurgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - Glob.Pharma Injectables</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - Infusion Systems</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - IV Therapies/SVP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - Nutrition</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>HC - Pharmacy Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>RE - Acute</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>RE - Hemo Dialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>RE - Peritoneal Dialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <valueName>RE - Water Treatment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>HC - Nutrition Pediatrics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Small Volume Parenterals</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_SEC_TOPIC__c</fullName>
+        <description>BST - field used to register the secondary topics discussed during a call. Value available are dependent on the selection made in &quot;Secondary Product Category&quot; field</description>
+        <externalId>false</externalId>
+        <inlineHelpText>BST - field used to register the secondary topics discussed during a call. Value available are dependent on the selection made in &quot;Secondary Product Category&quot; field</inlineHelpText>
+        <label>Secondary Topics</label>
+        <required>false</required>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <controllingField>BST_SEC_PROD_CATH__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Actifuse</fullName>
+                    <default>false</default>
+                    <label>Actifuse</label>
+                </value>
+                <value>
+                    <fullName>Acute Catheters</fullName>
+                    <default>false</default>
+                    <label>Acute Catheters</label>
+                </value>
+                <value>
+                    <fullName>Acute - Total Therapy</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Acute - Total Therapy</label>
+                </value>
+                <value>
+                    <fullName>Acute - Total Therapy (CRRT Therapy)</fullName>
+                    <default>false</default>
+                    <label>Acute - Total Therapy (CRRT Therapy)</label>
+                </value>
+                <value>
+                    <fullName>Adept</fullName>
+                    <default>false</default>
+                    <label>Adept</label>
+                </value>
+                <value>
+                    <fullName>Advanced Logistics Services</fullName>
+                    <default>false</default>
+                    <label>Advanced Logistics Services</label>
+                </value>
+                <value>
+                    <fullName>Amino Acids</fullName>
+                    <default>false</default>
+                    <label>Amino Acids</label>
+                </value>
+                <value>
+                    <fullName>AN69</fullName>
+                    <default>false</default>
+                    <label>AN69</label>
+                </value>
+                <value>
+                    <fullName>Artiss</fullName>
+                    <default>false</default>
+                    <label>Artiss</label>
+                </value>
+                <value>
+                    <fullName>B2C SVPS</fullName>
+                    <default>false</default>
+                    <label>B2C SVPS</label>
+                </value>
+                <value>
+                    <fullName>Back-Orders Management</fullName>
+                    <default>false</default>
+                    <label>Back-Orders Management</label>
+                </value>
+                <value>
+                    <fullName>Brevibloc</fullName>
+                    <default>false</default>
+                    <label>Brevibloc</label>
+                </value>
+                <value>
+                    <fullName>Cernevit</fullName>
+                    <default>false</default>
+                    <label>Cernevit</label>
+                </value>
+                <value>
+                    <fullName>Citrat</fullName>
+                    <default>false</default>
+                    <label>Citrate</label>
+                </value>
+                <value>
+                    <fullName>Clinimix</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Clinimix</label>
+                </value>
+                <value>
+                    <fullName>Clinimix (Dual Chamber Bags)</fullName>
+                    <default>false</default>
+                    <label>Clinimix (Dual Chamber Bags)</label>
+                </value>
+                <value>
+                    <fullName>Clinoleic</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Clinoleic</label>
+                </value>
+                <value>
+                    <fullName>Clinoleic (Lipids)</fullName>
+                    <default>false</default>
+                    <label>Clinoleic (Lipids)</label>
+                </value>
+                <value>
+                    <fullName>Colleague Pumps</fullName>
+                    <default>false</default>
+                    <label>Colleague Pumps</label>
+                </value>
+                <value>
+                    <fullName>Compounding Analgesics</fullName>
+                    <default>false</default>
+                    <label>Compounding Analgesics</label>
+                </value>
+                <value>
+                    <fullName>Compounding - Antibiotics</fullName>
+                    <default>false</default>
+                    <label>Compounding - Antibiotics</label>
+                </value>
+                <value>
+                    <fullName>Compounding - Onco</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Compounding - Onco</label>
+                </value>
+                <value>
+                    <fullName>Compounding - Oncology</fullName>
+                    <default>false</default>
+                    <label>Compounding - Oncology</label>
+                </value>
+                <value>
+                    <fullName>Compounding - Overall Services</fullName>
+                    <default>false</default>
+                    <label>Compounding - Overall Services</label>
+                </value>
+                <value>
+                    <fullName>Coseal</fullName>
+                    <default>false</default>
+                    <label>Coseal</label>
+                </value>
+                <value>
+                    <fullName>CWP Units &amp; Consumables</fullName>
+                    <default>false</default>
+                    <label>CWP Units &amp; Consumables</label>
+                </value>
+                <value>
+                    <fullName>Cycler - Claria+Sharesource</fullName>
+                    <default>false</default>
+                    <label>Cycler - Claria+Sharesource</label>
+                </value>
+                <value>
+                    <fullName>Cycler - HomeChoice</fullName>
+                    <default>false</default>
+                    <label>Cycler - HomeChoice</label>
+                </value>
+                <value>
+                    <fullName>Delivery Terms/Policy/Issues</fullName>
+                    <default>false</default>
+                    <label>Delivery Terms/Policy/Issues</label>
+                </value>
+                <value>
+                    <fullName>Desflurane</fullName>
+                    <default>false</default>
+                    <label>Desflurane</label>
+                </value>
+                <value>
+                    <fullName>Dexdor</fullName>
+                    <default>false</default>
+                    <label>Dexdor</label>
+                </value>
+                <value>
+                    <fullName>Docked-Vialmate (Coupling)</fullName>
+                    <default>false</default>
+                    <label>Docked-Vialmate (Coupling)</label>
+                </value>
+                <value>
+                    <fullName>Elastomerics</fullName>
+                    <default>false</default>
+                    <label>Elastomerics</label>
+                </value>
+                <value>
+                    <fullName>Endoxan</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Endoxan</label>
+                </value>
+                <value>
+                    <fullName>Endoxan (Procytox)</fullName>
+                    <default>false</default>
+                    <label>Endoxan (Procytox)</label>
+                </value>
+                <value>
+                    <fullName>Exactamix</fullName>
+                    <default>false</default>
+                    <label>Exactamix</label>
+                </value>
+                <value>
+                    <fullName>Executive Business Review (EBR)</fullName>
+                    <default>false</default>
+                    <label>Executive Business Review (EBR)</label>
+                </value>
+                <value>
+                    <fullName>Extraneal</fullName>
+                    <default>false</default>
+                    <label>Extraneal</label>
+                </value>
+                <value>
+                    <fullName>Financial Terms/Invoices/Payments</fullName>
+                    <default>false</default>
+                    <label>Financial Terms/Invoices/Payments</label>
+                </value>
+                <value>
+                    <fullName>Floseal</fullName>
+                    <default>false</default>
+                    <label>Floseal</label>
+                </value>
+                <value>
+                    <fullName>HD - Bloodlines &amp; Accessories</fullName>
+                    <default>false</default>
+                    <label>HD - Bloodlines &amp; Accessories</label>
+                </value>
+                <value>
+                    <fullName>HD - Concentrates &amp; Solutions</fullName>
+                    <default>false</default>
+                    <label>HD - Concentrates &amp; Solutions</label>
+                </value>
+                <value>
+                    <fullName>HD Therapies</fullName>
+                    <default>false</default>
+                    <label>HD Therapies</label>
+                </value>
+                <value>
+                    <fullName>HD - Total Therapy</fullName>
+                    <default>false</default>
+                    <label>HD - Total Therapy</label>
+                </value>
+                <value>
+                    <fullName>Hemopatch</fullName>
+                    <default>false</default>
+                    <label>Hemopatch</label>
+                </value>
+                <value>
+                    <fullName>High Concentrates</fullName>
+                    <default>false</default>
+                    <label>High Concentrates</label>
+                </value>
+                <value>
+                    <fullName>Holoxan</fullName>
+                    <default>false</default>
+                    <label>Holoxan</label>
+                </value>
+                <value>
+                    <fullName>Home HD</fullName>
+                    <default>false</default>
+                    <label>Home HD</label>
+                </value>
+                <value>
+                    <fullName>In Center HD</fullName>
+                    <default>false</default>
+                    <label>In Center HD</label>
+                </value>
+                <value>
+                    <fullName>Infusion Sets (=Access)</fullName>
+                    <default>false</default>
+                    <label>Infusion Sets (=Access)</label>
+                </value>
+                <value>
+                    <fullName>Irrigation Bags</fullName>
+                    <default>false</default>
+                    <label>Irrigation Bags</label>
+                </value>
+                <value>
+                    <fullName>Irrigation Sets</fullName>
+                    <default>false</default>
+                    <label>Irrigation Sets</label>
+                </value>
+                <value>
+                    <fullName>Isofluruane</fullName>
+                    <default>false</default>
+                    <label>Isoflurane</label>
+                </value>
+                <value>
+                    <fullName>Mars</fullName>
+                    <default>false</default>
+                    <label>Mars</label>
+                </value>
+                <value>
+                    <fullName>Monitors - AK98</fullName>
+                    <default>false</default>
+                    <label>Monitors - AK98</label>
+                </value>
+                <value>
+                    <fullName>Monitors - Artis</fullName>
+                    <default>false</default>
+                    <label>Monitors - Artis</label>
+                </value>
+                <value>
+                    <fullName>Monitors - Other</fullName>
+                    <default>false</default>
+                    <label>Monitors - Other</label>
+                </value>
+                <value>
+                    <fullName>Nephral/Evodial</fullName>
+                    <default>false</default>
+                    <label>Nephral/Evodial</label>
+                </value>
+                <value>
+                    <fullName>Nipro Cellulosic</fullName>
+                    <default>false</default>
+                    <label>Nipro Cellulosic</label>
+                </value>
+                <value>
+                    <fullName>Numeta</fullName>
+                    <default>false</default>
+                    <label>Numeta</label>
+                </value>
+                <value>
+                    <fullName>Nutrineal</fullName>
+                    <default>false</default>
+                    <label>Nutrineal</label>
+                </value>
+                <value>
+                    <fullName>Nutryelt</fullName>
+                    <default>false</default>
+                    <label>Nutryelt</label>
+                </value>
+                <value>
+                    <fullName>Olimel/Oliclinomel</fullName>
+                    <default>false</default>
+                    <label>Olimel/Oliclinomel</label>
+                </value>
+                <value>
+                    <fullName>Oral/Enteral Syringes</fullName>
+                    <default>false</default>
+                    <label>Oral/Enteral Syringes</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Other (All Baxter)</fullName>
+                    <default>false</default>
+                    <label>Other (All Baxter)</label>
+                </value>
+                <value>
+                    <fullName>Other (Pharm.Services)</fullName>
+                    <default>false</default>
+                    <label>Other (Pharm.Services)</label>
+                </value>
+                <value>
+                    <fullName>Other - Dialyzers</fullName>
+                    <default>false</default>
+                    <label>Other - Dialyzers</label>
+                </value>
+                <value>
+                    <fullName>Other Micro Nutrients</fullName>
+                    <default>false</default>
+                    <label>Other Micro Nutrients</label>
+                </value>
+                <value>
+                    <fullName>Other - solutions</fullName>
+                    <default>false</default>
+                    <label>Other - solutions</label>
+                </value>
+                <value>
+                    <fullName>Overall Baxter</fullName>
+                    <default>false</default>
+                    <label>Overall Baxter</label>
+                </value>
+                <value>
+                    <fullName>Overall LVP/SVP solutions</fullName>
+                    <default>false</default>
+                    <label>Overall LVP/SVP solutions</label>
+                </value>
+                <value>
+                    <fullName>PD - Solutions</fullName>
+                    <default>false</default>
+                    <label>PD - Solutions</label>
+                </value>
+                <value>
+                    <fullName>PD - Total Therapy</fullName>
+                    <default>false</default>
+                    <label>PD - Total Therapy</label>
+                </value>
+                <value>
+                    <fullName>Pharmacy Tools</fullName>
+                    <default>false</default>
+                    <label>Pharmacy Tools</label>
+                </value>
+                <value>
+                    <fullName>Phoxilium</fullName>
+                    <default>false</default>
+                    <label>Phoxilium</label>
+                </value>
+                <value>
+                    <fullName>Physioneal</fullName>
+                    <default>false</default>
+                    <label>Physioneal</label>
+                </value>
+                <value>
+                    <fullName>PN Services - Compounding</fullName>
+                    <default>false</default>
+                    <label>PN Services - Compounding</label>
+                </value>
+                <value>
+                    <fullName>PN Services - Home</fullName>
+                    <default>false</default>
+                    <label>PN Services - Home</label>
+                </value>
+                <value>
+                    <fullName>PN Services - Kitting</fullName>
+                    <default>false</default>
+                    <label>PN Services - Kitting</label>
+                </value>
+                <value>
+                    <fullName>Polyflux</fullName>
+                    <default>false</default>
+                    <label>Polyflux</label>
+                </value>
+                <value>
+                    <fullName>Poor Bottles</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Poor Bottles</label>
+                </value>
+                <value>
+                    <fullName>Pour Bottles</fullName>
+                    <default>false</default>
+                    <label>Pour Bottles</label>
+                </value>
+                <value>
+                    <fullName>PPT</fullName>
+                    <default>false</default>
+                    <label>PPT</label>
+                </value>
+                <value>
+                    <fullName>Pre-Dialysis</fullName>
+                    <default>false</default>
+                    <label>Pre-Dialysis</label>
+                </value>
+                <value>
+                    <fullName>Premixes</fullName>
+                    <default>false</default>
+                    <label>Premixes</label>
+                </value>
+                <value>
+                    <fullName>Prismaflex</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Prismaflex</label>
+                </value>
+                <value>
+                    <fullName>Prismaflex (Service Renal Main)</fullName>
+                    <default>false</default>
+                    <label>Prismaflex (Service Renal Main)</label>
+                </value>
+                <value>
+                    <fullName>Prismalung</fullName>
+                    <default>false</default>
+                    <label>Prismalung</label>
+                </value>
+                <value>
+                    <fullName>Proud/FDS Machines &amp; Consumables</fullName>
+                    <default>false</default>
+                    <label>Proud/FDS Machines &amp; Consumables</label>
+                </value>
+                <value>
+                    <fullName>Recon Devices</fullName>
+                    <default>false</default>
+                    <label>Recon Devices</label>
+                </value>
+                <value>
+                    <fullName>Regiocit/Biphozyl</fullName>
+                    <default>false</default>
+                    <label>Regiocit/Biphozyl</label>
+                </value>
+                <value>
+                    <fullName>REMOVE_Organize</fullName>
+                    <default>false</default>
+                    <label>REMOVE_Organize</label>
+                </value>
+                <value>
+                    <fullName>REMOVE_VAPORIZERS</fullName>
+                    <default>false</default>
+                    <label>REMOVE_VAPORIZERS</label>
+                </value>
+                <value>
+                    <fullName>Repeater Pump</fullName>
+                    <default>false</default>
+                    <label>Repeater Pump</label>
+                </value>
+                <value>
+                    <fullName>Revaclear</fullName>
+                    <default>false</default>
+                    <label>Revaclear</label>
+                </value>
+                <value>
+                    <fullName>RIC Fluids</fullName>
+                    <default>false</default>
+                    <label>RIC Fluids</label>
+                </value>
+                <value>
+                    <fullName>Sets - Other CRRT</fullName>
+                    <default>false</default>
+                    <label>Sets - Other CRRT</label>
+                </value>
+                <value>
+                    <fullName>Sets - Oxiris</fullName>
+                    <default>false</default>
+                    <label>Sets - Oxiris</label>
+                </value>
+                <value>
+                    <fullName>Sets - TPE</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Sets - TPE</label>
+                </value>
+                <value>
+                    <fullName>Sets - TPE (Plasma Filter)</fullName>
+                    <default>false</default>
+                    <label>Sets - TPE (Plasma Filter)</label>
+                </value>
+                <value>
+                    <fullName>Sevoflurane</fullName>
+                    <default>false</default>
+                    <label>Sevoflurane</label>
+                </value>
+                <value>
+                    <fullName>ShareSource (IT/DataPrivacy)</fullName>
+                    <default>false</default>
+                    <label>ShareSource (IT/DataPrivacy)</label>
+                </value>
+                <value>
+                    <fullName>Sigma Spectrum</fullName>
+                    <default>false</default>
+                    <label>Sigma Spectrum</label>
+                </value>
+                <value>
+                    <fullName>Software -HD</fullName>
+                    <default>false</default>
+                    <label>Software -HD</label>
+                </value>
+                <value>
+                    <fullName>Software - Renalsoft</fullName>
+                    <default>false</default>
+                    <label>Software - Renalsoft</label>
+                </value>
+                <value>
+                    <fullName>Software - ShareSource</fullName>
+                    <default>false</default>
+                    <label>Software - ShareSource</label>
+                </value>
+                <value>
+                    <fullName>Specialty LVP - Glucion</fullName>
+                    <default>false</default>
+                    <label>Specialty LVP - Glucion</label>
+                </value>
+                <value>
+                    <fullName>Specialty LVP - Other solutions</fullName>
+                    <default>false</default>
+                    <label>Specialty LVP - Other solutions</label>
+                </value>
+                <value>
+                    <fullName>Specialty LVP - Plasmalyte</fullName>
+                    <default>false</default>
+                    <label>Specialty LVP - Plasmalyte</label>
+                </value>
+                <value>
+                    <fullName>Suprane</fullName>
+                    <default>false</default>
+                    <label>Suprane</label>
+                </value>
+                <value>
+                    <fullName>Theranova</fullName>
+                    <default>false</default>
+                    <label>Theranova</label>
+                </value>
+                <value>
+                    <fullName>Tisseel</fullName>
+                    <default>false</default>
+                    <label>Tisseel</label>
+                </value>
+                <value>
+                    <fullName>Tisseel/Tissucol</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Tisseel/Tissucol</label>
+                </value>
+                <value>
+                    <fullName>Tissue Guard</fullName>
+                    <default>false</default>
+                    <label>Tissue Guard</label>
+                </value>
+                <value>
+                    <fullName>Trace Elements</fullName>
+                    <default>false</default>
+                    <label>Trace Elements</label>
+                </value>
+                <value>
+                    <fullName>Traumastem</fullName>
+                    <default>false</default>
+                    <label>Traumastem</label>
+                </value>
+                <value>
+                    <fullName>Traumastem/Celstat</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Traumastem/Celstat</label>
+                </value>
+                <value>
+                    <fullName>Uromitexan</fullName>
+                    <default>false</default>
+                    <label>Uromitexan</label>
+                </value>
+                <value>
+                    <fullName>Vaporizers Management</fullName>
+                    <default>false</default>
+                    <label>Vaporizers Management</label>
+                </value>
+                <value>
+                    <fullName>Vials &amp; Amps</fullName>
+                    <default>false</default>
+                    <label>Vials &amp; Amps</label>
+                </value>
+                <value>
+                    <fullName>Vitamins</fullName>
+                    <default>false</default>
+                    <label>Vitamins</label>
+                </value>
+                <value>
+                    <fullName>Wt Equipment</fullName>
+                    <default>false</default>
+                    <label>Wt Equipment</label>
+                </value>
+                <value>
+                    <fullName>Zn/Se</fullName>
+                    <default>false</default>
+                    <label>Zn/Se</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>AN69</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>HD - Bloodlines &amp; Accessories</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>HD - Concentrates &amp; Solutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>HD Therapies</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>HD - Total Therapy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Home HD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>In Center HD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Monitors - AK98</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Monitors - Artis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Monitors - Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Nephral/Evodial</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Nipro Cellulosic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Other - Dialyzers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Other - solutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Polyflux</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>PPT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Revaclear</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Software -HD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Theranova</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Hemo Dialysis</controllingFieldValue>
+                <valueName>Wt Equipment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>Cycler - Claria+Sharesource</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>Cycler - HomeChoice</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>Extraneal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>Nutrineal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <controllingFieldValue>RE - Water Treatment</controllingFieldValue>
+                <controllingFieldValue>HC - Anesthesia/Critical Care</controllingFieldValue>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <controllingFieldValue>HC - Infusion Systems</controllingFieldValue>
+                <controllingFieldValue>HC - IV Therapies/SVP</controllingFieldValue>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <controllingFieldValue>HC - Pharmacy Services</controllingFieldValue>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>PD - Solutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>PD - Total Therapy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>Physioneal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>Pre-Dialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>ShareSource (IT/DataPrivacy)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>Software - Renalsoft</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Peritoneal Dialysis</controllingFieldValue>
+                <valueName>Software - ShareSource</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Water Treatment</controllingFieldValue>
+                <valueName>CWP Units &amp; Consumables</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition Pediatrics</controllingFieldValue>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Clinoleic (Lipids)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition Pediatrics</controllingFieldValue>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Numeta</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Small Volume Parenterals</controllingFieldValue>
+                <valueName>B2C SVPS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bax Company/Services</controllingFieldValue>
+                <valueName>Advanced Logistics Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bax Company/Services</controllingFieldValue>
+                <valueName>Back-Orders Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bax Company/Services</controllingFieldValue>
+                <valueName>Delivery Terms/Policy/Issues</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bax Company/Services</controllingFieldValue>
+                <valueName>Executive Business Review (EBR)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bax Company/Services</controllingFieldValue>
+                <valueName>Financial Terms/Invoices/Payments</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bax Company/Services</controllingFieldValue>
+                <valueName>Other (All Baxter)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bax Company/Services</controllingFieldValue>
+                <valueName>Overall Baxter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Anesthesia/Critical Care</controllingFieldValue>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <valueName>Brevibloc</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Anesthesia/Critical Care</controllingFieldValue>
+                <valueName>Desflurane</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Anesthesia/Critical Care</controllingFieldValue>
+                <valueName>Dexdor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Anesthesia/Critical Care</controllingFieldValue>
+                <valueName>Isofluruane</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Anesthesia/Critical Care</controllingFieldValue>
+                <valueName>Sevoflurane</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Anesthesia/Critical Care</controllingFieldValue>
+                <valueName>Suprane</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Anesthesia/Critical Care</controllingFieldValue>
+                <valueName>Vaporizers Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <valueName>Actifuse</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <valueName>Adept</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <valueName>Artiss</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <valueName>Coseal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <valueName>Floseal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <valueName>Hemopatch</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <valueName>Tisseel</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <valueName>Tissue Guard</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - BioSurgery</controllingFieldValue>
+                <valueName>Traumastem</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <valueName>Docked-Vialmate (Coupling)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <valueName>Endoxan (Procytox)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <valueName>Holoxan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <controllingFieldValue>HC - Infusion Systems</controllingFieldValue>
+                <valueName>Oral/Enteral Syringes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <controllingFieldValue>HC - Infusion Systems</controllingFieldValue>
+                <valueName>Pharmacy Tools</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <valueName>Premixes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <valueName>Recon Devices</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <valueName>Repeater Pump</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <valueName>Uromitexan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Glob.Pharma Injectables</controllingFieldValue>
+                <valueName>Vials &amp; Amps</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Infusion Systems</controllingFieldValue>
+                <valueName>Colleague Pumps</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Infusion Systems</controllingFieldValue>
+                <valueName>Elastomerics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Infusion Systems</controllingFieldValue>
+                <valueName>Infusion Sets (=Access)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Infusion Systems</controllingFieldValue>
+                <valueName>Sigma Spectrum</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - IV Therapies/SVP</controllingFieldValue>
+                <valueName>Irrigation Bags</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - IV Therapies/SVP</controllingFieldValue>
+                <valueName>Irrigation Sets</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - IV Therapies/SVP</controllingFieldValue>
+                <valueName>Overall LVP/SVP solutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - IV Therapies/SVP</controllingFieldValue>
+                <valueName>Pour Bottles</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - IV Therapies/SVP</controllingFieldValue>
+                <valueName>Specialty LVP - Glucion</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - IV Therapies/SVP</controllingFieldValue>
+                <valueName>Specialty LVP - Other solutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - IV Therapies/SVP</controllingFieldValue>
+                <valueName>Specialty LVP - Plasmalyte</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Amino Acids</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Cernevit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Clinimix (Dual Chamber Bags)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Exactamix</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>High Concentrates</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Nutryelt</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Olimel/Oliclinomel</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Other Micro Nutrients</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>PN Services - Compounding</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>PN Services - Home</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>PN Services - Kitting</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Trace Elements</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Vitamins</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Nutrition</controllingFieldValue>
+                <valueName>Zn/Se</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Pharmacy Services</controllingFieldValue>
+                <valueName>Compounding Analgesics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Pharmacy Services</controllingFieldValue>
+                <valueName>Compounding - Antibiotics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Pharmacy Services</controllingFieldValue>
+                <valueName>Compounding - Oncology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Pharmacy Services</controllingFieldValue>
+                <valueName>Compounding - Overall Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Pharmacy Services</controllingFieldValue>
+                <valueName>Other (Pharm.Services)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>HC - Pharmacy Services</controllingFieldValue>
+                <valueName>Proud/FDS Machines &amp; Consumables</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Acute Catheters</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Acute - Total Therapy (CRRT Therapy)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Citrat</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Mars</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Phoxilium</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Prismaflex (Service Renal Main)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Prismalung</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Regiocit/Biphozyl</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>RIC Fluids</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Sets - Other CRRT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Sets - Oxiris</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RE - Acute</controllingFieldValue>
+                <valueName>Sets - TPE (Plasma Filter)</valueName>
+            </valueSettings>
+        </valueSet>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>BST_STATUS__c</fullName>
+        <description>For Marking the record with different status.</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Canceled</fullName>
+                    <default>false</default>
+                    <label>Canceled</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>Scheduled</fullName>
+                    <default>true</default>
+                    <label>Scheduled</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DB_Activity_Type__c</fullName>
+        <description>This is a field that is installed by and used with the Adoption Dashboard AppExchange package. If your org already has a similar field, you can change the reports that are part of the Adoption Dashboard package to use your custom field and then delete this field.</description>
+        <externalId>false</externalId>
+        <formula>IF(CONTAINS( Subject , &quot;Email&quot;), &quot;Email&quot;, IF(CONTAINS( Subject , &quot;Cold Call&quot;), &quot;Cold Call&quot;, IF(CONTAINS( Subject , &quot;Call&quot;), &quot;Call&quot;, IF(CONTAINS( Subject , &quot;Meeting&quot;), &quot;Meeting&quot;, IF(CONTAINS( Subject , &quot;On Site Visit&quot;), &quot;Site Visit&quot;, IF(CONTAINS( Subject , &quot;Quote&quot;), &quot;Send Letter/Quote&quot;, &quot;Other&quot;))))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>DB Activity Type</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>File_ID__c</fullName>
+        <description>Vablet File ID</description>
+        <externalId>false</externalId>
+        <label>File ID</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Media_View_List__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(LEFT($Api.Partner_Server_URL_260, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_260))&amp;&apos;a07?fcf=00Bd0000005djib&amp;pv0=&apos; &amp; CASESAFEID(Id), &apos;Media Views For Event&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Media View List</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Message_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Message 1</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Topic_Discussed__c</fullName>
+        <externalId>false</externalId>
+        <label>Topic Discussed</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <listViews>
+        <fullName>MyActivities</fullName>
+        <columns>ACTIVITY_SUBTYPE</columns>
+        <columns>TASK.STATUS</columns>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>TASK.WHAT_NAME</columns>
+        <columns>TASK.WHO_NAME</columns>
+        <columns>EVENT.LOCATION</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Activities</label>
+    </listViews>
+    <listViews>
+        <fullName>MyDelegatedActivities</fullName>
+        <filterScope>Delegated</filterScope>
+        <label>My Delegated Activities</label>
+    </listViews>
+    <listViews>
+        <fullName>MyTeamsActivities</fullName>
+        <filterScope>Team</filterScope>
+        <label>My Team&apos;s Activities</label>
+    </listViews>
+    <listViews>
+        <fullName>TodaysTasks</fullName>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>TASK.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>ACTIVITY.TASK</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>TASK.DUE_DATE</field>
+            <operation>lessThan</operation>
+            <value>TOMORROW</value>
+        </filters>
+        <label>Today&apos;s Tasks</label>
+    </listViews>
+    <listViews>
+        <fullName>UpcomingEvents</fullName>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>ACTIVITY.TASK</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>TASK.DUE_DATE</field>
+            <operation>greaterThan</operation>
+            <value>YESTERDAY</value>
+        </filters>
+        <label>Upcoming Events</label>
+    </listViews>
+    <searchLayouts>
+        <searchFilterFields>TASK.TYPE</searchFilterFields>
+        <searchFilterFields>TASK.SUBJECT</searchFilterFields>
+        <searchFilterFields>TASK.RECORDTYPE</searchFilterFields>
+        <searchFilterFields>BST_BAX_SALES_TEAM__c</searchFilterFields>
+        <searchFilterFields>BST_MAIN_TOPIC__c</searchFilterFields>
+        <searchFilterFields>TASK.WHAT_NAME</searchFilterFields>
+        <searchResultsAdditionalFields>TASK.SUBJECT</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TASK.WHO_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TASK.WHAT_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>BST_BAX_SALES_TEAM__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>BST_MAIN_TOPIC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TASK.RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TASK.TYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EVENT.START_DATE_TIME</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+</CustomObject>

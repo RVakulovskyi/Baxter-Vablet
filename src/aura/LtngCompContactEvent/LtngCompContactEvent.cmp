@@ -1,0 +1,278 @@
+<aura:component controller="ClsEventLightningController"
+                implements="force:lightningQuickActionWithoutHeader,force:hasRecordId">
+    <aura:attribute name="contact" type="Contact" />
+    <aura:attribute name="userCountry" type="String"/><!--Value to be defaulted based on the logged in user-->
+    <aura:attribute name="userMPC" type="String"/><!--Value to be defaulted based on the logged in user-->
+    <aura:attribute name="evtRecordType" type="String"/><!--Value to be defaulted based on the logged in user-->
+    <aura:attribute name="contacts" type="Contact[]"/><!--Stores the Contacts associated to this contact-->
+    <aura:attribute name="status" type="String[]" default="Open, Closed, Closed Won, Any"/>
+    <aura:attribute name="newEvent" type="Event" default="{ 'sobjectType': 'Event' }" /> <!-- default to empty record -->
+    <aura:attribute name="hasErrors" type="Boolean" description="Indicate if there were failures when validating the Event." />
+    <aura:attribute name="recordId" type="Id" description="The current record Id to display" />
+    <aura:attribute name="accountId" type="Id" description="The current account Id to display" />
+    <aura:attribute name="contactId" type="Id" description="The current contact Id to display" />
+    <aura:attribute name="BSTAssociatedCriticalMetricsID" type="Id" description="The current Campaign Id to display" />
+    
+	<aura:attribute name="isSecondaryCountryEmpty" type="Boolean" />
+	<aura:attribute name="errorMessage" type="String" />
+    <aura:attribute name="FieldSalesCallRecdType" type="String" default="{!$Label.c.BST_Field_Sales_Call_RecordType}"/>
+    <aura:attribute name="IntNonSalesActRecdType" type="String" default="{!$Label.c.BST_Internal_Non_Sales_Activity_RecordType}"/>
+    <aura:attribute name="FieldSalesActRecdType" type="String" default="{!$Label.c.BST_Non_Field_Sales_Activity_RecordType}"/>
+    <aura:attribute name="TrainingProvidedRecdType" type="String" default="{!$Label.c.BST_Training_Provided_RecordType}"/>
+    <aura:attribute name="defaultEventTypeVal" type="String"/><!--Event type Value to be defaulted based for the selected RecordType-->
+    <aura:attribute name="profileName" type="Profile"/>
+	<aura:handler name="updateLookupIdEvent" event="c:UpdateLookupId" action="{!c.handleIdUpdate}"/>
+	<aura:handler name="clearLookupIdEvent" event="c:ClearLookupId" action="{!c.handleIdClear}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.newEvent.StartDateTime}" action="{!c.setEndDate}"/>  
+    
+    <!-- Display a header with details about the account -->
+    <div class="slds-page-header" role="banner">
+        <p class="slds-text-heading--label">{!v.contact.FirstName + ' ' + v.contact.LastName}</p>
+        <h1 class="slds-page-header__title slds-m-right--small
+                   slds-truncate slds-align-left">Create New Event</h1>
+    </div>
+    
+    <!-- Display form validation errors, if any -->
+    <aura:if isTrue="{!v.hasErrors}">
+        <div class="recordSaveError">
+            <ui:message title="Error" severity="error" closable="true">
+                The new event can't be saved because it's not valid.
+                Please review and correct the errors in the form: {!v.errorMessage}
+            </ui:message>
+        </div>
+    </aura:if>
+    
+    
+    <!-- Display the new Event form -->
+    <div class="slds-form--stacked">
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" 
+                   for="eventCountry">{!$Label.c.BST_Country}</label>
+            <div class="slds-form-element__control">
+                <ui:inputSelect class="slds-select" aura:id="eventCountry" value="{!v.newEvent.BST_COUNTRY__c}" 
+                                change="{!c.onSelectCountryChange}" required="true"/>
+            </div>
+        </div>
+        
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" 
+                   for="eventRecordType">{!$Label.c.BST_Record_Type}</label>
+            <div class="slds-form-element__control">
+                <ui:inputSelect class="slds-select" aura:id="eventRecordType" value="{!v.evtRecordType}"
+                                change="{!c.onSelectRecordTypeChange}" /> 
+            </div>
+        </div>
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" 
+                   for="eventType">{!$Label.c.BST_Event_Type}</label>
+            <div class="slds-form-element__control">
+                <ui:inputSelect class="slds-select" aura:id="eventType" value="{!v.newEvent.BST_CALL_TYPE__c}" />
+            </div>
+        </div>
+        <c:inputLookupBST label="Account" currRecord="{!v.contact.Id}" sObjectAPIName="Account" listIconClass="standard:account" idAttToPopulate="accountId" fieldsToDisplay="Name,BST_PARENT_ACCOUNT_NAME__c,BST_ACCOUNT_ADDRESS__c"/>
+        <br/>
+        <c:LtngCompLookup label="Associated Critical Metrics" currRecord="{!v.newEvent.BST_COUNTRY__c}" sObjectAPIName="Campaign" listIconClass="standard:Campaign" idAttToPopulate="BSTAssociatedCriticalMetricsID" fieldsToDisplay="Name"/>
+        <br/>  
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" 
+                   for="eventStartDate">{!$Label.c.BST_Start_Date}</label>
+            <div class="slds-form-element__control">
+                <ui:inputDateTime class="field" aura:id="eventStartDate" 
+                                  value="{!v.newEvent.StartDateTime}" displayDatePicker="true"/>
+            </div>
+        </div>
+
+        <aura:set attribute="else">
+        	<SPAN></SPAN>
+        </aura:set>
+        
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" 
+                   for="eventEndDate">{!$Label.c.BST_End_Date}</label>
+            <div class="slds-form-element__control">
+                <ui:inputDateTime class="field" aura:id="eventEndDate" 
+                                  value="{!v.newEvent.EndDateTime}" displayDatePicker="true"/>
+            </div>
+        </div>
+
+        <aura:set attribute="else">
+        	<SPAN></SPAN>
+        </aura:set>
+        
+        <aura:if isTrue="{!v.evtRecordType == v.FieldSalesCallRecdType || v.evtRecordType == v.FieldSalesActRecdType || v.evtRecordType == v.TrainingProvidedRecdType}">
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" 
+                   for="eventMainProdCat">{!$Label.c.BST_Main_Product_Category}</label>
+            <div class="slds-form-element__control">
+                <ui:inputSelect class="slds-select" aura:id="eventMainProdCat" value="{!v.newEvent.BST_BAX_SALES_TEAM__c}"
+                				change="{!c.onSelectMPCChange}" required="true"/>
+            </div>
+        </div>
+		</aura:if>
+        
+        <aura:set attribute="else">
+        	<SPAN></SPAN>
+        </aura:set>
+        <aura:if isTrue="{!v.evtRecordType == v.FieldSalesCallRecdType || v.evtRecordType == v.FieldSalesActRecdType || v.evtRecordType == v.TrainingProvidedRecdType}">
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" 
+                   for="eventMainTopic">{!$Label.c.BST_Main_Topic}</label>
+            <div class="slds-form-element__control">
+                <ui:inputSelect class="slds-select" aura:id="eventMainTopic" value="{!v.newEvent.BST_MAIN_TOPIC__c}"/>
+            </div>
+        </div>
+		</aura:if>
+        <aura:set attribute="else">
+        	<SPAN></SPAN>
+        </aura:set>
+        
+        <aura:if isTrue="{!v.evtRecordType == v.FieldSalesCallRecdType}">
+			<div class="slds-form-element">
+				<label class="slds-form-element__label" 
+					   for="eventCoachingVisit">{!$Label.c.BST_Coaching_Visit}</label>
+				<div class="slds-form-element__control">
+                    <ui:inputCheckbox aura:id="eventCoachingVisit" value="{!v.newEvent.BSTP_COACH_VISIT__c}" change="{!c.coachVisitCheckboxChange}"/>
+				</div>
+			</div>	
+        </aura:if>
+        <aura:set attribute="else">
+            <SPAN></SPAN>
+        </aura:set>
+        
+        
+        
+        <aura:if isTrue="{!and(v.evtRecordType == v.FieldSalesCallRecdType, v.profileName.Name == 'BOOST - Medical Affairs')}">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" for="medcallobj">{!$Label.c.BST_Medical_Call_Objectives}</label>
+                <div class="slds-form-element__control">
+                    <ui:inputTextArea aura:id="mcallObj" class="slds-textarea" placeholder="" value="{!v.newEvent.BST_Medical_Call_Objectives__c}"></ui:inputTextArea>
+                </div>
+            </div>
+        </aura:if>
+        <aura:set attribute="else">
+            <SPAN></SPAN>
+        </aura:set>
+        
+        <aura:if isTrue="{!and(or(v.evtRecordType == v.TrainingProvidedRecdType, v.evtRecordType == v.FieldSalesCallRecdType), v.profileName.Name == 'BOOST - Medical Affairs')}">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" for="medcallnote">{!$Label.c.BST_Medical_Call_Notes}</label>
+                <div class="slds-form-element__control">
+                    <ui:inputTextArea aura:id="mcallnote" class="slds-textarea" placeholder="" value="{!v.newEvent.BST_Medical_Call_Notes__c}"></ui:inputTextArea>
+                </div>
+            </div>
+        </aura:if>
+        <aura:set attribute="else">
+            <SPAN></SPAN>
+        </aura:set>
+        
+        <aura:if isTrue="{!and(v.evtRecordType == v.FieldSalesCallRecdType, v.profileName.Name == 'BOOST - Medical Affairs')}">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" for="medbout">{!$Label.c.BST_Medical_Best_Call_Outcome}</label>
+                <div class="slds-form-element__control">
+                    <ui:inputTextArea aura:id="mbout" class="slds-textarea" placeholder="" value="{!v.newEvent.BST_Medical_Best_Call_Outcome__c}"></ui:inputTextArea>
+                </div>
+            </div>
+        </aura:if>
+        <aura:set attribute="else">
+            <SPAN></SPAN>
+        </aura:set>
+        
+        <aura:if isTrue="{!and(v.evtRecordType == v.FieldSalesCallRecdType, v.profileName.Name == 'BOOST - Medical Affairs')}">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" for="membout">{!$Label.c.BST_Medical_Minimum_Call_Outcome}</label>
+                <div class="slds-form-element__control">
+                    <ui:inputTextArea aura:id="mmout" class="slds-textarea" placeholder="" value="{!v.newEvent.BST_Medical_Minimum_Call_Outcome__c}"></ui:inputTextArea>
+                </div>
+            </div>
+        </aura:if>
+        <aura:set attribute="else">
+            <SPAN></SPAN>
+        </aura:set>
+        
+        <aura:if isTrue="{!and(or(v.evtRecordType == v.TrainingProvidedRecdType, v.evtRecordType == v.FieldSalesCallRecdType), v.profileName.Name == 'BOOST - Medical Affairs')}">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" for="mslconf">{!$Label.c.BST_MSL_Confidential_Notes}</label>
+                <div class="slds-form-element__control">
+                    <ui:inputTextArea aura:id="msconf" class="slds-textarea" placeholder="" value="{!v.newEvent.BST_MSL_CONF_NOTES__c}"></ui:inputTextArea>
+                </div>
+            </div>
+        </aura:if>
+        <aura:set attribute="else">
+            <SPAN></SPAN>
+        </aura:set>
+        
+        
+          <!--<aura:if isTrue="{!and(or(v.evtRecordType == v.TrainingProvidedRecdType, v.evtRecordType == v.FieldSalesCallRecdType), v.profileName.Name != 'BOOST - Medical Affairs')}">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" for="callNotes">{!$Label.c.BST_Call_Notes}</label>
+                <div class="slds-form-element__control">
+                    <ui:inputTextArea aura:id="callNotes" class="slds-textarea" placeholder="" value="{!v.newEvent.BST_CALL_NOTES__c}"></ui:inputTextArea>
+                </div>
+            </div>
+        </aura:if>
+        <aura:set attribute="else">
+            <SPAN></SPAN>
+        </aura:set>-->
+        
+		<!--Description instead of call notes jira no: 709 AR-->
+         <aura:if isTrue="{!and(or(v.evtRecordType == v.TrainingProvidedRecdType, v.evtRecordType == v.FieldSalesCallRecdType), v.profileName.Name != 'BOOST - Medical Affairs')}">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" for="callNotes">{!$Label.c.BST_Call_Notes}</label>
+                <div class="slds-form-element__control">
+                    <ui:inputTextArea aura:id="callNotes" class="slds-textarea" placeholder="" value="{!v.newEvent.Description}"></ui:inputTextArea>
+                </div>
+            </div>
+        </aura:if>
+        <aura:set attribute="else">
+            <SPAN></SPAN>
+        </aura:set>        
+        <aura:if isTrue="{!and(v.evtRecordType == v.FieldSalesCallRecdType, v.profileName.Name != 'BOOST - Medical Affairs')}">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" for="callObjectives">{!$Label.c.BST_Call_Objectives}</label>
+                <div class="slds-form-element__control">
+                    <ui:inputTextArea aura:id="callObjectives" class="slds-textarea" placeholder="" value="{!v.newEvent.BST_CALL_OBJ__c}"></ui:inputTextArea>
+                </div>
+            </div>
+        </aura:if>
+        <aura:set attribute="else">
+        	<SPAN></SPAN>
+        </aura:set>
+        
+    
+        <aura:if isTrue="{!and(v.evtRecordType == v.FieldSalesCallRecdType, v.profileName.Name != 'BOOST - Medical Affairs')}">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" for="bestCallOutcome">{!$Label.c.BST_Best_Call_Outcome}</label>
+                <div class="slds-form-element__control">
+                    <ui:inputTextArea aura:id="bestCalloutcome" class="slds-textarea" placeholder="" value="{!v.newEvent.BST_BEST_OUTCOME__c}"></ui:inputTextArea>
+                </div>
+            </div>
+        </aura:if>
+        <aura:set attribute="else">
+        	<SPAN></SPAN>
+        </aura:set>
+        
+        
+        <aura:if isTrue="{!and(v.evtRecordType == v.FieldSalesCallRecdType, v.profileName.Name != 'BOOST - Medical Affairs')}">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" for="minimumCallOutcome">{!$Label.c.BST_Minimum_Call_Outcome}</label>
+                <div class="slds-form-element__control">
+                    <ui:inputTextArea aura:id="minimumCallOutcome" class="slds-textarea" placeholder="" value="{!v.newEvent.BST_MIN_OUTCOME__c}"></ui:inputTextArea>
+                </div>
+            </div>
+        </aura:if>
+        <aura:set attribute="else">
+        	<SPAN></SPAN>
+        </aura:set>
+        
+       
+        
+    </div>
+    <br/>
+    <div class="slds-form-element">
+        <ui:button label="Cancel" press="{!c.handleCancel}"
+                   class="slds-button slds-button--neutral" />
+        <ui:button label="Save Event" press="{!c.handleSaveEvent}"
+                   class="slds-button slds-button--brand" />
+    </div>
+</aura:component>

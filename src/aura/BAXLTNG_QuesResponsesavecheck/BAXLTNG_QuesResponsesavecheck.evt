@@ -1,0 +1,6 @@
+<aura:event type="APPLICATION" description="Event template">
+    
+    <aura:attribute name="Nochangecontinue" type="boolean" default="False"/>
+    <aura:attribute name="alertmodalbox" type="boolean" default="False"/>
+    
+</aura:event>

@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Critical_Goal_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>BST_Critical_Goal_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>BST_Critical_Goal_Compact_Layout</fullName>
+        <fields>BST_COUNTRY__c</fields>
+        <fields>BST_BAX_SALES_TEAM__c</fields>
+        <fields>BST_ACTIVE__c</fields>
+        <fields>BST_START_DATE__c</fields>
+        <fields>BST_END_DATE__c</fields>
+        <label>BST Critical Goal Compact Layout</label>
+    </compactLayouts>
+    <compactLayouts>
+        <fullName>BST_Goal_Metrics_Compact_Page_Layout</fullName>
+        <fields>BST_COUNTRY__c</fields>
+        <fields>BST_BAX_SALES_TEAM__c</fields>
+        <fields>BST_ACTIVE__c</fields>
+        <fields>BST_START_DATE__c</fields>
+        <fields>BST_END_DATE__c</fields>
+        <label>BST Goal Metrics Compact Page Layout</label>
+    </compactLayouts>
+    <compactLayouts>
+        <fullName>Critical_Goal_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>BST_ACTIVE__c</fields>
+        <fields>BST_BAX_SALES_TEAM__c</fields>
+        <fields>BST_START_DATE__c</fields>
+        <fields>BST_END_DATE__c</fields>
+        <fields>BST_COUNTRY__c</fields>
+        <label>Critical Goal Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object used to store the goals and Lead, LAG metrics per country and per franchise.
+Also this may be used to store temporary metrics needed by a country like  a product lunch or a need to have a detailed metric on a specific product for a defined period of time (if not acchivable thru standard reporting from existing functionalities)</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>BST_ACTIVE__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Field to identify whether record is active or not.</description>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BST_BAX_SALES_TEAM__c</fullName>
+        <description>BST - field used to track the Main Product Category.</description>
+        <externalId>false</externalId>
+        <label>Main Product Category</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>BST_COUNTRY__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Bax Company/Services</fullName>
+                    <default>false</default>
+                    <label>Bax Company/Services</label>
+                </value>
+                <value>
+                    <fullName>HC - Anesthesia/Critical Care</fullName>
+                    <default>false</default>
+                    <label>HC - Anesthesia/Critical Care</label>
+                </value>
+                <value>
+                    <fullName>HC - BioSurgery</fullName>
+                    <default>false</default>
+                    <label>HC - BioSurgery</label>
+                </value>
+                <value>
+                    <fullName>HC - Glob.Pharma Injectables</fullName>
+                    <default>false</default>
+                    <label>HC - Glob.Pharma Injectables</label>
+                </value>
+                <value>
+                    <fullName>HC - Infusion Systems</fullName>
+                    <default>false</default>
+                    <label>HC - Infusion Systems</label>
+                </value>
+                <value>
+                    <fullName>HC - IV Therapies/SVP</fullName>
+                    <default>false</default>
+                    <label>HC - IV Therapies/SVP</label>
+                </value>
+                <value>
+                    <fullName>HC - Nutrition</fullName>
+                    <default>false</default>
+                    <label>HC - Nutrition</label>
+                </value>
+                <value>
+                    <fullName>HC - Pharmacy Services</fullName>
+                    <default>false</default>
+                    <label>HC - Pharmacy Services</label>
+                </value>
+                <value>
+                    <fullName>RE - Acute</fullName>
+                    <default>false</default>
+                    <label>RE - Acute</label>
+                </value>
+                <value>
+                    <fullName>RE - Hemo Dialysis</fullName>
+                    <default>false</default>
+                    <label>RE - Hemo Dialysis</label>
+                </value>
+                <value>
+                    <fullName>RE - Peritoneal Dialysis</fullName>
+                    <default>false</default>
+                    <label>RE - Peritoneal Dialysis</label>
+                </value>
+                <value>
+                    <fullName>RE - Water Treatment</fullName>
+                    <default>false</default>
+                    <label>RE - Water Treatment</label>
+                </value>
+                <value>
+                    <fullName>HC - Nutrition Pediatrics</fullName>
+                    <default>false</default>
+                    <label>HC - Nutrition Pediatrics</label>
+                </value>
+                <value>
+                    <fullName>IFL Infusion Systems</fullName>
+                    <default>false</default>
+                    <label>IFL Infusion Systems</label>
+                </value>
+                <value>
+                    <fullName>IFL Global Pharma Injectables</fullName>
+                    <default>false</default>
+                    <label>IFL Global Pharma Injectables</label>
+                </value>
+                <value>
+                    <fullName>Small Volume Parenterals</fullName>
+                    <default>false</default>
+                    <label>Small Volume Parenterals</label>
+                </value>
+                <value>
+                    <fullName>HC - Productivity Sys</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>HC - Productivity Sys</label>
+                </value>
+                <value>
+                    <fullName>MSL/Medical</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>MSL/Medical</label>
+                </value>
+                <value>
+                    <fullName>Market Access</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Market Access</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Bax Company/Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>HC - Anesthesia/Critical Care</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>HC - BioSurgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>HC - Glob.Pharma Injectables</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>HC - Infusion Systems</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>HC - IV Therapies/SVP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>HC - Nutrition</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>HC - Pharmacy Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>RE - Acute</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>RE - Hemo Dialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>RE - Peritoneal Dialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>RE - Water Treatment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>HC - Nutrition Pediatrics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>IFL Infusion Systems</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>IFL Global Pharma Injectables</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Small Volume Parenterals</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_Baxter_Goal_P1__c</fullName>
+        <defaultValue>1</defaultValue>
+        <description>BST - This field is used for analytics</description>
+        <externalId>false</externalId>
+        <label>Baxter Goal P1</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BST_COUNTRY__c</fullName>
+        <description>Field to track the country.</description>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Belgium</fullName>
+                    <default>false</default>
+                    <label>Belgium</label>
+                </value>
+                <value>
+                    <fullName>France</fullName>
+                    <default>false</default>
+                    <label>France</label>
+                </value>
+                <value>
+                    <fullName>Netherlands</fullName>
+                    <default>false</default>
+                    <label>Netherlands</label>
+                </value>
+                <value>
+                    <fullName>Canada</fullName>
+                    <default>false</default>
+                    <label>Canada</label>
+                </value>
+                <value>
+                    <fullName>Turkey</fullName>
+                    <default>false</default>
+                    <label>Turkey</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_DETAILS__c</fullName>
+        <description>BST - this field will allow to store the details about the strategic goal or the Lead Metrics</description>
+        <externalId>false</externalId>
+        <inlineHelpText>BST - this field will allow to store the details about the strategic goal or the Lead Metrics</inlineHelpText>
+        <label>Details</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>BST_END_DATE__c</fullName>
+        <description>End Date of the Goal</description>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>BST_PARENT__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>BST - this field allows the association of a child to parent. In this case a lead metric to be associated with a Critical Goal</description>
+        <externalId>false</externalId>
+        <inlineHelpText>BST - this field allows the association of a child to parent. In this case a lead metric to be associated with a Critical Goal</inlineHelpText>
+        <label>Parent</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Critical_Goals__c.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Strategic Goal</value>
+            </filterItems>
+            <filterItems>
+                <field>$Source.BST_COUNTRY__c</field>
+                <operation>equals</operation>
+                <valueField>Critical_Goals__c.BST_COUNTRY__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Critical_Goals__c</referenceTo>
+        <relationshipLabel>Baxter Goals</relationshipLabel>
+        <relationshipName>Critical_Goals</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BST_RELATED_TO__c</fullName>
+        <description>Stores details-whether goals related to Events or Opportunities.</description>
+        <externalId>false</externalId>
+        <label>Related To</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Events</fullName>
+                    <default>false</default>
+                    <label>Events</label>
+                </value>
+                <value>
+                    <fullName>Opportunities</fullName>
+                    <default>false</default>
+                    <label>Opportunities</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_START_DATE__c</fullName>
+        <description>Start Date of the Goal.</description>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>Baxter Goal</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>BST_ACTIVE__c</columns>
+        <columns>BST_COUNTRY__c</columns>
+        <columns>BST_DETAILS__c</columns>
+        <columns>BST_BAX_SALES_TEAM__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>BST_RELATED_TO__c</columns>
+        <columns>BST_START_DATE__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>BG-{00000}</displayFormat>
+        <label>BOOST Baxter Goal ID</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Baxter Goals</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>BST_Goal_Metrics</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>Critical_Goal_Compact_Layout</compactLayoutAssignment>
+        <description>BST - this record type is used to define the Lead/Lag metrics associated with a Critical Goal</description>
+        <label>Goal Metrics</label>
+        <picklistValues>
+            <picklist>BST_BAX_SALES_TEAM__c</picklist>
+            <values>
+                <fullName>Bax Company%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Anesthesia%2FCritical Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - BioSurgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Glob%2EPharma Injectables</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - IV Therapies%2FSVP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Infusion Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Nutrition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Nutrition Pediatrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Pharmacy Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IFL Global Pharma Injectables</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IFL Infusion Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Acute</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Hemo Dialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Peritoneal Dialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Water Treatment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Volume Parenterals</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_COUNTRY__c</picklist>
+            <values>
+                <fullName>Belgium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Canada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Netherlands</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_RELATED_TO__c</picklist>
+            <values>
+                <fullName>Events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opportunities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>BST_Strategic_Goal</fullName>
+        <active>true</active>
+        <description>BST - this object will store the strategic goals for a specific country and franchise</description>
+        <label>Strategic Goal</label>
+        <picklistValues>
+            <picklist>BST_BAX_SALES_TEAM__c</picklist>
+            <values>
+                <fullName>Bax Company%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Anesthesia%2FCritical Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - BioSurgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Glob%2EPharma Injectables</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - IV Therapies%2FSVP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Infusion Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Nutrition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Nutrition Pediatrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HC - Pharmacy Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IFL Global Pharma Injectables</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IFL Infusion Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Acute</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Hemo Dialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Peritoneal Dialysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE - Water Treatment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Volume Parenterals</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_COUNTRY__c</picklist>
+            <values>
+                <fullName>Belgium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Canada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Netherlands</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BST_RELATED_TO__c</picklist>
+            <values>
+                <fullName>Events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opportunities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>BST_END_DATE__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>BST_BAX_SALES_TEAM__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>BST_DETAILS__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>BST_END_DATE__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>BST_BAX_SALES_TEAM__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>BST_END_DATE__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>BST_BAX_SALES_TEAM__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>BST_END_DATE__c</searchFilterFields>
+        <searchFilterFields>BST_BAX_SALES_TEAM__c</searchFilterFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>BST_END_DATE__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>BST_BAX_SALES_TEAM__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>BST_GOAL_End_Date_Greather_Start_Date</fullName>
+        <active>true</active>
+        <description>BST - this rule will ensure that End Date is greater than the Start Date</description>
+        <errorConditionFormula>AND(OR(RecordType.DeveloperName=&quot;BST_Goal_Metrics&quot;,RecordType.DeveloperName=&quot;BST_Strategic_Goal&quot;), BST_START_DATE__c &gt;=  BST_END_DATE__c)</errorConditionFormula>
+        <errorDisplayField>BST_END_DATE__c</errorDisplayField>
+        <errorMessage>End Date Needs to be greater then the Start Date in order to save the record</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

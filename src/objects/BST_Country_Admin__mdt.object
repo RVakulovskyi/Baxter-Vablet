@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>BST_Country__c</fullName>
+        <description>BST- Captures the country of the Local Admin</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>BST Country</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>BST_Role__c</fullName>
+        <description>BST- Captures the Role of the Country Admin</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>BST Role</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <label>BST Country Admin</label>
+    <pluralLabel>BST Country Admins</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,1099 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CallHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>DeleteBannerPhotoAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EditUserAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EmailHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>FreezeUserAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>LinkToSetupUserDetailAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ManagePermSetsAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>PasswordUnlockAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ResetPasswordAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SmsHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>UpdateBannerPhotoAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>UserActivationAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>User_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>User_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Title</fields>
+        <label>User Layout</label>
+    </compactLayouts>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>BST_CHARTE_MEDICAL__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>BST FR - this field is specific to France. User that have this field = TRUE will be requiered to fill in at least one of the Legal/Regulatory fields in events as per the Charte Medical process</description>
+        <externalId>false</externalId>
+        <inlineHelpText>FR - this field identifies the users that should comply with the Charte Medical regulations in France</inlineHelpText>
+        <label>Charte Medical</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BST_COUNTRY__c</fullName>
+        <description>Field to track the country of the User.</description>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Belgium</fullName>
+                    <default>false</default>
+                    <label>Belgium</label>
+                </value>
+                <value>
+                    <fullName>France</fullName>
+                    <default>false</default>
+                    <label>France</label>
+                </value>
+                <value>
+                    <fullName>Netherlands</fullName>
+                    <default>false</default>
+                    <label>Netherlands</label>
+                </value>
+                <value>
+                    <fullName>Canada</fullName>
+                    <default>false</default>
+                    <label>Canada</label>
+                </value>
+                <value>
+                    <fullName>Turkey</fullName>
+                    <default>false</default>
+                    <label>Turkey</label>
+                </value>
+                <value>
+                    <fullName>Dom Com</fullName>
+                    <default>false</default>
+                    <label>Dom Com</label>
+                </value>
+                <value>
+                    <fullName>Andorra</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Andorra</label>
+                </value>
+                <value>
+                    <fullName>Global</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Global</label>
+                </value>
+                <value>
+                    <fullName>Luxembourg</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Luxembourg</label>
+                </value>
+                <value>
+                    <fullName>Monaco</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Monaco</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_GroupOfUser__c</fullName>
+        <description>value will be set as Sales force like ( IA , HM , PH , IV...) for TBM, RBM, AVP user 
+&apos;MD&apos; for the MD National Account Manager 
+&apos;ACC&apos; for ACC National Account Manager 
+&apos;MKT&apos; for Marketing user</description>
+        <externalId>false</externalId>
+        <inlineHelpText>value will be set as Sales force like ( IA , HM , PH , IV...) for TBM, RBM, AVP user 
+&apos;MD&apos; for the MD National Account Manager 
+&apos;ACC&apos; for ACC National Account Manager 
+&apos;MKT&apos; for Marketing user</inlineHelpText>
+        <label>Group</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AS</fullName>
+                    <default>false</default>
+                    <label>AS</label>
+                </value>
+                <value>
+                    <fullName>HD</fullName>
+                    <default>false</default>
+                    <label>HD</label>
+                </value>
+                <value>
+                    <fullName>MSL</fullName>
+                    <default>false</default>
+                    <label>MSL</label>
+                </value>
+                <value>
+                    <fullName>PD</fullName>
+                    <default>false</default>
+                    <label>PD</label>
+                </value>
+                <value>
+                    <fullName>Hospital Products</fullName>
+                    <default>false</default>
+                    <label>Hospital Products</label>
+                </value>
+                <value>
+                    <fullName>Renal Chronic</fullName>
+                    <default>false</default>
+                    <label>Renal Chronic</label>
+                </value>
+                <value>
+                    <fullName>Renal Acute</fullName>
+                    <default>false</default>
+                    <label>Renal Acute</label>
+                </value>
+                <value>
+                    <fullName>Advanced Surgery</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Advanced Surgery</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>BST_Group__c</fullName>
+        <description>value will be set as Sales force like ( IA , HM , PH , IV...) for TBM, RBM, AVP user
+&apos;MD&apos; for the MD National Account Manager
+&apos;ACC&apos; for ACC National Account Manager
+&apos;MKT&apos; for Marketing user</description>
+        <externalId>false</externalId>
+        <inlineHelpText>value will be set as Sales force like ( IA , HM , PH , IV...) for TBM, RBM, AVP user
+&apos;MD&apos; for the MD National Account Manager
+&apos;ACC&apos; for ACC National Account Manager
+&apos;MKT&apos; for Marketing user</inlineHelpText>
+        <label>Group</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>AS</fullName>
+                    <default>false</default>
+                    <label>AS</label>
+                </value>
+                <value>
+                    <fullName>HD</fullName>
+                    <default>false</default>
+                    <label>HD</label>
+                </value>
+                <value>
+                    <fullName>Hospital Products</fullName>
+                    <default>false</default>
+                    <label>Hospital Products</label>
+                </value>
+                <value>
+                    <fullName>MSL</fullName>
+                    <default>false</default>
+                    <label>MSL</label>
+                </value>
+                <value>
+                    <fullName>PD</fullName>
+                    <default>false</default>
+                    <label>PD</label>
+                </value>
+                <value>
+                    <fullName>Renal Chronic</fullName>
+                    <default>false</default>
+                    <label>Renal Chronic</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>BST_LEAVE_OF_ABSENCE__c</fullName>
+        <description>Field used to mark if the user is on Leave. User records with this field populated will be excluded from dashboards for the period when they are not in the office.</description>
+        <externalId>false</externalId>
+        <label>Leave of Absence</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Maternity/Paternity Leave</fullName>
+                    <default>false</default>
+                    <label>Maternity/Paternity Leave</label>
+                </value>
+                <value>
+                    <fullName>Long sick Leave</fullName>
+                    <default>false</default>
+                    <label>Long sick Leave</label>
+                </value>
+                <value>
+                    <fullName>Sabbatical Leave</fullName>
+                    <default>false</default>
+                    <label>Sabbatical Leave</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_MAIN_BAXTER_TEAM__c</fullName>
+        <description>BST – Field to define the main Baxter team for the user</description>
+        <externalId>false</externalId>
+        <label>Main Product Category</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>BST_COUNTRY__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Bax Company/Services</fullName>
+                    <default>false</default>
+                    <label>Bax Company/Services</label>
+                </value>
+                <value>
+                    <fullName>HC - Anesthesia/Critical Care</fullName>
+                    <default>false</default>
+                    <label>HC - Anesthesia/Critical Care</label>
+                </value>
+                <value>
+                    <fullName>HC - BioSurgery</fullName>
+                    <default>false</default>
+                    <label>HC - BioSurgery</label>
+                </value>
+                <value>
+                    <fullName>HC - Glob.Pharma Injectables</fullName>
+                    <default>false</default>
+                    <label>HC - Glob.Pharma Injectables</label>
+                </value>
+                <value>
+                    <fullName>HC - Infusion Systems</fullName>
+                    <default>false</default>
+                    <label>HC - Infusion Systems</label>
+                </value>
+                <value>
+                    <fullName>HC - IV Therapies/SVP</fullName>
+                    <default>false</default>
+                    <label>HC - IV Therapies/SVP</label>
+                </value>
+                <value>
+                    <fullName>HC - Nutrition</fullName>
+                    <default>false</default>
+                    <label>HC - Nutrition</label>
+                </value>
+                <value>
+                    <fullName>HC - Pharmacy Services</fullName>
+                    <default>false</default>
+                    <label>HC - Pharmacy Services</label>
+                </value>
+                <value>
+                    <fullName>RE - Acute</fullName>
+                    <default>false</default>
+                    <label>RE - Acute</label>
+                </value>
+                <value>
+                    <fullName>RE - Hemo Dialysis</fullName>
+                    <default>false</default>
+                    <label>RE - Hemo Dialysis</label>
+                </value>
+                <value>
+                    <fullName>RE - Peritoneal Dialysis</fullName>
+                    <default>false</default>
+                    <label>RE - Peritoneal Dialysis</label>
+                </value>
+                <value>
+                    <fullName>RE - Water Treatment</fullName>
+                    <default>false</default>
+                    <label>RE - Water Treatment</label>
+                </value>
+                <value>
+                    <fullName>HC - Nutrition Pediatrics</fullName>
+                    <default>false</default>
+                    <label>HC - Nutrition Pediatrics</label>
+                </value>
+                <value>
+                    <fullName>Small Volume Parenterals</fullName>
+                    <default>false</default>
+                    <label>Small Volume Parenterals</label>
+                </value>
+                <value>
+                    <fullName>HC - Productivity Sys</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>HC - Productivity Sys</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Bax Company/Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>HC - Anesthesia/Critical Care</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>HC - BioSurgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>HC - Glob.Pharma Injectables</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>HC - Infusion Systems</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>HC - IV Therapies/SVP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>HC - Nutrition</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>HC - Pharmacy Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>RE - Acute</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>RE - Hemo Dialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>RE - Peritoneal Dialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>RE - Water Treatment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <valueName>HC - Nutrition Pediatrics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Small Volume Parenterals</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BST_OTHER_BAXTER_TEAM__c</fullName>
+        <description>BST – Field to define the other Baxter team for the user</description>
+        <externalId>false</externalId>
+        <label>Secondary Product Category</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <controllingField>BST_COUNTRY__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Bax Company/Services</fullName>
+                    <default>false</default>
+                    <label>Bax Company/Services</label>
+                </value>
+                <value>
+                    <fullName>HC - Anesthesia/Critical Care</fullName>
+                    <default>false</default>
+                    <label>HC - Anesthesia/Critical Care</label>
+                </value>
+                <value>
+                    <fullName>HC - BioSurgery</fullName>
+                    <default>false</default>
+                    <label>HC - BioSurgery</label>
+                </value>
+                <value>
+                    <fullName>HC - Glob.Pharma Injectables</fullName>
+                    <default>false</default>
+                    <label>HC - Glob.Pharma Injectables</label>
+                </value>
+                <value>
+                    <fullName>HC - Infusion Systems</fullName>
+                    <default>false</default>
+                    <label>HC - Infusion Systems</label>
+                </value>
+                <value>
+                    <fullName>HC - IV Therapies/SVP</fullName>
+                    <default>false</default>
+                    <label>HC - IV Therapies/SVP</label>
+                </value>
+                <value>
+                    <fullName>HC - Nutrition</fullName>
+                    <default>false</default>
+                    <label>HC - Nutrition</label>
+                </value>
+                <value>
+                    <fullName>HC - Pharmacy Services</fullName>
+                    <default>false</default>
+                    <label>HC - Pharmacy Services</label>
+                </value>
+                <value>
+                    <fullName>RE - Acute</fullName>
+                    <default>false</default>
+                    <label>RE - Acute</label>
+                </value>
+                <value>
+                    <fullName>RE - Hemo Dialysis</fullName>
+                    <default>false</default>
+                    <label>RE - Hemo Dialysis</label>
+                </value>
+                <value>
+                    <fullName>RE - Peritoneal Dialysis</fullName>
+                    <default>false</default>
+                    <label>RE - Peritoneal Dialysis</label>
+                </value>
+                <value>
+                    <fullName>RE - Water Treatment</fullName>
+                    <default>false</default>
+                    <label>RE - Water Treatment</label>
+                </value>
+                <value>
+                    <fullName>HC - Nutrition Pediatrics</fullName>
+                    <default>false</default>
+                    <label>HC - Nutrition Pediatrics</label>
+                </value>
+                <value>
+                    <fullName>Small Volume Parenterals</fullName>
+                    <default>false</default>
+                    <label>Small Volume Parenterals</label>
+                </value>
+                <value>
+                    <fullName>HC - Productivity Sys</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>HC - Productivity Sys</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>Bax Company/Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>HC - Anesthesia/Critical Care</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>HC - BioSurgery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>HC - Glob.Pharma Injectables</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>HC - Infusion Systems</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>HC - IV Therapies/SVP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>HC - Nutrition</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>HC - Pharmacy Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>RE - Acute</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>RE - Hemo Dialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>RE - Peritoneal Dialysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Belgium</controllingFieldValue>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Netherlands</controllingFieldValue>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <controllingFieldValue>Turkey</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>RE - Water Treatment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>France</controllingFieldValue>
+                <controllingFieldValue>Dom Com</controllingFieldValue>
+                <valueName>HC - Nutrition Pediatrics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Canada</controllingFieldValue>
+                <valueName>Small Volume Parenterals</valueName>
+            </valueSettings>
+        </valueSet>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>BST_SECONDARY_COUNTRY__c</fullName>
+        <description>Field to track the secondary country of the User.</description>
+        <externalId>false</externalId>
+        <label>Secondary Country</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>France</fullName>
+                    <default>false</default>
+                    <label>France</label>
+                </value>
+                <value>
+                    <fullName>Belgium</fullName>
+                    <default>false</default>
+                    <label>Belgium</label>
+                </value>
+                <value>
+                    <fullName>Netherlands</fullName>
+                    <default>false</default>
+                    <label>Netherlands</label>
+                </value>
+                <value>
+                    <fullName>Canada</fullName>
+                    <default>false</default>
+                    <label>Canada</label>
+                </value>
+                <value>
+                    <fullName>Turkey</fullName>
+                    <default>false</default>
+                    <label>Turkey</label>
+                </value>
+                <value>
+                    <fullName>Dom Com</fullName>
+                    <default>false</default>
+                    <label>Dom Com</label>
+                </value>
+                <value>
+                    <fullName>Andorra</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Andorra</label>
+                </value>
+                <value>
+                    <fullName>Global</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Global</label>
+                </value>
+                <value>
+                    <fullName>Luxembourg</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Luxembourg</label>
+                </value>
+                <value>
+                    <fullName>Monaco</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Monaco</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>BXGO_Price_Approver__c</fullName>
+        <externalId>false</externalId>
+        <label>Price Approver</label>
+        <relationshipName>BXEU_Price_Approver</relationshipName>
+        <restrictedAdminField>false</restrictedAdminField>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Hierarchy</type>
+    </fields>
+    <fields>
+        <fullName>DB_Region__c</fullName>
+        <description>This is a field that is installed by and used with the Adoption Dashboard AppExchange package. If your org already has a similar field, you can change the reports that are part of the Adoption Dashboard package to use your custom field and then delete this field.</description>
+        <externalId>false</externalId>
+        <label>DB Region</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>NA</fullName>
+                    <color>#009900</color>
+                    <default>false</default>
+                    <label>NA</label>
+                </value>
+                <value>
+                    <fullName>EMEA</fullName>
+                    <color>#3333FF</color>
+                    <default>false</default>
+                    <label>EMEA</label>
+                </value>
+                <value>
+                    <fullName>APAC</fullName>
+                    <color>#CC6600</color>
+                    <default>false</default>
+                    <label>APAC</label>
+                </value>
+                <value>
+                    <fullName>LA</fullName>
+                    <color>#990000</color>
+                    <default>false</default>
+                    <label>LA</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Group__c</fullName>
+        <description>value will be set as Sales force like ( IA , HM , PH , IV...) for TBM, RBM, AVP user
+&apos;MD&apos; for the MD National Account Manager
+&apos;ACC&apos; for ACC National Account Manager
+&apos;MKT&apos; for Marketing user</description>
+        <externalId>false</externalId>
+        <inlineHelpText>value will be set as Sales force like ( IA , HM , PH , IV...) for TBM, RBM, AVP user
+&apos;MD&apos; for the MD National Account Manager
+&apos;ACC&apos; for ACC National Account Manager
+&apos;MKT&apos; for Marketing user</inlineHelpText>
+        <label>Group</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ManagerId</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <type>Hierarchy</type>
+    </fields>
+    <fields>
+        <fullName>cr_approver__c</fullName>
+        <externalId>false</externalId>
+        <label>CR Approver</label>
+        <relationshipName>Users</relationshipName>
+        <restrictedAdminField>true</restrictedAdminField>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Hierarchy</type>
+    </fields>
+    <listViews>
+        <fullName>AdminUsers</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CORE.PROFILE.NAME</field>
+            <operation>equals</operation>
+            <value>System Administrator</value>
+        </filters>
+        <label>Admin Users</label>
+    </listViews>
+    <listViews>
+        <fullName>AllUsers</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Users</label>
+    </listViews>
+    <listViews>
+        <fullName>Canada_Only</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>MANAGER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CORE.USERS.ADDRESS_COUNTRY</field>
+            <operation>equals</operation>
+            <value>Canada</value>
+        </filters>
+        <label>Canada Only</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>Baxter_CA_Admin</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Country_Local_Admin</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>CORE.USERS.EMAIL</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CORE.USER_ROLE.NAME</field>
+            <operation>contains</operation>
+            <value>Local</value>
+        </filters>
+        <label>Country Local Admin</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Country_Local_Admin_Role</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>CORE.USERS.EMAIL</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CORE.USER_ROLE.NAME</field>
+            <operation>contains</operation>
+            <value>Local</value>
+        </filters>
+        <label>Country Local Admin Role</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Country_Local_Admin_Role1</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>CORE.USERS.EMAIL</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>BST_CHARTE_MEDICAL__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BST_CHARTE_MEDICAL__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Charte Medical</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>FRNutritionUsers</fullName>
+        <booleanFilter>(1 OR 3) AND 2</booleanFilter>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>BST_MAIN_BAXTER_TEAM__c</columns>
+        <columns>BST_OTHER_BAXTER_TEAM__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BST_COUNTRY__c</field>
+            <operation>equals</operation>
+            <value>France</value>
+        </filters>
+        <filters>
+            <field>CORE.USER_ROLE.NAME</field>
+            <operation>contains</operation>
+            <value>Nutrition</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ADDRESS_COUNTRY</field>
+            <operation>equals</operation>
+            <value>France</value>
+        </filters>
+        <label>FR Nution Users</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Turkey_Only</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>MANAGER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>BST_COUNTRY__c</field>
+            <operation>equals</operation>
+            <value>Turkey</value>
+        </filters>
+        <label>Turkey Only</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>Baxter_TR_Admin</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>akCountry_Local_Admin_Role</fullName>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>CORE.USERS.EMAIL</columns>
+        <columns>LOCALE</columns>
+        <columns>LANGUAGE</columns>
+        <columns>TIMEZONE</columns>
+        <columns>MARKETING_USER</columns>
+        <columns>BST_COUNTRY__c</columns>
+        <columns>BST_SECONDARY_COUNTRY__c</columns>
+        <columns>BST_GroupOfUser__c</columns>
+        <columns>BST_MAIN_BAXTER_TEAM__c</columns>
+        <columns>BST_OTHER_BAXTER_TEAM__c</columns>
+        <columns>BST_Group__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CORE.USER_ROLE.NAME</field>
+            <operation>contains</operation>
+            <value>admin</value>
+        </filters>
+        <label>akCountry Local Admin Role</label>
+        <language>en_US</language>
+    </listViews>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>FULL_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CORE.USER_ROLE.NAME</lookupDialogsAdditionalFields>
+        <lookupFilterFields>FULL_NAME</lookupFilterFields>
+        <lookupFilterFields>CORE.USER_ROLE.NAME</lookupFilterFields>
+        <lookupPhoneDialogsAdditionalFields>FULL_NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CORE.USER_ROLE.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CORE.USERS.PHONE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CORE.USERS.EXTENSION</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CORE.USERS.CELL</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>FULL_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.TITLE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.PHONE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.EMAIL</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+    <validationRules>
+        <fullName>BST_Charte_Medical_Only_for_France</fullName>
+        <active>true</active>
+        <description>Validating that &quot;Charte Medical&quot; can only be enabled for French users</description>
+        <errorConditionFormula>AND(  TEXT(BST_COUNTRY__c) &lt;&gt;&quot;France&quot;, BST_CHARTE_MEDICAL__c =TRUE)</errorConditionFormula>
+        <errorDisplayField>BST_COUNTRY__c</errorDisplayField>
+        <errorMessage>Only French users can be under &quot;Charte Medical&quot; process. Please make sure this is enabled only for the correct users in France</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BST_Country_Is_Required</fullName>
+        <active>true</active>
+        <description>For BOOST Users Country field is required.</description>
+        <errorConditionFormula>AND(  
+	BEGINS( Profile.Name , &apos;BOOST&apos;)  , 
+	ISBLANK( TEXT(BST_COUNTRY__c) )
+)</errorConditionFormula>
+        <errorDisplayField>BST_COUNTRY__c</errorDisplayField>
+        <errorMessage>Country is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BST_Main_Baxter_Team_Is_Required</fullName>
+        <active>true</active>
+        <description>For BOOST Users Main Baxter Team is required.</description>
+        <errorConditionFormula>AND(  
+	BEGINS( Profile.Name , &apos;BOOST&apos;)  , 
+	ISBLANK( TEXT(BST_MAIN_BAXTER_TEAM__c) )
+)</errorConditionFormula>
+        <errorDisplayField>BST_MAIN_BAXTER_TEAM__c</errorDisplayField>
+        <errorMessage>Main Baxter Team is required.</errorMessage>
+    </validationRules>
+</CustomObject>

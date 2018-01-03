@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>BST_BAX_SALES_TEAM__c</fullName>
+        <description>This tracks the default value for Event type per record type</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Event Type Default Value</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>BST_CALL_TYPE__c</fullName>
+        <description>Field tracks possible values for Event Type per record type</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Event Type</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>BST_MAIN_TOPIC__c</fullName>
+        <description>This field tracks the Main Topic from Event</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Main Topic</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>RecordTypeName__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Record Type Name</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>None</fullName>
+                    <default>true</default>
+                    <label>None</label>
+                </value>
+                <value>
+                    <fullName>Field Customer Calls</fullName>
+                    <default>false</default>
+                    <label>Field Customer Calls</label>
+                </value>
+                <value>
+                    <fullName>Non Field Customer Activity</fullName>
+                    <default>false</default>
+                    <label>Non Field Customer Activity</label>
+                </value>
+                <value>
+                    <fullName>Field Training Activity</fullName>
+                    <default>false</default>
+                    <label>Field Training Activity</label>
+                </value>
+                <value>
+                    <fullName>Internal/ Non-Customer Activity</fullName>
+                    <default>false</default>
+                    <label>Internal/ Non-Customer Activity</label>
+                </value>
+                <value>
+                    <fullName>Visite commerciale sur le terrain</fullName>
+                    <default>false</default>
+                    <label>Visite commerciale sur le terrain</label>
+                </value>
+                <value>
+                    <fullName>Activité interneon commerciale</fullName>
+                    <default>false</default>
+                    <label>Activité interneon commerciale</label>
+                </value>
+                <value>
+                    <fullName>Activités commerciales hors terrain</fullName>
+                    <default>false</default>
+                    <label>Activités commerciales hors terrain</label>
+                </value>
+                <value>
+                    <fullName>Formation fournie</fullName>
+                    <default>false</default>
+                    <label>Formation fournie</label>
+                </value>
+                <value>
+                    <fullName>Müşteri Ziyaret Alanı</fullName>
+                    <default>false</default>
+                    <label>Müşteri Ziyaret Alanı</label>
+                </value>
+                <value>
+                    <fullName>Saha Eğitim Faaliyetleri</fullName>
+                    <default>false</default>
+                    <label>Saha Eğitim Faaliyetleri</label>
+                </value>
+                <value>
+                    <fullName>Şirket içi Etkinlik</fullName>
+                    <default>false</default>
+                    <label>Şirket içi Etkinlik</label>
+                </value>
+                <value>
+                    <fullName>Alan Dışı Müşteri Aktivitesi</fullName>
+                    <default>false</default>
+                    <label>Alan Dışı Müşteri Aktivitesi</label>
+                </value>
+                <value>
+                    <fullName>Field Sales Calls</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Field Sales Calls</label>
+                </value>
+                <value>
+                    <fullName>Internal/ Non-Sales Activity</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Internal/ Non-Sales Activity</label>
+                </value>
+                <value>
+                    <fullName>Non Field Sales Activity</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Non Field Sales Activity</label>
+                </value>
+                <value>
+                    <fullName>Training Provided</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Training Provided</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Event Details</label>
+    <pluralLabel>Event Details</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

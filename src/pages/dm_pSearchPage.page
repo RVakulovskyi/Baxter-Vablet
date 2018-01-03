@@ -1,0 +1,31 @@
+<apex:page controller="dm_pSearchController">
+<apex:form >
+<apex:pageBlock title="Smart Contact Search">
+    <apex:inputText value="{!criteria}"/><br/>
+    <apex:commandButton value="Search Contacts" action="{!superSearch}"/>
+</apex:pageBlock>
+<apex:pageMessages id="showmsg"></apex:pageMessages> 
+<apex:pageBlock title="Search Results" rendered="{!showResults}">
+    <apex:pageBlockSection title="Contacts" collapsible="false"/>
+    <apex:pageBlockTable value="{!cnct_DRL}" var="d">
+        <apex:column headervalue="Exact matches:"> <apex:outputLink value="/{!d.id}"><apex:outputText value="{!d.name}"/></apex:outputLink></apex:column>
+        <apex:column value="{!d.accountID}"/> 
+        <apex:column headervalue="Parent Hospital"> <apex:outputLink value="/{!d.Account.ParentId}"><apex:outputText value="{!d.Account.Parent.Name}"/></apex:outputLink></apex:column> //Added By Arpit Agarwal
+    </apex:pageBlockTable>
+    <apex:pageBlockTable value="{!cnct_IRL}" var="i">
+        <apex:column headervalue="You may have meant:"> <apex:outputLink value="/{!i.id}"><apex:outputText value="{!i.name}"/></apex:outputLink></apex:column>
+        <apex:column value="{!i.accountID}"/>
+        <apex:column headervalue="Parent Hospital"> <apex:outputLink value="/{!i.Account.ParentId}"><apex:outputText value="{!i.Account.Parent.Name}"/></apex:outputLink></apex:column> //Added By Arpit Agarwal
+    </apex:pageBlockTable>
+    <apex:pageBlockSection title="Accounts" collapsible="false"/>
+    <apex:pageBlockTable value="{!acct_DRL}" var="d">
+        <apex:column headerValue="Exact matches:"> <apex:outputLink value="/{!d.id}"><apex:outputText value="{!d.name}"/></apex:outputLink></apex:column>
+    </apex:pageBlockTable>  
+    <apex:pageBlockTable value="{!acct_IRL}" var="i">
+        <apex:column headerValue="Exact matches:"> <apex:outputLink value="/{!i.id}"><apex:outputText value="{!i.name}"/></apex:outputLink></apex:column>
+    </apex:pageBlockTable>
+    
+    
+</apex:pageBlock>
+</apex:form>
+</apex:page>
