@@ -13,6 +13,7 @@ Modification Log :
 ********************************************************************************/
 
 public class CustomContact {
+	static final String SETTINGSNAME = 'VabletTriggerHandler';
     public String FirstName;
     public String LastName;
     public String AccountId;
@@ -27,24 +28,19 @@ public class CustomContact {
     public String CompanyName;
     public Boolean IsDeleted;
 
-    public static List < CustomContact > getContacts(String contactsAfterDateString) {
-        
+    public static List < CustomContact > getContacts(String contactsAfterDateString) {     
+		VabletFieldSettings__c vabletSettings = VabletFieldSettings__c.getInstance(SETTINGSNAME);
         String whereClauseIfNeeded = '';
         DateTime contactsAfterDate = null;
-       
        if (contactsAfterDateString != null) {
             contactsAfterDate = (DateTime) JSON.deserialize(contactsAfterDateString, DateTime.class);
         }
-        
-        List < Contact > contactDatabaseData = Database.query('SELECT Account.ID,Account.Account_Number__c,Account.Name,IsDeleted,Id,FirstName,LastName, Name,Email,MailingCity,MailingState,MailingCountry,MailingPostalCode,Phone FROM Contact WHERE Status__c = \'Active\' limit 9999 ALL ROWS');
-         
+        List < Contact > contactDatabaseData = Database.query(vabletSettings.Query1__c);
         List < CustomContact > contactList = new List < CustomContact > ();
-        
             for (Contact contactData: contactDatabaseData) {
-                
                 CustomContact newContact = new CustomContact();
                 newContact.AccountId = contactData.Account.ID;
-                if (contactData.Account.Account_Number__c == '1111111111'){
+                if (contactData.Account.Account_Number__c == vabletSettings.TextConstant1__c){
                     newContact.CompanyName =' ';
                 }else{
                     newContact.CompanyName = contactData.Account.Name;
@@ -62,8 +58,6 @@ public class CustomContact {
                 newContact.IsDeleted = ContactData.IsDeleted;
                 contactList.add(newContact);
             }
-    
-
         return contactList;
     }
 }
