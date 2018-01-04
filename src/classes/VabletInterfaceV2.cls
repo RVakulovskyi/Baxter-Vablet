@@ -60,7 +60,7 @@ global with sharing class VabletInterfaceV2 {
         RestContext.response.responseBody = Blob.valueOf(jsonString);
     }
 
-    public static List < VabletPicklistMapItem > getVabletPicklistValuesFromString(String ObjectApi_name, String Field_name) {
+    public static List <VabletPicklistMapItem> getVabletPicklistValuesFromString(String ObjectApi_name, String Field_name) {
         List <VabletPicklistMapItem> lstPickvals = new List <VabletPicklistMapItem> ();
         Schema.SObjectType targetType = Schema.getGlobalDescribe().get(ObjectApi_name); //From the Object Api name retrieving the SObject
         Sobject Object_name = targetType.newSObject();
@@ -147,13 +147,13 @@ global with sharing class VabletInterfaceV2 {
             update sObj;
             if (contactIds != null) {
                 String eventId = (String) parameters.get('Id');
-                List < EventRelation > relations = [SELECT Id FROM EventRelation WHERE EventId = :eventId];
+                List <EventRelation> relations = [SELECT Id FROM EventRelation WHERE EventId = :eventId];
                 for (EventRelation relation: relations) {
                     delete relation;
                 }
             }
         } else {
-            insert sObj;
+            upsert sObj;
         }
         if (contactIds != null) {
             for (Object contactId: contactIds) {
@@ -163,7 +163,7 @@ global with sharing class VabletInterfaceV2 {
                 relation.Status = vabletSettings.TextConstant11__c;
                 if (relation.EventId != null && relation.RelationId != null) {
                     try {
-                        insert relation;
+                        upsert relation;
                     } catch (Exception e) {
                         nonBlockingErrorMessage = e.getMessage();
                     }
