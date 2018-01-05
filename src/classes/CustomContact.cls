@@ -30,12 +30,13 @@ public class CustomContact {
 
     public static List < CustomContact > getContacts(String contactsAfterDateString) {     
 		VabletFieldSettings__c vabletSettings = VabletFieldSettings__c.getInstance(SETTINGSNAME);
-        String whereClauseIfNeeded = '';
         DateTime contactsAfterDate = null;
        if (contactsAfterDateString != null) {
             contactsAfterDate = (DateTime) JSON.deserialize(contactsAfterDateString, DateTime.class);
         }
-        List < Contact > contactDatabaseData = Database.query(vabletSettings.Query1__c);
+		String formedQuery = vabletSettings.Query1__c;
+        List < Contact > contactDatabaseData = Database.query(formedQuery);
+		System.debug(contactDatabaseData);
         List < CustomContact > contactList = new List < CustomContact > ();
             for (Contact contactData: contactDatabaseData) {
                 CustomContact newContact = new CustomContact();

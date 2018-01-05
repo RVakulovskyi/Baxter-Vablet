@@ -79,7 +79,6 @@ global with sharing class VabletInterfaceV2 {
         RestRequest req = RestContext.request;
         RestResponse res = RestContext.response;
         String URI = req.requestURI;
-		System.debug(URI);
         String[] uriComponents = URI.split(vabletSettings.Separator1__c);
         String actionString = '';
         if (uriComponents.size() >= 3) {
@@ -145,7 +144,8 @@ global with sharing class VabletInterfaceV2 {
         List <Object> contactIds = (List <Object> ) parameters.get(vabletSettings.TextFormat1__c);
         if (parameters.get('Id') != null) {
             update sObj;
-            if (contactIds != null) {
+			System.debug(sObj);
+            if (contactIds != null && contactIds.size() > 0) {
                 String eventId = (String) parameters.get('Id');
                 List <EventRelation> relations = [SELECT Id FROM EventRelation WHERE EventId = :eventId];
                 for (EventRelation relation: relations) {
@@ -154,8 +154,9 @@ global with sharing class VabletInterfaceV2 {
             }
         } else {
             upsert sObj;
+			System.debug(sObj);
         }
-        if (contactIds != null) {
+        if (contactIds != null && contactIds.size() > 0) {
             for (Object contactId: contactIds) {
                 EventRelation relation = new EventRelation();
                 relation.EventId = (Id) sObj.get('Id');
@@ -184,8 +185,8 @@ global with sharing class VabletInterfaceV2 {
         RestContext.response.responseBody = Blob.valueOf(jsonString);
     }
 
-    @HttpGet
-    global static void handleGet() {
+   @HttpGet
+   global static void handleGet() {
         RestRequest req = RestContext.request;
         RestResponse res = RestContext.response;
         String URI = req.requestURI;
@@ -283,7 +284,8 @@ global with sharing class VabletInterfaceV2 {
         multiLevelExample.addPickListLevel('Resource 1', 'Event', 'Resource_1__c');
 
 */
-        events = Database.query(vabletSettings.Query1__c + whereClauseIfNeeded);
+		String formedQuery = vabletSettings.Query1__c + whereClauseIfNeeded;
+        events = Database.query(formedQuery);
         List <Map <String, Object>> eventsWithMeta = new List <Map <String, Object>> ();
         for (Event currentEvent: events) {
             //In subobject in case meta is needed later
