@@ -1,0 +1,47 @@
+<aura:component controller="TRY_Lightning_Products_Controller" extensible="true" access="GLOBAL" implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader,force:appHostable" >
+
+    <aura:attribute name="competitor" type="Account" />
+    <aura:attribute name="products" type="BXGO_Competitor_Product__c[]"/>
+    <!--aura:attribute name="recordId" type="Id" /-->
+
+    	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+        <lightning:card variant="Base" title="{!v.competitor.Name}" 
+                        iconName="custom:custom47">
+            
+            <aura:set attribute="actions">
+                <lightning:button name="details" label="Go To Record" onclick="{!c.goToRecord}" />
+            </aura:set>    
+            
+                <p class="slds-text-heading_medium">Competitor Products:</p>
+             	<br/>
+            
+            <lightning:accordion >                
+    		<aura:iteration var="product" items="{!v.products}">
+                <p class="slds-text-heading_small">{!product.Name}</p>
+                <lightning:accordionSection label="Details">
+                <c:TRY_Competitors_Products_Product product="{!product}"/>
+			    </lightning:accordionSection>
+                    
+            </aura:iteration>
+     		</lightning:accordion>
+            
+            <aura:set attribute="footer">
+                <lightning:badge label="{!v.competitor.Name}"/>
+            </aura:set>
+            
+            <!--p class="slds-p-horizontal_small">
+                {!v.competitor.Id}
+            </p-->
+            
+	        <!--   
+			<aura:iteration var="product" items="{!v.products}">
+                <br/>
+                <p class="slds-text-heading_small">{!product.Name}</p>
+                <c:TRY_Competitors_Products_Product product="{!product}"/>
+			</aura:iteration>
+            -->      
+    
+    </lightning:card>
+    
+</aura:component>

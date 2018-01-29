@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>This setting is used to store the number of days when a rep receives notification of an expiring agreement/price header/connection.</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Batch_Status_Address__c</fullName>
+        <description>Email address to which ExpiryNotificationBatch status is sent</description>
+        <externalId>false</externalId>
+        <label>Batch Status Address</label>
+        <length>40</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Business_Unit__c</fullName>
+        <description>Business Unit for which expiry notification needs to be sent.</description>
+        <externalId>false</externalId>
+        <label>Business Unit</label>
+        <length>18</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Day_180_Offset__c</fullName>
+        <externalId>false</externalId>
+        <label>Day 180 Offset</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Day_30_Offset__c</fullName>
+        <externalId>false</externalId>
+        <label>Day 30 Offset</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Day_60_Offset__c</fullName>
+        <externalId>false</externalId>
+        <label>Day 60 Offset</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Day_90_Offset__c</fullName>
+        <externalId>false</externalId>
+        <label>Day 90 Offset</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FromAddressLable__c</fullName>
+        <description>Organization wide Address Display name.</description>
+        <externalId>false</externalId>
+        <label>EmailAddressLabel</label>
+        <length>40</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Territory1__c</fullName>
+        <description>Territory for which we need to send expiry notification.</description>
+        <externalId>false</externalId>
+        <label>Territory1</label>
+        <length>10</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Territory2__c</fullName>
+        <description>Territory for which we need to send expiry notification.</description>
+        <externalId>false</externalId>
+        <label>Territory2</label>
+        <length>10</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Territory3__c</fullName>
+        <description>Territory for which we need to send expiry notification.</description>
+        <externalId>false</externalId>
+        <label>Territory3</label>
+        <length>10</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Territory4__c</fullName>
+        <description>Territory for which we need to send expiry notification.</description>
+        <externalId>false</externalId>
+        <label>Territory4</label>
+        <length>10</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Notification_settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

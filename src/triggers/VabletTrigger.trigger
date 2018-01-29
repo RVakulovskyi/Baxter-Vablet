@@ -11,6 +11,7 @@ Modification Log :
 * -------------------     ------------         -----------------------
 * Cognizant Developer     06/26/2015           vablet handler included
 * Cognizant Developer     11/16/2015           Updated logic for calling VabletTriggerHandler
+* Rodion Vakulovskyi	  02/01/2018		   modifying class
 ************************************************************************************************/
 
 trigger VabletTrigger on Task (after insert) {

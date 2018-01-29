@@ -1,0 +1,100 @@
+<aura:component controller="TRY_Lightning_Questions_Controller" extensible="true" access="GLOBAL" implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader,force:appHostable" >
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="questions" type="Question__c[]"/>
+	<aura:attribute name="questions2" type="Question__c[]"/>
+	<aura:attribute name="selectedValue" type="String" default=""/>
+    <aura:attribute name="selectedValue2" type="String" default=""/>
+    <aura:attribute name="selectedIDValueOK" type="String" default=""/>
+    <aura:attribute name="question1Id" type="Id" default=""/>
+    <aura:attribute name="question2Id" type="Id" default=""/>
+    <aura:attribute name="question2" type="Boolean" default="false"/>
+ 	<aura:attribute name="answer1" type="string" default=""/>
+	<aura:attribute name="answer2" type="string" default=""/>
+	
+    <aura:attribute name="text" type="String" default=""/>
+    <aura:attribute name="SaveAnswerTEST" type="Boolean" default="false"/>
+    
+    <!-- Page header-->
+    <div class="slds-page-header slds-page-header_object-home">
+        <lightning:layout >
+            <lightning:layoutItem >
+                <lightning:icon iconName="action:question_post_action"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-m-left_small">
+                <p class="slds-text-title_caps slds-line-height_reset">Questions</p>
+                <!--h1 class="slds-page-header__title slds-p-right_x-small">Questions</h1-->
+            </lightning:layoutItem>
+        </lightning:layout>
+    
+    </div>
+    <div><br/></div>
+    
+    <div>  
+        <lightning:select name="Question1Select" label="Please select your first question:" aura:id="Question1Select" value="{!v.selectedValue}" onchange="{!c.manageQuestion1}">
+        <aura:iteration items="{!v.questions}" var="question">
+            <option text="{!question.BST_QUESTION_STATEMENT__c}" value="{!question.Id}" selected="{!question.selected}"/>
+        </aura:iteration>
+    	</lightning:select>    
+    </div>
+    
+    <!--div>
+    YB TEST CHECK: ID Selected Confirmation:
+    <ui:outputText value="{!v.selectedIDValueOK}"/> 
+        <h1></h1>
+    <ui:outputText value="{!v.selectedValue}"/> 
+        <h1></h1>
+    <ui:outputText value="{!v.question1Id}"/> 
+    </div--> 
+    
+    <div><br/></div>
+    <div>  
+         <ui:inputText label="Please enter your answer here." class="field" value="{!v.answer1}" updateOn="mouseout"/>
+ 		 Your answer: <ui:outputText value="{!v.answer1}"/> 
+        <!--c:TRY_Answer question="{!questions[0]}" accountId="{!recordId}"/-->
+    </div>
+    
+    <!--div>
+    YB TEST CHECK: Answer1:
+    <ui:outputText value="{!v.answer1}"/> 
+        <h1></h1>
+    </div--> 
+    
+    <div>
+    <div><br/></div>
+    <!--lightning:button variant="brand" label="Save" onclick="{!c.handleSave}"/-->
+    <lightning:button variant="brand" label="Save" onclick="{!c.handleClick}"/>
+    <!--ui:outputText value="{!v.text}"/> 
+    <ui:outputText value="{!v.SaveAnswerTEST}"/--> 
+        
+	</div>
+    
+    <div><br/></div>
+    
+    <!--div>
+    YB TEST CHECK: questions2:
+    <ui:outputText value="{!v.questions2}"/> 
+        <h1></h1>
+    </div--> 
+    
+    <div>  
+        <aura:if isTrue="{!v.question2}">
+        <lightning:select name="QuestionSelect2" label="Please answer the related question(s):" aura:id="QuestionSelect2" value="{!v.selectedValue}" onchange="{!c.manageQuestion2}">
+        <aura:iteration items="{!v.questions2}" var="question">
+        <option text="{!question.BST_QUESTION_STATEMENT__c}" value="{!question.Id}" selected="{!question.selected}"/>
+        </aura:iteration>
+    	</lightning:select>
+    	<aura:set attribute="else">
+        No additional question.
+    	</aura:set>
+        <div>  
+        <ui:inputText label="Please enter your answer here." class="field" value="{!v.answer2}" updateOn="mouseout"/>
+ 		Your answer: <ui:outputText value="{!v.answer2}"/> 
+        <!--c:TRY_Answer question="{!questions[0]}" accountId="{!recordId}"/-->
+    	</div>
+        <lightning:button variant="brand" label="Save" onclick="{!c.handleClick2}"/>
+    	</aura:if>
+    	</div>
+    
+</aura:component>

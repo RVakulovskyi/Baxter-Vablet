@@ -1,10 +1,24 @@
+/***********************************************************************************************
+Apex Class Name - VabletInterfaceV2 
+* Rodion Vakulovskyi	  04/01/2018		   modifying class with custom settings
+* Rodion Vakulovskyi	  05/01/2018		   modifying class
+* Rodion Vakulovskyi	  09/01/2018		   modifying class
+* Rodion Vakulovskyi	  10/01/2018		   modifying class
+* Rodion Vakulovskyi	  11/01/2018		   modifying class
+* Rodion Vakulovskyi	  12/01/2018		   modifying class
+* Rodion Vakulovskyi	  19/01/2018		   modifying class
+* Rodion Vakulovskyi	  22/01/2018		   modifying class
+* Rodion Vakulovskyi	  25/01/2018		   modifying class
+************************************************************************************************/
 @RestResource(urlMapping = '/VabletInterfaceV2/*')
 global with sharing class VabletInterfaceV2 {
 	static final String SETTINGSNAME = 'VabletInterfaceV2';
-	static VabletFieldSettings__c vabletSettings = VabletFieldSettings__c.getInstance(SETTINGSNAME);
+	static VabletFieldSetting__mdt vabletSettings = queryCustomMetadataType(SETTINGSNAME);
+	static DefaultEventValues__c eventFields = DefaultEventValues__c.getInstance();
 
     global static void getSalesForceDisplayMapping(Map <String, String> params) {
         List <Object> returnData = new List <Object> ();
+		System.debug(params);
         //first argument is database key, second display name, third is type, fourth is value list if applicable
         //will be displayed in the app in order
         returnData.add(new VabletFieldMapItem('WhoId', 'Primary Contact', 'contact', new List < VabletPicklistMapItem > (), '')); //Default contact not supported, Special field
@@ -76,6 +90,7 @@ global with sharing class VabletInterfaceV2 {
 
     @HttpPost
     global static void handlePost(String jsonData) {
+		System.debug(jsonData);
         RestRequest req = RestContext.request;
         RestResponse res = RestContext.response;
         String URI = req.requestURI;
@@ -91,35 +106,25 @@ global with sharing class VabletInterfaceV2 {
             actionString = '';
         }
         //System.Type mapClass= (Map <String,Object>).class;
+		System.debug(actionString);
+		System.debug(vabletSettings);
         if (actionString.compareTo(vabletSettings.TextFormat4__c) == 0 || actionString.compareTo(vabletSettings.TextFormat5__c) == 0) {
-            createOrModifyEvent((Map <String, Object> ) JSON.deserializeUntyped(jsonData));
+            createOrModifyEvent((Map <String, Object> ) JSON.deserializeUntyped(jsonData), actionString);
         }
     }
 
-    global static void createOrModifyEvent(Map <String, Object> parameters) {
+    global static void createOrModifyEvent(Map <String, Object> parameters, String methodType) {
         sObject sObj = Schema.getGlobalDescribe().get('Event').newSObject();
+		User currentUser = [SELECT Id, BST_COUNTRY__c FROM User WHERE Id = :UserInfo.getUserId()];
         DescribeSObjectResult sObjectResult = sObj.getSObjectType().getDescribe();
         Map <String, SObjectField> fieldMap = sObjectResult.fields.getMap();
         String debugString = '';
         String nonBlockingErrorMessage = null;
+		System.debug(parameters);
         for (String parameterName: parameters.keySet()) {
             if (parameterName == vabletSettings.TextFormat1__c) {
                 continue;
             }
-            /* if (parameterName=='RecordType')
-            {
-                String recordTypeName=(String)parameters.get(parameterName);
-                
-                List<RecordType> recordTypesWithName=[Select Id from RecordType where Name=:recordTypeName order by LastModifiedDate DESC];
-                
-                if (recordTypesWithName!=null && recordTypesWithName.size()>0)
-                {
-                    RecordType typeForName=recordTypesWithName.get(0);                              
-                    sObj.put('RecordTypeId' , typeForName.Id);    
-                }
-                
-                continue;
-            }*/
             if (fieldMap.get(parameterName) == null) {
                 continue;
             }
@@ -131,6 +136,7 @@ global with sharing class VabletInterfaceV2 {
                 sObj.put(parameterName, parameters.get(parameterName));
                 continue;
             }
+			
             if (fieldMap.get(parameterName).getDescribe().getType() == Schema.DisplayType.DATETIME) {
                 String dateString = (String) parameters.get(parameterName);
                 DateTime dateArgument = (DateTime) JSON.deserialize('"' + dateString + '"', DateTime.class);
@@ -140,11 +146,22 @@ global with sharing class VabletInterfaceV2 {
             }
             System.debug('field name is ' + parameterName);
         }
+		//upon event creation from Vablet, type should be 'Unplanned call', if Updated or created for SF1 event - another(Preplanned call) 09.01.2018 Rodion Vakulovskyi
+		if(methodType == vabletSettings.TextFormat4__c) {
+			sObj.put(vabletSettings.TextConstant17__c, vabletSettings.TextConstant18__c);
+			sObj.put(vabletSettings.TextConstant20__c, eventFields.BST_BAX_SALES_TEAM__c);
+		}
+		if(String.isEmpty((String)sObj.get(vabletSettings.TextConstant21__c))) {
+			sObj.put(vabletSettings.TextConstant21__c, eventFields.Description__c);
+		}
+		sObj.put(vabletSettings.TextConstant22__c, currentUser.BST_COUNTRY__c);
 		System.debug(parameters);
         List <Object> contactIds = (List <Object> ) parameters.get(vabletSettings.TextFormat1__c);
+		System.debug(contactIds);
         if (parameters.get('Id') != null) {
             update sObj;
 			System.debug(sObj);
+			//added additional criteria
             if (contactIds != null && contactIds.size() > 0) {
                 String eventId = (String) parameters.get('Id');
                 List <EventRelation> relations = [SELECT Id FROM EventRelation WHERE EventId = :eventId];
@@ -154,22 +171,33 @@ global with sharing class VabletInterfaceV2 {
             }
         } else {
             upsert sObj;
+			createTask((String)sObj.get('WhoId'));
 			System.debug(sObj);
         }
+		System.debug(contactIds);
         if (contactIds != null && contactIds.size() > 0) {
+			List<EventRelation> eventRelationList = new List<EventRelation>();
+			System.debug('true');
             for (Object contactId: contactIds) {
                 EventRelation relation = new EventRelation();
                 relation.EventId = (Id) sObj.get('Id');
                 relation.RelationId = (Id) contactId;
+				relation.isParent = true;
+				relation.IsInvitee = true;
                 relation.Status = vabletSettings.TextConstant11__c;
                 if (relation.EventId != null && relation.RelationId != null) {
-                    try {
-                        upsert relation;
-                    } catch (Exception e) {
-                        nonBlockingErrorMessage = e.getMessage();
-                    }
+                    
+					eventRelationList.add(relation);
                 }
             }
+			try {
+				upsert eventRelationList;
+				System.debug(eventRelationList);
+            } catch (Exception e) {
+				System.debug(e.getMessage());
+				nonBlockingErrorMessage = e.getMessage();
+            }
+
         }
         JSONGenerator generator = JSON.createGenerator(true); //instantiation of the generator
         generator.writeStartObject(); // Writes the starting marker of a JSON object '{'
@@ -198,6 +226,10 @@ global with sharing class VabletInterfaceV2 {
         if (actionString == vabletSettings.TextFormat3__c) {
             actionString = uriComponents[4];
         }
+		System.debug(req.params);
+		System.debug(res);
+		System.debug(req);
+		System.debug(actionString);
         if (actionString == null) {
             actionString = '';
         }
@@ -219,6 +251,7 @@ global with sharing class VabletInterfaceV2 {
     }
 
     global static void getContacts(Map <String, String> params) {
+		System.debug(params);
         List <CustomContact> ContactData = CustomContact.getContacts(params.get(vabletSettings.TextConstant12__c));
         JSONGenerator generator = JSON.createGenerator(true); //instantiation of the generator
         generator.writeStartObject(); // Writes the starting marker of a JSON object '{'
@@ -226,6 +259,7 @@ global with sharing class VabletInterfaceV2 {
         generator.writeObject(ContactData);
         generator.writeEndObject();
         String jsonString = generator.getAsString();
+		System.debug(jsonString);
         RestContext.response.addHeader('Content-Type', 'application/json');
         RestContext.response.responseBody = Blob.valueOf(jsonString);
         //Minimal records for return are Id, Phone,Email,FirstName,LastName,MailingCity,MailingState,MailingCountry,MailingPostalCode,MailingStreet, and CompanyName
@@ -244,12 +278,15 @@ global with sharing class VabletInterfaceV2 {
         generator.writeFieldName(vabletSettings.TextConstant9__c);
         generator.writeObject(contactFormatString);
         generator.writeEndObject();
+		
         String jsonString = generator.getAsString();
+		System.debug(jsonString);
         RestContext.response.addHeader('Content-Type', 'application/json');
         RestContext.response.responseBody = Blob.valueOf(jsonString);
     }
 
-    global static void getEvents(Map < String, String > params) {
+    global static void getEvents(Map <String, String> params) {
+		System.debug(params);
         List <Event> events = null;
         String whereClauseIfNeeded = '';
         String eventsAfterDateString = params.get(vabletSettings.TextConstant10__c);
@@ -278,12 +315,6 @@ global with sharing class VabletInterfaceV2 {
             String eventId = params.get('eventId');
             //where Id = : eventId
         }
-/*
-        multiLevelExample.addPickListLevel('Topic Discussed 1','Event', 'Topic_Discussed_1__c');
-        multiLevelExample.addPickListLevel('Message 1', 'Event', 'Message_1__c');
-        multiLevelExample.addPickListLevel('Resource 1', 'Event', 'Resource_1__c');
-
-*/
 		String formedQuery = vabletSettings.Query1__c + whereClauseIfNeeded;
         events = Database.query(formedQuery);
         List <Map <String, Object>> eventsWithMeta = new List <Map <String, Object>> ();
@@ -291,10 +322,6 @@ global with sharing class VabletInterfaceV2 {
             //In subobject in case meta is needed later
             Map < String, Object > eventWithMeta = new Map < String, Object > ();
             Map < String, Object > eventAsMap = (Map < String, Object > ) JSON.deserializeUntyped(JSON.serialize(currentEvent));
-            /*   if (currentEvent.RecordType!=null&&currentEvent.RecordType.Name!=null)
-            {
-                eventAsMap.put('RecordType' , currentEvent.RecordType.Name);  
-            }*/
             eventWithMeta.put('eventObject', eventAsMap);
             eventWithMeta.put('Debug', eventsAfterDateString);
             eventsWithMeta.add(eventWithMeta);
@@ -309,7 +336,7 @@ global with sharing class VabletInterfaceV2 {
         RestContext.response.responseBody = Blob.valueOf(jsonString);
     }
 
-    global static void getMediaViews(Map < String, String > params) {
+    global static void getMediaViews(Map <String, String> params) {
         List <Media_View__c> mediaViews = null;
         if (params.get('eventId') != null) {
             String eventId = params.get('eventId');
@@ -326,4 +353,30 @@ global with sharing class VabletInterfaceV2 {
         RestContext.response.addHeader('Content-Type', 'application/json');
         RestContext.response.responseBody = Blob.valueOf(jsonString);
     }
+
+	private static VabletFieldSetting__mdt queryCustomMetadataType(String nameOFObject) {
+		String queryString = 'SELECT ';
+		SObjectType customMetaType = Schema.getGlobalDescribe().get('VabletFieldSetting__mdt');
+		Map<String,Schema.SObjectField> mfields = customMetaType.getDescribe().fields.getMap();
+		for(String itemString : mfields.keySet()) {
+			queryString+= itemString + ',';
+		}
+		queryString = queryString.substring(0, queryString.length() - ','.length()) + ' FROM VabletFieldSetting__mdt WHERE QualifiedApiName = :nameOFObject';
+		return Database.query(queryString);
+	}
+
+	private static void createTask(String whoIdString) {
+		Task defaultTask = new Task(
+							Status = 'Open',
+							Priority = 'High',
+							IsReminderSet = true,
+							WhoId = whoIdString,
+							Description = Label.BXT_Change_val,
+							Subject = 'Other',
+							ActivityDate = Date.today(),
+							OwnerId = UserInfo.getUserId()
+							);
+		insert defaultTask;
+	}
+
 }

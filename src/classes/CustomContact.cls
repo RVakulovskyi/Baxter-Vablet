@@ -9,7 +9,11 @@ Modification Log :
 * Developer               Date                 Description
 * -------------------     ------------         -----------------------
 * Cognizant Developer     09/23/2015           Updates Where clause along with generic Account Number
-* 
+* Rodion Vakulovskyi	  04/01/2018		   modifying class
+* Rodion Vakulovskyi	  05/01/2018		   modifying class
+* Rodion Vakulovskyi	  12/01/2018		   modifying class
+* Rodion Vakulovskyi	  19/01/2018		   modifying class
+* Rodion Vakulovskyi	  24/01/2018		   modifying class
 ********************************************************************************/
 
 public class CustomContact {
@@ -29,7 +33,7 @@ public class CustomContact {
     public Boolean IsDeleted;
 
     public static List < CustomContact > getContacts(String contactsAfterDateString) {     
-		VabletFieldSettings__c vabletSettings = VabletFieldSettings__c.getInstance(SETTINGSNAME);
+		VabletFieldSetting__mdt vabletSettings = queryCustomMetadataType(SETTINGSNAME);
         DateTime contactsAfterDate = null;
        if (contactsAfterDateString != null) {
             contactsAfterDate = (DateTime) JSON.deserialize(contactsAfterDateString, DateTime.class);
@@ -41,11 +45,7 @@ public class CustomContact {
             for (Contact contactData: contactDatabaseData) {
                 CustomContact newContact = new CustomContact();
                 newContact.AccountId = contactData.Account.ID;
-                if (contactData.Account.Account_Number__c == vabletSettings.TextConstant1__c){
-                    newContact.CompanyName =' ';
-                }else{
-                    newContact.CompanyName = contactData.Account.Name;
-                }
+                newContact.CompanyName = contactData.Account.Name;
                 newContact.Name = contactData.Name;
                 newContact.Id = contactData.Id;
                 newContact.FirstName = contactData.FirstName;
@@ -61,4 +61,15 @@ public class CustomContact {
             }
         return contactList;
     }
+
+	private static VabletFieldSetting__mdt queryCustomMetadataType(String nameOFObject) {
+		String queryString = 'SELECT ';
+		SObjectType customMetaType = Schema.getGlobalDescribe().get('VabletFieldSetting__mdt');
+		Map<String,Schema.SObjectField> mfields = customMetaType.getDescribe().fields.getMap();
+		for(String itemString : mfields.keySet()) {
+			queryString+= itemString + ',';
+		}
+		queryString = queryString.substring(0, queryString.length() - 1) + ' FROM VabletFieldSetting__mdt WHERE QualifiedApiName = :nameOFObject';
+		return Database.query(queryString);
+	}
 }

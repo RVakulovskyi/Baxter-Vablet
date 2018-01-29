@@ -61,6 +61,17 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Competitor</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>You can only select Accounts with a &apos;Competitor&apos; Record Type.</errorMessage>
+            <filterItems>
+                <field>Account.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>BST_Competitor</value>
+            </filterItems>
+            <infoMessage>Please select an Account with a &apos;Competitor&apos; Record Type.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Competitor Products</relationshipLabel>
         <relationshipName>Competitor_Products</relationshipName>
@@ -79,6 +90,63 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Type__c</fullName>
+        <description>Contract Type.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contract Type.</inlineHelpText>
+        <label>Contract Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Competitors_Contracts_Types</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Device_Type__c</fullName>
+        <description>Device Type.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Device Type.</inlineHelpText>
+        <label>Device Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Competitors_Devices_Types</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Producer__c</fullName>
+        <description>Producer.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Producer Name (see the corresponding Account -Record Type: Competitor).</inlineHelpText>
+        <label>Producer</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Devices_Producers</valueSetName>
+        </valueSet>
     </fields>
     <label>Competitor Product</label>
     <listViews>

@@ -1,0 +1,43 @@
+<apex:page standardController="AccountContactRelation">
+    <script>
+
+if('{!$User.UIThemeDisplayed}' == 'Theme4t') {
+    window.readyHandlers = [];
+window.ready = function ready(handler) {
+  
+  
+  window.readyHandlers.push(handler);
+  
+  handleState();
+};
+
+window.handleState = function handleState () {
+
+  if (['interactive', 'complete'].indexOf(document.readyState) > -1) {
+    while(window.readyHandlers.length > 0) {
+      (window.readyHandlers.shift())();
+    }
+  }
+};
+
+document.onreadystatechange = window.handleState;
+ready(function () {
+  document.getElementById('vabletLink').click()
+});
+
+}   
+   </script>
+    <a href="VabletGeneral://salesForceSessionStart?primaryContactId={!AccountContactRelation.ContactId}&accountId={!AccountContactRelation.AccountId}" id="vabletLink" />
+    <apex:outputPanel rendered="{!$User.UIThemeDisplayed!= 'Theme4t'}">
+       <div class="slds">
+    <div class="slds-card slds-card--empty">
+  <div class="slds-card__header slds-grid grid--flex-spread">
+    <h2 class="slds-text-heading--small slds-truncate">This feature is accessible only through SF1
+    </h2>
+    <p>VabletGeneral://salesForceSessionStart?primaryContactId={!AccountContactRelation.ContactId}&amp;accountId={!AccountContactRelation.AccountId}</p>
+
+  </div>
+</div>
+    </div>
+    </apex:outputPanel>
+</apex:page>

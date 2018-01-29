@@ -1,0 +1,73 @@
+<apex:page sidebar="false" docType="html-5.0" standardStylesheets="false" tabStyle="Getting_Started__tab">
+    <link href="{!URLFOR($Resource.omslib, '/css/slds-vf.min.css')}" rel="stylesheet" media="screen" />
+    <link href="{!URLFOR($Resource.omslib, '/css/default.css')}" rel="stylesheet" media="screen" />
+
+    <div class="oms">
+
+        <div class="slds-page-header slds-page-header--object-home banner-padding" role="banner">
+            <div class="slds-grid">
+                <div class="slds-col slds-has-flexi-truncate">
+                    <div class="slds-media slds-no-space slds-grow">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container">
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <p class="slds-text-title--caps slds-line-height--reset">{!$Label.z_AppTitle}</p>
+                        <button class="slds-button slds-type-focus slds-m-right--small slds-grid slds-truncate" aria-haspopup="true">
+                            <div class="slds-grid slds-grid--vertical-align-center slds-truncate">
+                            <h1 class="slds-page-header__title slds-truncate" title="{!$Label.z_AboutTitle}">{!$Label.z_AboutTitle}</h1>
+                            </div>
+                        </button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="oms-container">
+            <div class="slds-text-longform">
+                <p>
+                    This 100% native Force App extracts object and field metadata information from your org and stores them as custom objects in same org. Once you complete to store metadata in custom objects, you can use Salesforce report to analyze DB schema or Salesforce Analytic Snapshots to manage DB schema version.
+                </p>
+
+                <h2 class="slds-section__title">How to start on Lightning</h2>
+                <ol>
+                    <li>
+                        <p>Go to App Menu, select the "Object Metadata Snapshot" app and go to "Snapshot" tab.</p>
+                        <apex:image url="{!URLFOR($Resource.omslib, '/images/guide/lightning-0.png')}"/>
+                    </li>
+                    <li>
+                        <p>Once on the Snapshot page, first click "Generate Settings" button to create the Settings records. This represent the object names we would process on the Snapshot. Once the process of generating the settings is done you will receive a success message.</p>
+                        <apex:image url="{!URLFOR($Resource.omslib, '/images/guide/lightning-1.png')}"/>
+                    </li>
+                    <li>
+                        <p>After successfully generating the Settings records and reviewing them, click Snapshot button and wait for the processes to complete.</p>
+                        <apex:image url="{!URLFOR($Resource.omslib, '/images/guide/lightning-2.png')}"/>
+                    </li>
+                    <li>
+                        <p>Once the processes are complete, please go to the "SObject" tab to see the snapshot data.</p>
+                        <apex:image url="{!URLFOR($Resource.omslib, '/images/guide/lightning-3.png')}"/>
+                    </li>
+                </ol>
+
+                <h2 class="slds-section__title">How to start on Classic</h2>
+
+                <ol>
+                    <li>
+                        <p>Start by going to "Snapshot" tab. Then click "Generate Settings" button to generate Settings records. Make sure to wait until you get the success message, after that go to "Settings" tab and make sure you only have records that represent the objects you want to get a Snapshot from.</p>
+                        <apex:image url="{!URLFOR($Resource.omslib, '/images/guide/classic-0.png')}"/>
+                    </li>
+                    <li>
+                        <p>Once you've verified the Settings records, go back to "Snapshot" tab and click "Snapshot" button to start generating the org Snapshot. Wait until the processes are completed.</p>
+                        <apex:image url="{!URLFOR($Resource.omslib, '/images/guide/classic-1.png')}"/>
+                    </li>
+                    <li>
+                        <p>You should see a success message after the processes are completed. Now you can go to "SObject" tab and look at the Snapshot data.</p>
+                        <apex:image url="{!URLFOR($Resource.omslib, '/images/guide/classic-2.png')}"/>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</apex:page>

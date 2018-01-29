@@ -577,13 +577,7 @@
         <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
-                <sorted>true</sorted>
-                <value>
-                    <fullName>Andorra</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Andorra</label>
-                </value>
+                <sorted>false</sorted>
                 <value>
                     <fullName>Belgium</fullName>
                     <default>false</default>
@@ -605,9 +599,25 @@
                     <label>France</label>
                 </value>
                 <value>
+                    <fullName>Netherlands</fullName>
+                    <default>false</default>
+                    <label>Netherlands</label>
+                </value>
+                <value>
+                    <fullName>Turkey</fullName>
+                    <default>false</default>
+                    <label>Turkey</label>
+                </value>
+                <value>
                     <fullName>Germany</fullName>
                     <default>false</default>
                     <label>Germany</label>
+                </value>
+                <value>
+                    <fullName>Andorra</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Andorra</label>
                 </value>
                 <value>
                     <fullName>Global</fullName>
@@ -626,16 +636,6 @@
                     <default>false</default>
                     <isActive>false</isActive>
                     <label>Monaco</label>
-                </value>
-                <value>
-                    <fullName>Netherlands</fullName>
-                    <default>false</default>
-                    <label>Netherlands</label>
-                </value>
-                <value>
-                    <fullName>Turkey</fullName>
-                    <default>false</default>
-                    <label>Turkey</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -7479,20 +7479,6 @@ Parent.Name) ,
         <columns>ACCOUNT.CREATED_DATE</columns>
         <columns>BST_TOP_LVL_PARENT_ACCNT__c</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>DP_WKP_STATUS__c</field>
-            <operation>notEqual</operation>
-            <value>Invalid</value>
-        </filters>
-        <filters>
-            <field>DP_ID__c</field>
-            <operation>notEqual</operation>
-        </filters>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Account.BST_IMS_Account</value>
-        </filters>
         <label>All Accounts</label>
         <language>en_US</language>
     </listViews>

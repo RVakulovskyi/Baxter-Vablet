@@ -10,12 +10,16 @@ Modification Log :
 * Developer               Date                 Description
 * -------------------     ------------         -----------------------
 * Cognizant Developer     06/11/2015           Original Version
+* Rodion Vakulovskyi	  02/01/2018		   modifying class with custom settings
+* Rodion Vakulovskyi	  05/01/2018		   modifying class
+* Rodion Vakulovskyi	  12/01/2018		   modifying class
+* Rodion Vakulovskyi	  19/01/2018		   modifying class
 ********************************************************************************/
 Public without sharing class VabletTriggerHandler {
     static final String SETTINGSNAME = 'VabletTriggerHandler';
       
     public static void handleafterInsert(List<Task> tasks){
-		VabletFieldSettings__c vabletSettings = VabletFieldSettings__c.getInstance(SETTINGSNAME);
+		VabletFieldSetting__mdt vabletSettings = queryCustomMetadataType(SETTINGSNAME);
 		try{
 			List<Media_View__c> mediaList = new List<Media_View__c>();
 			for (Task t: tasks){
@@ -93,4 +97,15 @@ Public without sharing class VabletTriggerHandler {
 	} catch(Exception e) {
 		System.debug(vabletSettings.ExceptionText__c + e.getMessage());}          
     }
+
+	private static VabletFieldSetting__mdt queryCustomMetadataType(String nameOFObject) {
+		String queryString = 'SELECT ';
+		SObjectType customMetaType = Schema.getGlobalDescribe().get('VabletFieldSetting__mdt');
+		Map<String,Schema.SObjectField> mfields = customMetaType.getDescribe().fields.getMap();
+		for(String itemString : mfields.keySet()) {
+			queryString+= itemString + ',';
+		}
+		queryString = queryString.substring(0, queryString.length() - 1) + ' FROM VabletFieldSetting__mdt WHERE QualifiedApiName = :nameOFObject';
+		return Database.query(queryString);
+	}
 }

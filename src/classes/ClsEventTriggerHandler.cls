@@ -120,6 +120,7 @@ public class ClsEventTriggerHandler{
                }            
            }
        } 
+       EventDefaultValidations.flagForProcessing = false;
        update evntToInsert;
        
      }          
@@ -155,14 +156,15 @@ public class ClsEventTriggerHandler{
                 splitEventContact.add( newWhoIdMap.get(currEvent.Id));   //If whoId is null get related contatcs from EventRelation map
             }
             if(objId != null){
-             	sObjName = objId.getSObjectType().getDescribe().getName();   //Get objectId to check if its related to contact or not
-            }	
+                sObjName = objId.getSObjectType().getDescribe().getName();   //Get objectId to check if its related to contact or not
+            }   
             if(currEvent.BST_Primary_Contact__c == null && currEvent.WhoId  != null && sObjName == 'Contact'){   //If related WhoId is contact update primary contact field
                 currEventNew.BST_Primary_Contact__c = splitEventContact[0];
                 system.debug('Primmary Contact' +splitEventContact);
                 currEventNewList.add(currEventNew);
             }
         }
+        EventDefaultValidations.flagForProcessing = false;
         update currEventNewList; 
     }
      //Change to add Contact name to Event card in calender handling update scenario- 10/12/17(KP)
@@ -203,7 +205,7 @@ public class ClsEventTriggerHandler{
             splitEventContact.add(newWhoIdMap.get(currEvent.Id));       //If whoId is null get related contatcs from EventRelation map
             newObjId = splitEventContact[0];
             if(newObjId != null){
-            	sObjName = newObjId.getSObjectType().getDescribe().getName();       //Get objectId to check if its related to contact or not
+                sObjName = newObjId.getSObjectType().getDescribe().getName();       //Get objectId to check if its related to contact or not
             }
             
            // system.debug('splitOldEventContact' +splitOldEventContact);
@@ -214,7 +216,7 @@ public class ClsEventTriggerHandler{
                     for(Event updateEvent:CallNotesList){
                         if(updateEvent.id == currEventNew.id){
                             updateEvent.BST_Primary_Contact__c = splitEventContact[0];  
-                        }	
+                        }   
                     }
                 }
                 else{
@@ -225,7 +227,8 @@ public class ClsEventTriggerHandler{
             }
         }
         if(!CallNotesList.isEmpty()){
-            update CallNotesList;	
+            EventDefaultValidations.flagForProcessing = false;
+            update CallNotesList;   
         }
     }
     public void validateValues(list<Event> evntList){
@@ -387,6 +390,65 @@ public class ClsEventTriggerHandler{
         
     }
     
+    //YB 25/01/18:
+    public void survey(map<Id,Event> evntListOldMap, list<Event> evntListNew){
+    
+    system.debug('############################################################ YB SURVEY Class ClsEventTriggerHandler OK');
+    
+    Map<string, boolean> triggerConfigMap = new Map<string, boolean>();
+    List<Trigger_Configuration__mdt> triggerConfig = [SELECT active__c, developerName
+                                                     FROM Trigger_Configuration__mdt
+                                                     WHERE category__c = 'EVENT'];
+    
+    for(Trigger_Configuration__mdt setting : triggerConfig){
+        triggerConfigMap.put(setting.developerName, setting.active__c);
+    }
+    
+     if(triggerConfigMap.get('EVENT_CREATE_NPS_SURVEY')){
+        
+        system.debug('############################################################ YB SURVEY Class ClsEventTriggerHandler EVENT_CREATE_NPS_SURVEY OK');
+        
+        List<Id> eventIds = new List<Id>();
+        set<String> excludeType = new set<String>();
+        String excludeValue = SurveyTargetHelper.getSurveyConfiguration.get('NPS_Event_Type_Exclude');
+        
+        if(String.isNotBlank(excludeValue))
+            excludeType.addAll(excludeValue.split(';'));
+        
+        for (Event evt : evntListNew) {
+            //WhoId should be contact Id; WhatId should be Account Id;
+        
+        system.debug('############################################################ YB SURVEY Class ClsEventTriggerHandler EVENT_CREATE_NPS_SURVEY Event' + evt);
+        system.debug('############################################################ YB SURVEY Class ClsEventTriggerHandler EVENT_CREATE_NPS_SURVEY evntListOldMap.get(evt.Id) ' + evntListOldMap.get(evt.Id));
+        
+        if(evt.whoid != Null && evt.whatid != Null){
+        
+                    if(evt.EndDateTime > datetime.now() - Integer.valueof(SurveyTargetHelper.getSurveyConfiguration.get('NPS_Event_Cutoff'))
+                       
+                       && string.valueof(evt.whoid).startsWith('003') 
+                       && string.valueof(evt.whatid).startsWith('001')
+                       && (!excludeType.contains(evt.type))
+                       && (evt.method__c != NULL && SurveyTargetHelper.getSurveyConfiguration.get('NPS_Event_Method').containsIgnoreCase(evt.method__c) 
+                           || (evt.Type != NULL && evt.Type.equalsIgnoreCase('Extraneal Compliance Training'))) 
+                       && evt.event_status__c == 'Completed' 
+                       
+                       && evntListOldMap.get(evt.Id).event_status__c != 'Completed'
+                       
+                       ){
+                           eventIds.add(evt.Id);
+                       }
+                }               
+          }
+        
+        if(eventIds.size() >0){
+       		      system.debug('############################################################ YB SURVEY Class ClsEventTriggerHandler eventIds.size()>0 OK');
+                  EventHelper.qualifySurveyEvent(eventIds); 
+                  }
+        }
+    }  
+    
+    //YB 25/01/18: END
+    
     /*
     public void eventNotifyBaxterContacts(List<Event> listOfEvents, Boolean eventCanceled, Boolean eventScheduled, Boolean newContactsAdded)
     {
@@ -411,7 +473,6 @@ public class ClsEventTriggerHandler{
             eventContactIds.add(evtRel.RelationId);
         } 
         listOfBaxterContacts = [SELECT Id, Email, RecordTypeId FROM Contact WHERE Id IN:eventContactIds AND RecordTypeId =:recTypeId.Id];
-
             
         //Send First email when event is created
         if(!eventCanceled && !eventScheduled && !newContactsAdded)

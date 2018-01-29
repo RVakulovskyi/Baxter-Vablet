@@ -799,6 +799,42 @@
         <type>Hierarchy</type>
     </fields>
     <fields>
+        <fullName>Baxter_Alias__c</fullName>
+        <externalId>false</externalId>
+        <label>Baxter Alias</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Business_Unit__c</fullName>
+        <description>Business Unit for the users which is calculated based on Group value.</description>
+        <externalId>false</externalId>
+        <formula>IF(ISNULL(Group__c) || ISBLANK(Group__c) ,
+&apos;&apos;,
+if(CONTAINS($Label.Group_ACC, Group__c &amp; &apos;;&apos;),
+&apos;ACC&apos;,
+if(CONTAINS($Label.Group_USMD, Group__c &amp; &apos;;&apos;),
+&apos;USMD&apos;,
+if(CONTAINS($Label.Group_BioSurgery , Group__c &amp; &apos;;&apos;),
+&apos;BioSurg&apos;,
+if(CONTAINS( $Label.Group_Renal , Group__c &amp; &apos;;&apos;),
+&apos;Renal&apos;,
+&apos;&apos;
+)
+)
+)
+)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Business Unit</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>DB_Region__c</fullName>
         <description>This is a field that is installed by and used with the Adoption Dashboard AppExchange package. If your org already has a similar field, you can change the reports that are part of the Adoption Dashboard package to use your custom field and then delete this field.</description>
         <externalId>false</externalId>

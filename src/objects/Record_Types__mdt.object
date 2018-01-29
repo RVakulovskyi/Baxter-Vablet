@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Record_Types Developer Names.</description>
+    <fields>
+        <fullName>Developer_Name__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Developer_Name.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Developer_Name.</inlineHelpText>
+        <label>Developer_Name</label>
+        <length>100</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Object__c</fullName>
+        <description>Object API Name.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Object API Name.</inlineHelpText>
+        <label>Object</label>
+        <length>100</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Record_Types</label>
+    <pluralLabel>Record_Types</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

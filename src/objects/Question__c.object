@@ -1237,6 +1237,32 @@ Will be mainly used for reporting and segregation of Parent Questions</descripti
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Competitor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Related Competitor (optional). Please select an Account with a &apos;Competitor&apos; Record Type.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Related Competitor (optional). Please select an Account with a &apos;Competitor&apos; Record Type.</inlineHelpText>
+        <label>Competitor</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>BST_Competitor</value>
+            </filterItems>
+            <infoMessage>Please select an Account with a &apos;Competitor&apos; Record Type.</infoMessage>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Questions</relationshipLabel>
+        <relationshipName>Questions</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Linked_Question__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>

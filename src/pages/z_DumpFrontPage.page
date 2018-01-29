@@ -1,0 +1,115 @@
+<apex:page controller="z_DumpFrontPageCont" docType="html-5.0" standardStylesheets="false" tabStyle="SnapShot__tab" sidebar="false">
+    <link href="{!URLFOR($Resource.omslib, '/css/slds-vf.min.css')}" rel="stylesheet" media="screen" />
+    <link href="{!URLFOR($Resource.omslib, '/css/default.css')}" rel="stylesheet" media="screen" />
+
+    <div class="oms">
+        <apex:form enctype="multipart/form-data">
+            <apex:actionPoller rerender="filter,dumpBtn,messagePanel" interval="5" action="{!updateProgress}" status="counterStatus"/>
+            <div class="slds-page-header slds-page-header--object-home banner-padding" role="banner">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate">
+                        <div class="slds-media slds-no-space slds-grow">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container">
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <p class="slds-text-title--caps slds-line-height--reset">{!$Label.z_AppTitle}</p>
+                            <button class="slds-button slds-type-focus slds-m-right--small slds-grid slds-truncate" aria-haspopup="true">
+                                <div class="slds-grid slds-grid--vertical-align-center slds-truncate">
+                                <h1 class="slds-page-header__title slds-truncate" title="{!$Label.z_MetadataDump}">{!$Label.z_MetadataDump}</h1>
+                                </div>
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-no-flex slds-grid slds-align-top">
+                        <apex:commandButton id="mdSettingsBtn" styleClass="slds-button slds-button--neutral slds-not-selected" value="{!$Label.z_GenerateSettings}" action="{!generateMDSettings}" disabled="{!DisableSettingsBtn}"/>
+
+                        <apex:commandButton id="dumpBtn" styleClass="slds-button slds-button--neutral slds-not-selected" value="{!$Label.z_DumpBtn}" action="{!executeDump}" disabled="{!DisableDumpBtn}"/>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="oms-container">
+                <apex:pageMessages id="messagePanel"/>
+
+                <!-- Data table -->
+                <apex:outputPanel id="filter">
+                    <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+                        <thead>
+                        <tr class="slds-text-title--caps">
+                          <th scope="col">
+                            <div class="slds-truncate" title="{!$ObjectType.AsyncApexJob.fields.ApexClassId.label}">
+                                {!$ObjectType.AsyncApexJob.fields.ApexClassId.label}
+                            </div>
+                          </th>
+                          <th scope="col">
+                            <div class="slds-truncate" title="{!$ObjectType.AsyncApexJob.fields.Status.label}">
+                                {!$ObjectType.AsyncApexJob.fields.Status.label}
+                            </div>
+                          </th>
+                          <th scope="col">
+                            <div class="slds-truncate" title="{!$Label.z_Progress}">{!$Label.z_Progress}</div>
+                          </th>
+                          <th scope="col">
+                            <div class="slds-truncate" title="{!$ObjectType.AsyncApexJob.fields.TotalJobItems.label}">
+                                {!$ObjectType.AsyncApexJob.fields.TotalJobItems.label}
+                            </div>
+                          </th>
+                          <th scope="col">
+                            <div class="slds-truncate" title="{!$ObjectType.AsyncApexJob.fields.JobItemsProcessed.label}">
+                                {!$ObjectType.AsyncApexJob.fields.JobItemsProcessed.label}
+                            </div>
+                          </th>
+                          <th scope="col">
+                            <div class="slds-truncate" title="{!$ObjectType.AsyncApexJob.fields.NumberOfErrors.label}">
+                                {!$ObjectType.AsyncApexJob.fields.NumberOfErrors.label}
+                            </div>
+                          </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <apex:repeat value="{!Jobs}" var="item" >
+                            <tr>
+                              <th scope="row" data-label="Class Id">
+                                <div class="slds-truncate" >{!item.Job_Type}</div>
+                              </th>
+
+                              <td data-label="Status">
+                                <div class="slds-truncate" title="Status">
+                                    <apex:image value="{!URLFOR($Resource.omslib, '/images/spinners/slds_spinner.gif')}" styleClass="tb-rec-loading" rendered="{!ShowProgressBar && NOT(item.isCompleted)}" />
+                                    <apex:outputText value="{!item.aj.status}"/>
+                                </div>
+                              </td>
+
+                              <td data-label="Progress">
+                                <div class="slds-truncate" title="Progress">
+                                    <div class="prog-border" >
+                                        <apex:outputPanel layout="block" styleClass="{!if(item.Percent>=100,'prog-bar-done','prog-bar')}" style="width: {!item.Percent*2}px;">
+                                            <apex:outputText value="{!item.Percent}" rendered="{!if(item.Percent!=100,true,false)}" />
+                                        </apex:outputPanel>
+                                    </div>
+                                </div>
+                              </td>
+
+                              <td data-label="Total Batches">
+                                <div class="slds-truncate" title="Total Batches">{!item.aj.TotalJobItems}</div>
+                              </td>
+                              <td data-label="Processed Batches">
+                                <div class="slds-truncate" title="Processed Batches">{!item.aj.JobItemsProcessed}</div>
+                              </td>
+                              <td data-label="Failure">
+                                <div class="slds-truncate" title="Failure">{!item.aj.NumberOfErrors}</div>
+                              </td>
+                            </tr>
+                        </apex:repeat>
+                      </tbody>
+                    </table>
+                </apex:outputPanel>
+            </div>
+        </apex:form>
+    </div>
+
+</apex:page>

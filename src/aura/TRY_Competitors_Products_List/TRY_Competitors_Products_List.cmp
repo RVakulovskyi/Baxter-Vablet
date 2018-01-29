@@ -1,0 +1,56 @@
+<aura:component controller="TRY_Lightning_Products_Controller" extensible="true" access="GLOBAL" implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader,force:appHostable" >
+
+    <!-- Handle component initialization in a client-side controller -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- Dynamically load the list of contacts -->
+    <aura:attribute name="products" type="BXGO_Competitor_Product__c[]"/>
+    <aura:attribute name="productList" type="BXGO_Competitor_Product__c[]"/>
+    <!--aura:attribute name="totalProducts" type="Integer"/-->
+    <aura:attribute name="recordId" type="Id" />
+
+    <!-- Page header with a counter that displays total number of contacts -->
+    <div class="slds-page-header slds-page-header_object-home">
+        <lightning:layout >
+            <lightning:layoutItem >
+                <lightning:icon iconName="custom:custom58"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-m-left_small">
+                <p class="slds-text-title_caps slds-line-height_reset">Competitor Products</p>
+                <h1 class="slds-page-header__title slds-p-right_x-small">Product viewer</h1>
+            </lightning:layoutItem>
+        </lightning:layout>
+    
+        <lightning:layout >
+            <lightning:layoutItem >
+                <!--p class="slds-text-body_small">{!v.totalProducts} Products • View Products Based on ... </p-->
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+    
+    <!-- Body with dropdown menu and list of contacts -->
+    <lightning:layout >
+        <lightning:layoutItem padding="horizontal-medium" >
+            <!-- Create a dropdown menu with options -->
+            <!--lightning:select aura:id="select" label="Mockup Selection" name="source" 
+                              onchange="{!c.handleSelect}" class="slds-m-bottom_medium">
+                <option value=""> </option>
+                            </lightning:select-->
+    
+            <!-- Iterate over the list of contacts and display them -->
+            
+            <lightning:accordion >
+     		<aura:iteration var="product" items="{!v.products}">
+                <!-- If you’re using a namespace, replace with myNamespace:contacts-->
+                <br/>
+                <p class="slds-text-heading_small">{!product.Name}</p><p class="slds-text-align_right">Count: {!product.Count__c}</p>
+                <lightning:accordionSection label="Details">
+                <c:TRY_Competitors_Products_Product product="{!product}"/>
+			    </lightning:accordionSection>
+            </aura:iteration>
+            </lightning:accordion>
+
+            </lightning:layoutItem>
+    </lightning:layout>
+
+</aura:component>

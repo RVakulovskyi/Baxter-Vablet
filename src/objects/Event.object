@@ -105,6 +105,9 @@
         <fullName>IsPrivate</fullName>
     </fields>
     <fields>
+        <fullName>IsReminderSet</fullName>
+    </fields>
+    <fields>
         <fullName>Location</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -158,6 +161,10 @@
             <picklist>BST_BAX_SALES_TEAM__c</picklist>
             <values>
                 <fullName>Bax Company%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Default</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -351,6 +358,10 @@
             </values>
             <values>
                 <fullName>Cycler - HomeChoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Default</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1310,6 +1321,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Default</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>HC - Anesthesia%2FCritical Care</fullName>
                 <default>false</default>
             </values>
@@ -1508,6 +1523,10 @@
             </values>
             <values>
                 <fullName>Cycler - HomeChoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Default</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2467,6 +2486,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Default</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>HC - Anesthesia%2FCritical Care</fullName>
                 <default>false</default>
             </values>
@@ -2661,6 +2684,10 @@
             </values>
             <values>
                 <fullName>Cycler - HomeChoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Default</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3619,6 +3646,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Default</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>HC - Anesthesia%2FCritical Care</fullName>
                 <default>false</default>
             </values>
@@ -3893,6 +3924,10 @@
             </values>
             <values>
                 <fullName>Cycler - HomeChoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Default</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4860,6 +4895,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Default</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>HC - Anesthesia%2FCritical Care</fullName>
                 <default>false</default>
             </values>
@@ -5066,6 +5105,10 @@
             </values>
             <values>
                 <fullName>Cycler - HomeChoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Default</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6040,9 +6083,9 @@ ISBLANK( BST_CALL_NOTES__c ))
         <fullName>BST_Call_Objectives_Is_Mandatory</fullName>
         <active>true</active>
         <description>Call Objectives field is required whenever the status is &apos;Scheduled&apos;</description>
-        <errorConditionFormula>AND(($Profile.Name  &lt;&gt; &apos;BOOST - Medical Affairs&apos;),ISPICKVAL(BST_STATUS__c , &apos;Scheduled&apos;), ( RecordType.DeveloperName = &apos;BST_Pre_Planned_Visit&apos;) , 
+        <errorConditionFormula>(AND(($Profile.Name  &lt;&gt; &apos;BOOST - Medical Affairs&apos;),ISPICKVAL(BST_STATUS__c , &apos;Scheduled&apos;), ( RecordType.DeveloperName = &apos;BST_Pre_Planned_Visit&apos;) , 
 (ISPICKVAL(BST_CALL_TYPE__c, &apos;Pre planned call&apos;) || ISPICKVAL(BST_CALL_TYPE__c, &apos;In Service&apos;)), 
-ISBLANK( BST_CALL_OBJ__c ))</errorConditionFormula>
+ISBLANK( BST_CALL_OBJ__c )))</errorConditionFormula>
         <errorDisplayField>BST_CALL_OBJ__c</errorDisplayField>
         <errorMessage>Call Objectives Is Required.</errorMessage>
     </validationRules>

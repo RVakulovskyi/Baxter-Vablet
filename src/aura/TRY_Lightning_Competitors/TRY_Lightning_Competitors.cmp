@@ -1,0 +1,64 @@
+<aura:component controller="TRY_Lightning_Competitors_Controller" extensible="true" access="GLOBAL" implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader,force:appHostable" >
+
+    <!-- Handle component initialization in a client-side controller -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- Dynamically load the list of contacts -->
+    <aura:attribute name="competitors" type="account[]"/>
+    <!--aura:attribute name="competitorsList" type="account[]"/-->
+    <aura:attribute name="totalcompetitors" type="Integer"/>
+    <aura:attribute name="recordId" type="Id" />
+	<aura:attribute name="countryInputValue" type="String" />
+
+    <!-- Page header with a counter that displays total number of contacts -->
+    <div class="slds-page-header slds-page-header_object-home">
+        <lightning:layout >
+            <lightning:layoutItem >
+                <lightning:icon iconName="custom:custom47"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-m-left_small">
+                <p class="slds-text-title_caps slds-line-height_reset">Competitor competitors</p>
+                <h1 class="slds-page-header__title slds-p-right_x-small">Competitor viewer</h1>
+            </lightning:layoutItem>
+        </lightning:layout>
+        
+        <lightning:layout >
+            <lightning:layoutItem >
+                <p class="slds-text-body_small">{!v.totalcompetitors} Competitors • View Competitors Based on Country:</p>
+            </lightning:layoutItem>
+        </lightning:layout>
+        
+        <br/>
+        <lightning:layout >
+    	<lightning:input label="Please enter the Country name:" name="countryInput" value="{!v.countryInputValue}"/>
+        <p>    </p>
+        <lightning:button aura:id="search" label="Search" onclick="{!c.getCompetitorsByCountry}" />
+        </lightning:layout>
+        <br/>
+        
+    </div>
+    
+    <!-- Body with dropdown menu and list of contacts -->
+    <lightning:layout >
+        <!-- Create a dropdown menu with options -->
+        <lightning:layoutItem padding="horizontal-medium" >
+            <!--lightning:select aura:id="select" label="Mockup Selection" name="source" 
+                              onchange="{!c.handleSelect}" class="slds-m-bottom_medium">
+                <option value=""> </option>
+                            </lightning:select-->
+    
+            <!-- Iterate over the list of contacts and display them -->
+            
+            <lightning:accordion >                
+    		<aura:iteration var="competitor" items="{!v.competitors}">
+                <!-- If you’re using a namespace, replace with myNamespace:contacts-->
+                <lightning:accordionSection label="{!competitor.Name}">
+                <c:TRY_Account_Competitors_Competitor competitor="{!competitor}"/>
+                </lightning:accordionSection>
+            </aura:iteration>
+			</lightning:accordion>
+            
+                    </lightning:layoutItem>
+    </lightning:layout>
+
+</aura:component>

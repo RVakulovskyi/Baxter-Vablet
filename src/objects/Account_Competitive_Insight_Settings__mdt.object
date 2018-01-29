@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Configuration related to Account Competitive Insight</description>
+    <fields>
+        <fullName>Expected_Answer__c</fullName>
+        <description>Answer expected to turn-on competitive flag</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Expected Answer</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Account Competitive Insight Setting</label>
+    <pluralLabel>Account Competitive Insight Settings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

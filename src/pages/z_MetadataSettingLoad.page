@@ -1,0 +1,7 @@
+<!--
+THIS PAGE HAS BEEN DEPRECATED.
+Starting on Object Metadata Snapshot app version 1.1, this page has been deprecated. Because of packaging limitations, the page can not be removed from the current package, for more information go to https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/packaging_packageable_components.htm
+-->
+
+<apex:page standardController="z_MetaDumpSetting__c">
+</apex:page>

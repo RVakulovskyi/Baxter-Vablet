@@ -1,0 +1,39 @@
+<aura:component controller="LtngCtrlAccountProfile" extensible="true" access="GLOBAL" implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader,force:appHostable" >
+    <ltng:require styles="{!$Resource.SLDS231 + '/assets/styles/salesforce-lightning-design-system.css'}" />
+    <aura:attribute name="recordId" type="Id" access="public"/>
+    <aura:attribute name="accountId" type="Id" access="public" />
+    <aura:attribute name="account" type="Account" default="{'sObjectType' : 'Account' }"/>
+    <aura:attribute name="currentTheme" type="String" description="Holds the current Theme"/>
+    <aura:attribute name="isRenderMyProfile" type="Boolean" default="false" description="hold the user permission"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}" />
+        
+    <div class="{!if(v.recordId, 'slds-hide', 'slds-show')}">
+    	<c:spinner /> 
+    </div>
+    <div class="{!if(v.currentTheme == 'Theme4t', 'slds-show', 'slds-hide')}">
+    <c:BAXLTNG_Account_DisplayAcccountInfo accountName="{!v.account.Name}" accountNumber="{!v.account.BST_Account_Number__c}"/>
+        <div class="slds-m-top--medium" role="group"> 
+            <lightning:button variant="brand" label="Back To Competitor" onclick="{!c.returnToAccount}"/>
+        </div>
+    </div>
+    <!--aura:if isTrue="{!and(v.isRenderMyProfile, v.account.BST_PROFILING_REQUIRED__c)}"-->
+        <lightning:tabset >
+            
+            <lightning:tab label="Competitor Products">
+                <c:BAXLTNG_Account_AccountMyProfile recordId="{!v.recordId}"/>
+            </lightning:tab>
+            
+        </lightning:tabset>
+        <!--
+			aura:set attribute="else">
+            <lightning:tabset >
+                <lightning:tab label="All Profiles">
+                    <c:BAXLTNG_Account_AccountAllProfile recordId="{!v.recordId}"/>
+                </lightning:tab>
+            </lightning:tabset>
+        </aura:set
+				-->
+    <!--aura:if-->
+    
+  
+</aura:component>

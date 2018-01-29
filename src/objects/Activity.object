@@ -34,6 +34,13 @@
     </actionOverrides>
     <enableFeeds>false</enableFeeds>
     <fields>
+        <fullName>Actual_Completion_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Completion Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>BSTP_COACH_VISIT__c</fullName>
         <defaultValue>false</defaultValue>
         <description>BE/NL/FR - this field will be available for all countries Is being used to track if the manager accompanies the sales rep in the visit in the field.</description>
@@ -157,9 +164,8 @@
         <type>Picklist</type>
         <valueSet>
             <controllingField>BST_COUNTRY__c</controllingField>
-            <restricted>true</restricted>
             <valueSetDefinition>
-                <sorted>true</sorted>
+                <sorted>false</sorted>
                 <value>
                     <fullName>Bax Company/Services</fullName>
                     <default>false</default>
@@ -204,18 +210,6 @@
                     <fullName>HC - Pharmacy Services</fullName>
                     <default>false</default>
                     <label>HC - Pharmacy Services</label>
-                </value>
-                <value>
-                    <fullName>HC - Productivity Sys</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>HC - Productivity Sys</label>
-                </value>
-                <value>
-                    <fullName>MSL/Medical</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>MSL/Medical</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
@@ -356,6 +350,7 @@
     </fields>
     <fields>
         <fullName>BST_BEST_OUTCOME__c</fullName>
+        <defaultValue>$Setup.DefaultEventValues__c.BST_BEST_OUTCOME__c</defaultValue>
         <description>The best outcome/conclusion came out from the call.</description>
         <externalId>false</externalId>
         <label>Best Call Outcome</label>
@@ -379,6 +374,7 @@
     </fields>
     <fields>
         <fullName>BST_CALL_OBJ__c</fullName>
+        <defaultValue>$Setup.DefaultEventValues__c.BST_CALL_OBJ__c</defaultValue>
         <description>Stores detail information about the objective of the call.</description>
         <externalId>false</externalId>
         <label>Call Objectives</label>
@@ -555,15 +551,8 @@
         <required>false</required>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
-                <sorted>true</sorted>
-                <value>
-                    <fullName>Andorra</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Andorra</label>
-                </value>
+                <sorted>false</sorted>
                 <value>
                     <fullName>Belgium</fullName>
                     <default>false</default>
@@ -583,24 +572,6 @@
                     <fullName>France</fullName>
                     <default>false</default>
                     <label>France</label>
-                </value>
-                <value>
-                    <fullName>Global</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Global</label>
-                </value>
-                <value>
-                    <fullName>Luxembourg</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Luxembourg</label>
-                </value>
-                <value>
-                    <fullName>Monaco</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Monaco</label>
                 </value>
                 <value>
                     <fullName>Netherlands</fullName>
@@ -804,9 +775,8 @@ IMAGE(&quot;/img/samples/light_red.gif&quot;, &quot;red&quot;) , IMAGE(&quot;/im
         <type>Picklist</type>
         <valueSet>
             <controllingField>BST_BAX_SALES_TEAM__c</controllingField>
-            <restricted>true</restricted>
             <valueSetDefinition>
-                <sorted>true</sorted>
+                <sorted>false</sorted>
                 <value>
                     <fullName>Actifuse</fullName>
                     <default>false</default>
@@ -816,12 +786,6 @@ IMAGE(&quot;/img/samples/light_red.gif&quot;, &quot;red&quot;) , IMAGE(&quot;/im
                     <fullName>Acute Catheters</fullName>
                     <default>false</default>
                     <label>Acute Catheters</label>
-                </value>
-                <value>
-                    <fullName>Acute - Total Therapy</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Acute - Total Therapy</label>
                 </value>
                 <value>
                     <fullName>Acute - Total Therapy (CRRT Therapy)</fullName>
@@ -879,21 +843,9 @@ IMAGE(&quot;/img/samples/light_red.gif&quot;, &quot;red&quot;) , IMAGE(&quot;/im
                     <label>Citrate</label>
                 </value>
                 <value>
-                    <fullName>Clinimix</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Clinimix</label>
-                </value>
-                <value>
                     <fullName>Clinimix (Dual Chamber Bags)</fullName>
                     <default>false</default>
                     <label>Clinimix (Dual Chamber Bags)</label>
-                </value>
-                <value>
-                    <fullName>Clinoleic</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Clinoleic</label>
                 </value>
                 <value>
                     <fullName>Clinoleic (Lipids)</fullName>
@@ -914,12 +866,6 @@ IMAGE(&quot;/img/samples/light_red.gif&quot;, &quot;red&quot;) , IMAGE(&quot;/im
                     <fullName>Compounding - Antibiotics</fullName>
                     <default>false</default>
                     <label>Compounding - Antibiotics</label>
-                </value>
-                <value>
-                    <fullName>Compounding - Onco</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Compounding - Onco</label>
                 </value>
                 <value>
                     <fullName>Compounding - Oncology</fullName>
@@ -975,12 +921,6 @@ IMAGE(&quot;/img/samples/light_red.gif&quot;, &quot;red&quot;) , IMAGE(&quot;/im
                     <fullName>Elastomerics</fullName>
                     <default>false</default>
                     <label>Elastomerics</label>
-                </value>
-                <value>
-                    <fullName>Endoxan</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Endoxan</label>
                 </value>
                 <value>
                     <fullName>Endoxan (Procytox)</fullName>
@@ -1218,12 +1158,6 @@ IMAGE(&quot;/img/samples/light_red.gif&quot;, &quot;red&quot;) , IMAGE(&quot;/im
                     <label>Polyflux</label>
                 </value>
                 <value>
-                    <fullName>Poor Bottles</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Poor Bottles</label>
-                </value>
-                <value>
                     <fullName>Pour Bottles</fullName>
                     <default>false</default>
                     <label>Pour Bottles</label>
@@ -1242,12 +1176,6 @@ IMAGE(&quot;/img/samples/light_red.gif&quot;, &quot;red&quot;) , IMAGE(&quot;/im
                     <fullName>Premixes</fullName>
                     <default>false</default>
                     <label>Premixes</label>
-                </value>
-                <value>
-                    <fullName>Prismaflex</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Prismaflex</label>
                 </value>
                 <value>
                     <fullName>Prismaflex (Service Renal Main)</fullName>
@@ -1308,12 +1236,6 @@ IMAGE(&quot;/img/samples/light_red.gif&quot;, &quot;red&quot;) , IMAGE(&quot;/im
                     <fullName>Sets - Oxiris</fullName>
                     <default>false</default>
                     <label>Sets - Oxiris</label>
-                </value>
-                <value>
-                    <fullName>Sets - TPE</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Sets - TPE</label>
                 </value>
                 <value>
                     <fullName>Sets - TPE (Plasma Filter)</fullName>
@@ -1381,12 +1303,6 @@ IMAGE(&quot;/img/samples/light_red.gif&quot;, &quot;red&quot;) , IMAGE(&quot;/im
                     <label>Tisseel</label>
                 </value>
                 <value>
-                    <fullName>Tisseel/Tissucol</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Tisseel/Tissucol</label>
-                </value>
-                <value>
                     <fullName>Tissue Guard</fullName>
                     <default>false</default>
                     <label>Tissue Guard</label>
@@ -1400,12 +1316,6 @@ IMAGE(&quot;/img/samples/light_red.gif&quot;, &quot;red&quot;) , IMAGE(&quot;/im
                     <fullName>Traumastem</fullName>
                     <default>false</default>
                     <label>Traumastem</label>
-                </value>
-                <value>
-                    <fullName>Traumastem/Celstat</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Traumastem/Celstat</label>
                 </value>
                 <value>
                     <fullName>Uromitexan</fullName>
@@ -1904,6 +1814,7 @@ IMAGE(&quot;/img/samples/light_red.gif&quot;, &quot;red&quot;) , IMAGE(&quot;/im
     </fields>
     <fields>
         <fullName>BST_MIN_OUTCOME__c</fullName>
+        <defaultValue>$Setup.DefaultEventValues__c.BST_MIN_OUTCOME__c</defaultValue>
         <description>BST Minimum result to be achieved during the call</description>
         <externalId>false</externalId>
         <label>Minimum Call Outcome</label>
@@ -3401,6 +3312,34 @@ IMAGE(&quot;/img/samples/light_red.gif&quot;, &quot;red&quot;) , IMAGE(&quot;/im
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Event_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Event Status</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Scheduled</fullName>
+                    <default>false</default>
+                    <label>Scheduled</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>Canceled</fullName>
+                    <default>false</default>
+                    <label>Canceled</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>File_ID__c</fullName>
         <description>Vablet File ID</description>
         <externalId>false</externalId>
@@ -3430,6 +3369,194 @@ IMAGE(&quot;/img/samples/light_red.gif&quot;, &quot;red&quot;) , IMAGE(&quot;/im
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Method__c</fullName>
+        <externalId>false</externalId>
+        <label>Method</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>In Person</fullName>
+                    <default>false</default>
+                    <label>In Person</label>
+                </value>
+                <value>
+                    <fullName>WebEx</fullName>
+                    <default>false</default>
+                    <label>WebEx</label>
+                </value>
+                <value>
+                    <fullName>Call</fullName>
+                    <default>false</default>
+                    <label>Call</label>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Owner_Baxter_Alias__c</fullName>
+        <externalId>false</externalId>
+        <formula>Owner:User.Baxter_Alias__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Owner Baxter Alias</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Owner_Group__c</fullName>
+        <externalId>false</externalId>
+        <formula>Owner:User.Group__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Owner Group</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Owner_business_unit__c</fullName>
+        <externalId>false</externalId>
+        <formula>Owner:User.Business_Unit__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Owner Business Unit</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Priority__c</fullName>
+        <externalId>false</externalId>
+        <label>Priority</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Products__c</fullName>
+        <externalId>false</externalId>
+        <label>Products</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Actifuse</fullName>
+                    <default>false</default>
+                    <label>Actifuse</label>
+                </value>
+                <value>
+                    <fullName>Artiss</fullName>
+                    <default>false</default>
+                    <label>Artiss</label>
+                </value>
+                <value>
+                    <fullName>CoSeal</fullName>
+                    <default>false</default>
+                    <label>CoSeal</label>
+                </value>
+                <value>
+                    <fullName>FloSeal</fullName>
+                    <default>false</default>
+                    <label>FloSeal</label>
+                </value>
+                <value>
+                    <fullName>Peri-Strips Dry</fullName>
+                    <default>false</default>
+                    <label>Peri-Strips Dry</label>
+                </value>
+                <value>
+                    <fullName>TachoSil</fullName>
+                    <default>false</default>
+                    <label>TachoSil</label>
+                </value>
+                <value>
+                    <fullName>Tisseel</fullName>
+                    <default>false</default>
+                    <label>Tisseel</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Survey_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Survey_Contact</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipName>Activities1</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Details__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;true&quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Survey Details</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Escalation_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Escalation Email</label>
+        <required>false</required>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Escalation_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Escalation Name</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Target__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Survey Target</label>
+        <referenceTo>Survey_Target__c</referenceTo>
+        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipName>Activities</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Topic_Discussed__c</fullName>
         <externalId>false</externalId>
         <label>Topic Discussed</label>
@@ -3437,6 +3564,49 @@ IMAGE(&quot;/img/samples/light_red.gif&quot;, &quot;red&quot;) , IMAGE(&quot;/im
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Where__c</fullName>
+        <externalId>false</externalId>
+        <label>Where</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Call</fullName>
+                    <default>false</default>
+                    <label>Call</label>
+                </value>
+                <value>
+                    <fullName>Computer</fullName>
+                    <default>false</default>
+                    <label>Computer</label>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+                <value>
+                    <fullName>GEMBA</fullName>
+                    <default>false</default>
+                    <label>GEMBA</label>
+                </value>
+                <value>
+                    <fullName>Meeting</fullName>
+                    <default>false</default>
+                    <label>Meeting</label>
+                </value>
+                <value>
+                    <fullName>Waiting For</fullName>
+                    <default>false</default>
+                    <label>Waiting For</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <listViews>
         <fullName>MyActivities</fullName>

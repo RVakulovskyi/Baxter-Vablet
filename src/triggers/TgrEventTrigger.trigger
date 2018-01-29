@@ -11,7 +11,8 @@ Modification Log:                                                               
 * Nuno Fonseca              18/04/2017          New trigger framework to follow best practices   *    
 * Arpit Agarwal             04/24/2017          Trigger to stamp Notes from Previous call field  *
                                                 on the same contact, Validate Country/Baxter Team *
-                                                Values and Deny Deletion                         *
+                                                Values and Deny Deletion   *                      
+* Rodion Vakulovskyi        15/01/2018          modifying class*
 *************************************************************************************************/
 trigger TgrEventTrigger on Event (before insert, before update, before delete, after insert, after update, after delete) 
 {
@@ -25,6 +26,7 @@ trigger TgrEventTrigger on Event (before insert, before update, before delete, a
         if(Trigger.isUpdate)
         {
             eventTriggerHandler.validateValues(trigger.new);
+            //EventDefaultValidations.validateFields(Trigger.new, Trigger.oldMap);
         }
         if(Trigger.isDelete)
         {
@@ -41,6 +43,8 @@ trigger TgrEventTrigger on Event (before insert, before update, before delete, a
         if(Trigger.isUpdate)
         {
             eventTriggerHandler.updateCallNotes(trigger.new,trigger.oldmap);
+            system.debug('############################################################ YB trigger event after update OK');
+            eventTriggerHandler.survey(trigger.oldmap, trigger.new);
         }
     }
 }
